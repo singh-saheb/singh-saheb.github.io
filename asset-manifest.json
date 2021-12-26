@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.644bed8a.chunk.css",
+    "main.js": "/static/js/main.5d7b6875.chunk.js",
+    "main.js.map": "/static/js/main.5d7b6875.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4a934359.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4a934359.js.map",
+    "static/css/2.383c0125.chunk.css": "/static/css/2.383c0125.chunk.css",
+    "static/js/2.5668faf1.chunk.js": "/static/js/2.5668faf1.chunk.js",
+    "static/js/2.5668faf1.chunk.js.map": "/static/js/2.5668faf1.chunk.js.map",
+    "static/js/3.bdfc9868.chunk.js": "/static/js/3.bdfc9868.chunk.js",
+    "static/js/3.bdfc9868.chunk.js.map": "/static/js/3.bdfc9868.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.383c0125.chunk.css.map": "/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.644bed8a.chunk.css.map": "/static/css/main.644bed8a.chunk.css.map",
+    "static/js/2.5668faf1.chunk.js.LICENSE.txt": "/static/js/2.5668faf1.chunk.js.LICENSE.txt",
+    "static/media/TGDdark.f8d6e481.png": "/static/media/TGDdark.f8d6e481.png",
+    "static/media/navlogo.5ec2f129.png": "/static/media/navlogo.5ec2f129.png",
+    "static/media/plugsDarkThin.52d45253.png": "/static/media/plugsDarkThin.52d45253.png",
+    "static/media/plugsLight.1e65ad01.png": "/static/media/plugsLight.1e65ad01.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4a934359.js",
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.5668faf1.chunk.js",
+    "static/css/main.644bed8a.chunk.css",
+    "static/js/main.5d7b6875.chunk.js"
+  ]
+}
