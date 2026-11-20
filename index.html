@@ -5,12 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>When Releases Can't Fail: Scaling CI/CD and Code Quality at Tide</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter, Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
         rel="stylesheet" />
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <script>
@@ -55,6 +58,7 @@
             font-family: 'Inter', sans-serif;
         }
 
+        /* Slide Stage Surface & Subtle Engineering Grid */
         .slide-stage-surface {
             background-color: #0B1220;
             background-image:
@@ -78,6 +82,7 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
+        /* Slide Transitions */
         .slide {
             display: none;
             opacity: 0;
@@ -91,6 +96,7 @@
             transform: translateY(0);
         }
 
+        /* SVG Animated Flow Lines */
         @keyframes flowDown {
             to {
                 stroke-dashoffset: -24;
@@ -113,6 +119,7 @@
             animation: flowUpDanger 0.65s linear infinite;
         }
 
+        /* Custom Scrollbars */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -142,8 +149,8 @@
             style="width: 6.25%;"></div>
     </div>
 
-    <!-- Top Subtle Presenter HUD Bar -->
-    <header
+    <!-- Top Subtle Presenter HUD Bar (Hidden on Projector) -->
+    <header id="topHud"
         class="w-full px-4 sm:px-6 py-2 bg-[#070B14] border-b border-slate-800/80 flex items-center justify-between text-xs font-mono shrink-0 z-30">
         <div class="flex items-center gap-3 min-w-0">
             <span
@@ -168,13 +175,19 @@
         </div>
     </header>
 
-    <!-- Main Workspace: Centered 16:9 Slide Stage -->
-    <div class="flex-1 flex flex-col overflow-hidden relative">
-        <main class="flex-1 flex items-center justify-center p-2 sm:p-4 lg:py-3 lg:px-6 overflow-y-auto lg:overflow-hidden">
+    <!-- Main Workspace: Centered 16:9 Slide Stage + Collapsible Right Script/Timer Drawer -->
+    <div class="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
+
+        <!-- Outer Dark Presenter Shell Centering the 16:9 Stage -->
+        <main id="mainContentArea"
+            class="flex-1 flex items-center justify-center p-2 sm:p-4 lg:py-2 overflow-y-auto lg:overflow-hidden transition-all duration-300">
+            <!-- Widescreen 16:9 Slide Container -->
             <div id="slideStage"
                 class="slide-stage-surface w-full max-w-[1360px] lg:aspect-video lg:max-h-full rounded-2xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between relative overflow-y-auto lg:overflow-hidden">
 
-                <!-- SLIDE 1: TITLE SLIDE -->
+                <!-- =================================================================
+             SLIDE 1: TITLE SLIDE (Option 2 Hook)
+        ================================================================== -->
                 <section class="slide active w-full h-full flex-col justify-between"
                     data-title="When Releases Can't Fail" data-act="ACT 1 • THE HIGH-STAKES REALITY"
                     data-time="0:00 – 1:30">
@@ -198,23 +211,24 @@
                         </p>
                     </div>
 
+                    <!-- Option 2 Hook Banner at Bottom -->
                     <div
                         class="mt-5 rounded-2xl bg-[#141F36] border border-[#38BDF8]/30 p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
                         <div class="flex items-center gap-3">
                             <span
-                                class="w-9 h-9 rounded-xl bg-[#0066FF]/20 border border-[#38BDF8]/35 text-[#38BDF8] flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                class="w-9 h-9 rounded-xl bg-slate-800 text-slate-300 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-robot"></i>
                             </span>
                             <span class="text-sm sm:text-lg font-semibold text-slate-300">
-                                <span class="text-white font-bold">20 minutes</span> to prompt a feature with AI. <span
-                                    class="text-[#F59E0B] font-bold">3 days</span> of anxiety to ship it.
+                                20 minutes to prompt a feature with AI. <span class="text-white font-bold">3 days of
+                                    anxiety to ship it.</span>
                             </span>
                         </div>
                         <div class="hidden md:block h-7 w-px bg-slate-700"></div>
                         <div class="flex items-center gap-3">
                             <span
                                 class="w-9 h-9 rounded-xl bg-[#EF4444]/20 border border-[#EF4444]/40 text-[#EF4444] flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-shield-halved"></i>
+                                <i class="fa-solid fa-shield-cat"></i>
                             </span>
                             <span class="text-sm sm:text-lg font-semibold text-slate-200">
                                 When releases can’t fail, <span class="text-[#EF4444] font-extrabold">speed without
@@ -224,7 +238,9 @@
                     </div>
                 </section>
 
-                <!-- SLIDE 2: A DELAYED RELEASE IS A FAILED RELEASE -->
+                <!-- =================================================================
+             SLIDE 2: ACT 1 — A DELAYED RELEASE IS A FAILED RELEASE
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="A Delayed Release Is a Failed Release" data-act="ACT 1 • THE HIGH-STAKES REALITY"
                     data-time="1:30 – 4:30">
@@ -309,7 +325,9 @@
                     </div>
                 </section>
 
-                <!-- SLIDE 3: THREE SILENT KILLERS OF DELIVERY SPEED -->
+                <!-- =================================================================
+             SLIDE 3: ACT 1 — THREE SILENT KILLERS OF DELIVERY SPEED
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="The Three Silent Killers of Delivery Speed" data-act="ACT 1 • THE BOTTLENECKS"
                     data-time="4:30 – 8:30">
@@ -327,7 +345,7 @@
                                 <div class="flex items-center justify-between mb-4">
                                     <span
                                         class="font-mono text-xs font-bold px-3 py-1 rounded-lg bg-[#F59E0B]/15 text-[#F59E0B]">01
-                                        • VELOCITY</span>
+                                        - VELOCITY</span>
                                     <i class="fa-solid fa-hourglass-half text-2xl text-[#F59E0B]"></i>
                                 </div>
                                 <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2.5">CI Wait Queues
@@ -348,7 +366,7 @@
                                 <div class="flex items-center justify-between mb-4">
                                     <span
                                         class="font-mono text-xs font-bold px-3 py-1 rounded-lg bg-[#38BDF8]/15 text-[#38BDF8]">02
-                                        • QUALITY</span>
+                                        - QUALITY</span>
                                     <i class="fa-solid fa-eye-low-vision text-2xl text-[#38BDF8]"></i>
                                 </div>
                                 <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2.5">Review Fatigue
@@ -369,7 +387,7 @@
                                 <div class="flex items-center justify-between mb-4">
                                     <span
                                         class="font-mono text-xs font-bold px-3 py-1 rounded-lg bg-[#EF4444]/15 text-[#EF4444]">03
-                                        • STABILITY</span>
+                                        - STABILITY</span>
                                     <i class="fa-solid fa-bomb text-2xl text-[#EF4444]"></i>
                                 </div>
                                 <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2.5">Late
@@ -388,7 +406,9 @@
                     </div>
                 </section>
 
-                <!-- SLIDE 4: INTERACTIVE #1 — $600/DAY LEAK + SOLUTION -->
+                <!-- =================================================================
+             SLIDE 4: INTERACTIVE CHALLENGE #1 — $600/DAY LEAK + SOLUTION
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Interactive #1: $600/Day Leak & Solution"
                     data-act="INTERACTIVE CHALLENGE #1 • 30-SEC DEBUG" data-time="8:30 – 11:30">
@@ -404,13 +424,14 @@
                             </h2>
                         </div>
 
+                        <!-- Interactive Stage Controls -->
                         <div class="flex flex-wrap items-center gap-2.5 shrink-0">
-                            <button id="leakTimerBtn" onclick="toggleLeakTimer()"
+                            <button id="leakTimerBtn" onclick="syncAction('toggleLeakTimer')"
                                 class="px-3.5 py-2 rounded-xl bg-[#141F36] hover:bg-slate-800 border border-[#F59E0B]/50 text-[#F59E0B] font-mono text-xs sm:text-sm font-bold flex items-center gap-2 transition cursor-pointer">
                                 <i class="fa-solid fa-stopwatch"></i>
                                 <span id="leakTimerText">Start 30s Challenge Timer</span>
                             </button>
-                            <button id="leakRevealBtn" onclick="toggleLeakSolution()"
+                            <button id="leakRevealBtn" onclick="syncAction('toggleLeakSolution')"
                                 class="px-4 py-2 rounded-xl bg-[#0066FF] hover:bg-blue-500 text-white font-mono text-xs sm:text-sm font-bold flex items-center gap-2 shadow-lg shadow-blue-600/25 transition cursor-pointer">
                                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                                 <span id="leakRevealText">Reveal Leak &amp; Solution</span>
@@ -445,8 +466,7 @@
                             <div id="leakWhyFooter"
                                 class="hidden mt-3 pt-2.5 border-t border-slate-800 text-xs text-red-300">
                                 <strong>The Leak:</strong> Every node boots a clean VM and downloads/extracts the
-                                Flutter SDK <strong>65 times per PR</strong> (~$600/day in wasted compute &amp; SDK
-                                drift retries).
+                                Flutter SDK <strong>65 times per PR</strong> (~$600/day in wasted compute).
                             </div>
                         </div>
 
@@ -463,24 +483,14 @@
                                     <li class="flex items-start gap-2"><span
                                             class="text-[#F59E0B] font-bold">1.</span><span><code
                                                 class="text-[#38BDF8] font-mono text-xs">strategy.matrix</code> fans out
-                                            across up to 65 parallel runners on a core change.</span></li>
+                                            across up to 65 parallel runners.</span></li>
                                     <li class="flex items-start gap-2"><span
                                             class="text-[#F59E0B] font-bold">2.</span><span>Look at <code
                                                 class="text-[#38BDF8] font-mono text-xs">runs-on: ubuntu-latest</code>
                                             paired with <code
                                                 class="text-[#38BDF8] font-mono text-xs">subosito/flutter-action@v2</code>.</span>
                                     </li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="text-[#F59E0B] font-bold">3.</span><span>What happens on every single
-                                            node before <code
-                                                class="text-[#38BDF8] font-mono text-xs">flutter test</code> even
-                                            starts?</span></li>
                                 </ul>
-                                <div
-                                    class="p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-xs text-slate-400">
-                                    Shout it out when you spot the leak—then click <span
-                                        class="text-[#38BDF8] font-bold">Reveal Leak &amp; Solution</span>!
-                                </div>
                             </div>
 
                             <div id="leakSolutionPanel"
@@ -500,7 +510,7 @@
         <span class="text-sky-400">package</span>: <span class="text-amber-300">${{ fromJson(needs.setup.outputs.packages) }}</span>
     <span class="text-sky-400">runs-on</span>: ubuntu-latest
     <span class="bg-[#10B981]/20 text-emerald-300 px-1 rounded"><span class="text-sky-400">container</span>:
-      <span class="text-sky-400">image</span>: ${{ needs.resolve-image.outputs.tag }}</span>
+      <span class="text-sky-400">image</span>: tideplatform/flutter-ci:3.24.0</span>
     <span class="text-sky-400">steps</span>:
       - <span class="text-sky-400">uses</span>: actions/checkout@v4
       <span class="text-slate-500"># Flutter SDK pre-installed — zero flutter-action step!</span>
@@ -508,15 +518,16 @@
                                 </div>
                                 <div class="mt-3 pt-2.5 border-t border-slate-800 text-xs text-emerald-300">
                                     <strong>The Solution:</strong> Resolve a pre-warmed custom Docker image tag
-                                    dynamically at runtime with Flutter SDK pre-installed—eliminating 65 redundant SDK
-                                    downloads/extractions per PR and alerting immediately on SDK drift.
+                                    dynamically at runtime with Flutter SDK pre-installed.
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- SLIDE 5: DYNAMIC MATRIX STORY - PART 1 (PROBLEM & IMPACT) -->
+                <!-- =================================================================
+             SLIDE 5: ACT 2 — DYNAMIC MATRIX STORY: PART 1 (PROBLEM & IMPACT)
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Dynamic Matrix Story (Part 1): Problem & Impact"
                     data-act="ACT 2 • DYNAMIC MATRIX STORY: PART 1" data-time="11:30 – 14:00">
@@ -594,7 +605,9 @@
                     </div>
                 </section>
 
-                <!-- SLIDE 6: DYNAMIC MATRIX STORY - PART 2 (SOLUTION & RESULT) -->
+                <!-- =================================================================
+             SLIDE 6: ACT 2 — DYNAMIC MATRIX STORY: PART 2 (SOLUTION & RESULT)
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Dynamic Matrix Story (Part 2): Solution & Result"
                     data-act="ACT 2 • DYNAMIC MATRIX STORY: PART 2" data-time="14:00 – 17:00">
@@ -672,7 +685,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 7: FOUR UNIVERSAL CI VELOCITY MULTIPLIERS -->
+                <!-- =================================================================
+             SLIDE 7: ACT 2 — FOUR UNIVERSAL CI VELOCITY MULTIPLIERS
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Four Universal CI Velocity Multipliers" data-act="ACT 2 • ACTIONABLE PLAYBOOK"
                     data-time="17:00 – 19:00">
@@ -753,7 +768,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 8: MID-TALK PIVOT & SPEAKER INTRODUCTION -->
+                <!-- =================================================================
+             SLIDE 8: ACT 3 — MID-TALK PIVOT & SPEAKER INTRODUCTION
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center" data-title="Mid-Talk Pivot & Speaker Intro"
                     data-act="ACT 3 • THE MID-TALK PIVOT" data-time="19:00 – 21:00">
                     <div class="mb-5">
@@ -843,7 +860,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                     <li class="flex items-start gap-3">
                                         <i class="fa-solid fa-scale-balanced text-[#F59E0B] mt-1 shrink-0"></i>
                                         <span><strong>Honest engineering:</strong> we are not claiming perfection; we
-                                            share real trade-offs and active explorations.</span>
+                                            share real trade-offs and active migrations.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <i class="fa-solid fa-shield-halved text-[#10B981] mt-1 shrink-0"></i>
@@ -856,7 +873,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 9: WHAT MONOREPO SCALE ACTUALLY LOOKS LIKE -->
+                <!-- =================================================================
+             SLIDE 9: ACT 3 — WHAT MONOREPO SCALE ACTUALLY LOOKS LIKE
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="What Monorepo Scale Actually Looks Like" data-act="ACT 3 • REAL-WORLD EVIDENCE"
                     data-time="21:00 – 23:00">
@@ -928,7 +947,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 10: INTERACTIVE #2 — NEURAL DEPENDENCY GRAPH -->
+                <!-- =================================================================
+             SLIDE 10: INTERACTIVE CHALLENGE #2 — NEURAL DEPENDENCY GRAPH
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Interactive #2: Neural Dependency Graph"
                     data-act="INTERACTIVE CHALLENGE #2 • LIVE DIAGNOSIS" data-time="23:00 – 26:00">
@@ -942,7 +963,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             </h2>
                         </div>
 
-                        <button id="graphSimBtn" onclick="toggleIllegalGraphImport()"
+                        <button id="graphSimBtn" onclick="syncAction('toggleIllegalGraphImport')"
                             class="px-4 py-2 rounded-xl bg-[#EF4444] hover:bg-red-500 text-white font-mono text-xs sm:text-sm font-bold flex items-center gap-2 shadow-lg shadow-red-600/25 transition cursor-pointer shrink-0">
                             <i class="fa-solid fa-bug"></i>
                             <span id="graphSimBtnText">Simulate Illegal Upward Import</span>
@@ -962,7 +983,6 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                         <path d="M 0 1 L 10 5 L 0 9 z" fill="#EF4444" />
                                     </marker>
                                 </defs>
-
                                 <line x1="330" y1="52" x2="330" y2="82" stroke="#10B981" stroke-width="2.5"
                                     class="flow-down" marker-end="url(#arrowGreen)" />
                                 <line x1="295" y1="126" x2="195" y2="164" stroke="#10B981" stroke-width="2.5"
@@ -975,37 +995,30 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                     class="flow-down" marker-end="url(#arrowGreen)" />
                                 <line x1="330" y1="296" x2="330" y2="326" stroke="#10B981" stroke-width="2.5"
                                     class="flow-down" marker-end="url(#arrowGreen)" />
-
                                 <path id="illegalUpwardPath" d="M 455 270 Q 595 245 545 210" fill="none"
                                     stroke="#EF4444" stroke-width="4" class="flow-up-danger hidden"
                                     marker-end="url(#arrowCoral)" />
-
                                 <rect x="230" y="10" width="200" height="40" rx="10" fill="#141F36" stroke="#38BDF8"
                                     stroke-width="2" />
                                 <text x="330" y="35" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono"
                                     font-size="14" font-weight="700">app (4)</text>
-
                                 <rect x="220" y="84" width="220" height="40" rx="10" fill="#141F36" stroke="#38BDF8"
                                     stroke-width="2" />
                                 <text x="330" y="109" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono"
                                     font-size="14" font-weight="700">apps (85)</text>
-
                                 <rect x="65" y="166" width="225" height="42" rx="10" fill="#141F36" stroke="#38BDF8"
                                     stroke-width="2" />
                                 <text x="177" y="192" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono"
                                     font-size="13" font-weight="700">feature/payments</text>
-
                                 <rect id="cardsFeatureBox" x="370" y="166" width="235" height="42" rx="10"
                                     fill="#141F36" stroke="#38BDF8" stroke-width="2" />
                                 <text x="487" y="192" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono"
                                     font-size="13" font-weight="700">feature/cards (734)</text>
-
                                 <rect id="coreNetworkBox" x="205" y="252" width="250" height="42" rx="10" fill="#141F36"
                                     stroke="#38BDF8" stroke-width="2" />
                                 <text id="coreNetworkLabel" x="330" y="278" text-anchor="middle" fill="#F8FAFC"
                                     font-family="JetBrains Mono" font-size="14" font-weight="700">core/network
                                     (28)</text>
-
                                 <rect x="230" y="328" width="200" height="40" rx="10" fill="#141F36" stroke="#10B981"
                                     stroke-width="2" />
                                 <text x="330" y="353" text-anchor="middle" fill="#10B981" font-family="JetBrains Mono"
@@ -1059,7 +1072,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 11: GOVERNING AI VELOCITY: QUALITY RULES AS CODE -->
+                <!-- =================================================================
+             SLIDE 11: ACT 4 — GOVERNING AI VELOCITY: QUALITY RULES AS CODE
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Governing AI Velocity: Quality Rules as Code" data-act="ACT 4 • AUTOMATED GOVERNANCE"
                     data-time="26:00 – 29:30">
@@ -1108,7 +1123,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                 Direct <code class="font-mono text-xs text-red-300">GetIt.I</code> / <code
                                     class="font-mono text-xs text-red-300">GetIt.instance</code> calls are banned in
                                 widgets; <code class="font-mono text-xs text-[#38BDF8]">check_lazy_di.py</code> blocks
-                                barrel files exporting widgets that trigger eager startup DI.
+                                barrel files missing mandatory initializers/delegates that trigger eager startup DI.
                             </p>
                         </div>
 
@@ -1145,7 +1160,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 12: CHAOS ENGINEERING IN CI ("THE POISON PILL") -->
+                <!-- =================================================================
+             SLIDE 12: ACT 4 — CHAOS ENGINEERING IN CI ("THE POISON PILL")
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Who Tests Your Safety Nets? (The Poison Pill)"
                     data-act="ACT 4 • CHAOS ENGINEERING IN CI" data-time="29:30 – 31:30">
@@ -1162,7 +1179,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             </p>
                         </div>
 
-                        <button id="poisonBtn" onclick="runPoisonPillSimulation()"
+                        <button id="poisonBtn" onclick="syncAction('runPoisonPillSimulation')"
                             class="px-4 py-2.5 rounded-xl bg-[#F59E0B] hover:bg-amber-400 text-[#070B14] font-mono text-xs sm:text-sm font-extrabold flex items-center gap-2 shadow-lg shadow-amber-500/20 transition cursor-pointer shrink-0">
                             <i class="fa-solid fa-flask-vial"></i>
                             <span>Run Weekend Poison Pill PR</span>
@@ -1253,7 +1270,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 13: HARDENING THE SUPPLY CHAIN (SHIFT-LEFT SECURITY) -->
+                <!-- =================================================================
+             SLIDE 13: ACT 4 — HARDENING THE SUPPLY CHAIN (SHIFT-LEFT SECURITY)
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Hardening the Supply Chain (Shift-Left Security)" data-act="ACT 4 • SHIFT-LEFT SECURITY"
                     data-time="31:30 – 33:30">
@@ -1314,7 +1333,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 14: INTERACTIVE #3 — THURSDAY 4 PM: HOLD OR ROLL? -->
+                <!-- =================================================================
+             SLIDE 14: INTERACTIVE CHALLENGE #3 — THURSDAY 4 PM: HOLD OR ROLL?
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Interactive #3: Thursday 4 PM — Hold or Roll?"
                     data-act="INTERACTIVE CHALLENGE #3 • CROWD VOTE" data-time="33:30 – 36:30">
@@ -1328,7 +1349,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             </h2>
                         </div>
 
-                        <button id="rolloutVerdictBtn" onclick="toggleRolloutVerdict()"
+                        <button id="rolloutVerdictBtn" onclick="syncAction('toggleRolloutVerdict')"
                             class="px-4 py-2.5 rounded-xl bg-[#0066FF] hover:bg-blue-500 text-white font-mono text-xs sm:text-sm font-bold flex items-center gap-2 shadow-lg shadow-blue-600/25 transition cursor-pointer shrink-0">
                             <i class="fa-solid fa-robot"></i>
                             <span id="rolloutVerdictBtnText">Reveal Tide's Automated Verdict</span>
@@ -1371,16 +1392,16 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             <div class="pt-3 border-t border-slate-800">
                                 <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
                                     <span>LIVE AUDIENCE HAND TALLY</span>
-                                    <button onclick="resetCrowdVotes()"
+                                    <button onclick="syncAction('resetCrowdVotes')"
                                         class="hover:text-white underline cursor-pointer">Reset</button>
                                 </div>
                                 <div class="grid grid-cols-2 gap-3 mb-2.5">
-                                    <button onclick="addCrowdVote('hold')"
+                                    <button onclick="syncAction('addCrowdVote', 'hold')"
                                         class="py-2.5 px-3 rounded-xl bg-[#F59E0B]/20 hover:bg-[#F59E0B]/30 border border-[#F59E0B]/50 text-[#F59E0B] font-bold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer">
                                         <span>Vote HOLD</span>
                                         <span id="holdVoteCount" class="text-white text-base">0</span>
                                     </button>
-                                    <button onclick="addCrowdVote('roll')"
+                                    <button onclick="syncAction('addCrowdVote', 'roll')"
                                         class="py-2.5 px-3 rounded-xl bg-[#10B981]/20 hover:bg-[#10B981]/30 border border-[#10B981]/50 text-[#10B981] font-bold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer">
                                         <span>Vote ROLL</span>
                                         <span id="rollVoteCount" class="text-white text-base">0</span>
@@ -1438,81 +1459,69 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 15: SIMPLIFIED BAZEL EXPLORATION SLIDE -->
+                <!-- =================================================================
+             SLIDE 15: ACT 5 — LOOKING AHEAD: BAZEL HORIZON
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
-                    data-title="Exploring Bazel: Closing the Diff-Gate Blind Spot"
-                    data-act="ACT 5 • LOOKING AHEAD — EXPLORING BAZEL" data-time="36:30 – 38:30">
+                    data-title="The Next Chapter: Bazel Horizon" data-act="ACT 5 • LOOKING AHEAD — BAZEL"
+                    data-time="36:30 – 38:30">
                     <div class="mb-5">
                         <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] font-bold">ACT 5 •
-                            LOOKING AHEAD</span>
+                            LOOKING AHEAD — BAZEL</span>
                         <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
-                            Closing the Diff-Gate Blind Spot: Exploring <span class="text-[#10B981]">Bazel</span>
+                            The Next Chapter: Exploring the Bazel Horizon
                         </h2>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Left Card: The Limitations of Diff-Based Gates -->
                         <div
-                            class="surface-card rounded-2xl p-6 sm:p-7 border-t-4 border-t-[#F59E0B] flex flex-col justify-between">
+                            class="surface-card rounded-2xl p-6 border-t-4 border-t-[#F59E0B] flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span
-                                        class="w-10 h-10 rounded-xl bg-[#F59E0B]/15 text-[#F59E0B] flex items-center justify-center text-lg">
-                                        <i class="fa-solid fa-eye-low-vision"></i>
-                                    </span>
-                                    <h3 class="font-display text-xl sm:text-2xl font-bold text-white">Limitations of
-                                        Diff-Based Gates</h3>
-                                </div>
-                                <ul class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
-                                    <li class="flex items-start gap-3">
-                                        <i class="fa-solid fa-shield-virus text-[#F59E0B] mt-1 shrink-0"></i>
-                                        <span><strong>Stops new debt, misses old debt:</strong> Diff checks block new
-                                            violations, but legacy issues in untouched files stay hidden on <code
-                                                class="font-mono text-xs text-[#38BDF8]">main</code>.</span>
+                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-4">The Limitation of
+                                    Diff-Based Gates</h3>
+                                <ul class="space-y-3 text-sm sm:text-base text-slate-300">
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-eye-low-vision text-[#F59E0B] mt-1 shrink-0"></i>
+                                        <span>Diff gates are fantastic at stopping <strong>NEW</strong> debt in changed
+                                            packages.</span>
                                     </li>
-                                    <li class="flex items-start gap-3">
-                                        <i class="fa-solid fa-hourglass-end text-[#F59E0B] mt-1 shrink-0"></i>
-                                        <span><strong>Full-graph checks don't scale:</strong> Running lints and tests
-                                            across every package on every PR becomes too slow without fine-grained
-                                            caching.</span>
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-triangle-exclamation text-[#F59E0B] mt-1 shrink-0"></i>
+                                        <span>However, they cannot easily clean up <strong>OLD</strong> legacy debt
+                                            sitting quietly on <code
+                                                class="font-mono text-xs text-[#38BDF8]">main</code> in untouched
+                                            files.</span>
                                     </li>
-                                    <li class="flex items-start gap-3">
-                                        <i class="fa-solid fa-cubes text-[#F59E0B] mt-1 shrink-0"></i>
-                                        <span><strong>Package-level granularity:</strong> Changing one file inside a
-                                            large package still forces the entire package to rebuild and retest.</span>
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-turtle text-[#F59E0B] mt-1 shrink-0"></i>
+                                        <span>Running full-graph validation on every PR becomes too slow without
+                                            fine-grained caching.</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Right Card: Why We Are Exploring Bazel -->
                         <div
-                            class="surface-card rounded-2xl p-6 sm:p-7 border-t-4 border-t-[#10B981] flex flex-col justify-between">
+                            class="surface-card rounded-2xl p-6 border-t-4 border-t-[#10B981] flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span
-                                        class="w-10 h-10 rounded-xl bg-[#10B981]/15 text-[#10B981] flex items-center justify-center text-lg">
-                                        <i class="fa-solid fa-cube"></i>
-                                    </span>
-                                    <h3 class="font-display text-xl sm:text-2xl font-bold text-white">Why We Are
-                                        Exploring Bazel</h3>
-                                </div>
-                                <ul class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
-                                    <li class="flex items-start gap-3">
-                                        <i class="fa-solid fa-compass text-[#10B981] mt-1 shrink-0"></i>
-                                        <span><strong>Built for massive monorepos:</strong> Google’s open-source build
-                                            and test system designed for multi-language codebases at scale.</span>
+                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-4">Why Teams Explore
+                                    Bazel</h3>
+                                <ul class="space-y-3 text-sm sm:text-base text-slate-300">
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-boxes-packing text-[#10B981] mt-1 shrink-0"></i>
+                                        <span><strong>True Monorepo Scale:</strong> Orchestrates Dart, Flutter, iOS, and
+                                            Android native tooling under one language-agnostic rule set.</span>
                                     </li>
-                                    <li class="flex items-start gap-3">
-                                        <i class="fa-solid fa-fingerprint text-[#38BDF8] mt-1 shrink-0"></i>
-                                        <span><strong>Hermetic &amp; content-addressed:</strong> Tracks exact inputs
-                                            (files, dependencies, flags) so identical targets never rebuild or retest
-                                            twice.</span>
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-box-archive text-[#38BDF8] mt-1 shrink-0"></i>
+                                        <span><strong>Hermetic &amp; Content-Addressed:</strong> Builds are pure. Same
+                                            inputs = exactly the same outputs.</span>
                                     </li>
-                                    <li class="flex items-start gap-3">
-                                        <i class="fa-solid fa-cloud-bolt text-[#10B981] mt-1 shrink-0"></i>
-                                        <span><strong>Shared remote caching:</strong> Lets CI and local machines reuse
-                                            verified build/test outputs—making full-graph checks fast.</span>
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-cloud-arrow-up text-[#10B981] mt-1 shrink-0"></i>
+                                        <span><strong>Remote Caching:</strong> Developers and CI machines share AWS S3
+                                            caches. If CI built it, the developer’s local laptop downloads it instantly
+                                            (e.g., fully cached iOS simulator builds in 1.3 seconds).</span>
                                     </li>
                                 </ul>
                             </div>
@@ -1520,7 +1529,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     </div>
                 </section>
 
-                <!-- SLIDE 16: KEY TAKEAWAY & Q&A -->
+                <!-- =================================================================
+             SLIDE 16: KEY TAKEAWAY & Q&A
+        ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center items-center text-center"
                     data-title="Key Takeaway & Q&A" data-act="KEY TAKEAWAY & Q&A" data-time="38:30 – 40:00">
                     <div class="max-w-4xl w-full flex flex-col items-center">
@@ -1585,10 +1596,61 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
 
             </div>
         </main>
+
+        <!-- =========================================================================
+         PRESENTER MODE: Script Drawer (Hidden unless ?presenter=true)
+    ========================================================================== -->
+        <aside id="scriptDrawer"
+            class="hidden w-full lg:w-[410px] xl:w-[450px] bg-[#0B1220] border-t lg:border-t-0 lg:border-l border-slate-800 flex flex-col shrink-0 max-h-[45vh] lg:max-h-full z-30 shadow-2xl">
+            <!-- Timer Header -->
+            <div class="p-4 bg-[#070B14] border-b border-slate-800 shrink-0">
+                <div class="flex items-center justify-between mb-2.5">
+                    <span class="font-mono text-xs font-bold text-[#38BDF8] uppercase tracking-wider">
+                        <i class="fa-solid fa-stopwatch mr-1.5"></i>40-Min Rehearsal Timer
+                    </span>
+                    <span class="text-xs text-slate-400 font-mono">PRESENTER SYNC ACTIVE</span>
+                </div>
+
+                <div
+                    class="flex items-center justify-between gap-3 bg-[#141F36] border border-slate-800 rounded-xl p-3">
+                    <div>
+                        <div id="rehearsalClockDisplay"
+                            class="font-mono text-2xl font-extrabold text-white tracking-tight">00:00 <span
+                                class="text-xs font-normal text-slate-400">/ 40:00</span></div>
+                        <div id="rehearsalTargetHint" class="font-mono text-[11px] text-[#F59E0B] mt-0.5">Slide target:
+                            0:00 – 1:30</div>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <button id="rehearsalStartBtn" onclick="toggleRehearsalTimer()"
+                            class="px-3 py-1.5 rounded-lg bg-[#10B981] hover:bg-emerald-400 text-[#070B14] font-mono text-xs font-extrabold cursor-pointer transition">
+                            Start
+                        </button>
+                        <button onclick="resetRehearsalTimer()"
+                            class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-mono text-xs font-bold cursor-pointer transition">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Synchronized Speaker Script Content -->
+            <div class="p-4 sm:p-5 overflow-y-auto flex-1 space-y-3">
+                <div class="flex items-center justify-between">
+                    <span id="scriptSlideBadge"
+                        class="font-mono text-xs font-bold text-[#0066FF] bg-[#0066FF]/15 px-2.5 py-1 rounded">SLIDE 1
+                        OF 16</span>
+                    <span id="scriptTimeWindow" class="font-mono text-xs text-slate-400">0:00 – 1:30</span>
+                </div>
+                <h3 id="scriptSlideTitle" class="font-display text-lg font-bold text-white">When Releases Can't Fail
+                </h3>
+                <div id="scriptBodyText" class="text-sm text-slate-300 leading-relaxed space-y-3 select-text"></div>
+            </div>
+        </aside>
+
     </div>
 
-    <!-- Bottom Subtle Presenter Control Bar -->
-    <footer
+    <!-- Bottom Subtle Presenter Control Bar (Hidden on Projector) -->
+    <footer id="bottomHud"
         class="w-full px-4 sm:px-6 py-2.5 bg-[#070B14] border-t border-slate-800/90 flex items-center justify-between shrink-0 z-30">
         <div class="flex items-center gap-2 sm:gap-3">
             <button onclick="toggleAllSlidesModal()"
@@ -1604,12 +1666,12 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
         </div>
 
         <div class="flex items-center gap-2 sm:gap-3">
-            <button id="prevSlideBtn" onclick="prevSlide()"
+            <button id="prevSlideBtn" onclick="syncAction('prevSlide')"
                 class="px-3.5 sm:px-4 py-2 rounded-xl bg-[#141F36] hover:bg-slate-800 disabled:opacity-40 disabled:pointer-events-none border border-slate-700/80 text-white font-mono text-xs sm:text-sm font-semibold flex items-center gap-2 transition cursor-pointer">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Prev</span>
             </button>
-            <button id="nextSlideBtn" onclick="nextSlide()"
+            <button id="nextSlideBtn" onclick="syncAction('nextSlide')"
                 class="px-3.5 sm:px-4 py-2 rounded-xl bg-[#0066FF] hover:bg-blue-500 disabled:opacity-40 disabled:pointer-events-none text-white font-mono text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-md shadow-blue-600/25 transition cursor-pointer">
                 <span>Next</span>
                 <i class="fa-solid fa-arrow-right"></i>
@@ -1638,9 +1700,222 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
     </div>
 
     <script>
+        // =========================================================================
+        // FULL 40-MINUTE SPEAKER SCRIPT WITH TIDE-SPECIFIC METRICS (From CoP Notes)
+        // =========================================================================
+        const SPEAKER_SCRIPTS = [
+            {
+                time: "0:00 – 1:30",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[STAGE CUE: Do NOT introduce yourself yet. Stand still at center stage.]</strong></p>
+               <p>“We are living in a strange era of mobile engineering. Today, a developer can open an AI coding assistant, prompt a new feature, and generate five hundred lines of working Dart code in twenty minutes. Yet when it’s time to cut the release branch, ship to the stores, and roll out to millions of users—suddenly everyone holds their breath for three days.”</p>
+               <p>“Why is writing code ten times faster than it was two years ago, while shipping a release still feels like defusing a bomb?”</p>
+               <p>“Because in a consumer app, a bad release is an annoyance. In regulated fintech, a bad release means frozen bank accounts, failed transactions, and lost trust. When releases can't fail, speed without guardrails is a liability.”</p>`
+            },
+            {
+                time: "1:30 – 4:30",
+                body: `<p>“And notice what happens when everyone holds their breath for three days: <strong>a release that is delayed or stuck off-track is already a failed release</strong>. Product commitments slip, compliance deadlines get missed, and hotfix branches multiply.”</p>
+               <p>“If your pipeline and review process were built for manual human typing speed, AI velocity is going to DDoS your release train.”</p>`
+            },
+            {
+                time: "4:30 – 8:30",
+                body: `<p>“Whether your repo has 5 packages or 1,000, delivery speed dies in three predictable ways: <strong>1) CI Wait Queues</strong>—45-minute builds break flow and encourage massive, risky PR batching; <strong>2) Review Fatigue</strong>—human reviewers nitpick naming on a 60-file AI PR but rubber-stamp an architectural boundary leak; and <strong>3) Late Regressions</strong>—catching a broken dependency during Friday's release freeze is 100x costlier than catching it 30 seconds after <code class="text-sky-300">git push</code>.”</p>`
+            },
+            {
+                time: "8:30 – 11:30",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[INTERACTIVE #1: Click ‘Start 30s Challenge Timer’ and let the room inspect the YAML.]</strong></p>
+               <p>“Look at the GitHub Actions workflow on the left. A dynamic matrix fanning out to 65 parallel runners, checking out code, setting up Flutter 3.24.0. Yet this pattern burned roughly <strong>$600 a day</strong> in wasted compute. You have 30 seconds—shout it out when you spot the leak!”</p>
+               <p class="text-emerald-300 font-mono text-xs"><strong>[Click ‘Reveal Leak &amp; Solution’.]</strong></p>
+               <p>“Every single node boots a clean VM and downloads/extracts the Flutter SDK 65 times per PR! The fix (on the right) is resolving a pre-warmed custom Docker container image dynamically at runtime with the SDK already baked in. Zero extraction time.”</p>`
+            },
+            {
+                time: "11:30 – 14:00",
+                body: `<p>“Let’s build the honest origin story of dynamic matrices. As our monorepo grew to hundreds of local packages, sequential test runs took 45–60 minutes per PR. Static YAML matrices broke whenever someone added a new package. Worse, running heavy modules alongside standard packages caused runner Out-Of-Memory (OOM) crashes.”</p>
+               <p>“The impact? Context-switching, engineers batching giant PRs (and merge conflicts) to avoid waiting twice, and blind ‘re-run all’ clicks multiplying CI spend.”</p>`
+            },
+            {
+                time: "14:00 – 17:00",
+                body: `<p>“Here is how our diff-aware dynamic matrix solved it. First, <code class="text-sky-300">melos list --diff --include-dependents --json</code> computes the exact blast radius. Second, we isolate heavyweights like <code class="text-sky-300">uniclient_navigation</code> into dedicated runners. Third, <code class="text-sky-300">jq</code> chunks the remaining packages into batches of 50 and fans out via <code class="text-sky-300">fromJson</code>.”</p>
+               <p>“Finally, a single <code class="text-emerald-300">final-validation</code> status check collapses all dynamic nodes into one required check so GitHub branch protection never breaks.”</p>`
+            },
+            {
+                time: "17:00 – 19:00",
+                body: `<p>“Four universal velocity multipliers you can apply tomorrow: 1) Pre-warmed images + rebuilding the Dart analyzer cache on pushes to main; 2) <code class="text-emerald-300">concurrency: cancel-in-progress: true</code> to auto-cancel stale runs; 3) Sparse checkouts pulling only <code class="text-sky-300">**/pubspec.yaml</code> for graph checks; and 4) Selective coverage collection only on modified packages.”</p>`
+            },
+            {
+                time: "19:00 – 21:00",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[MID-TALK PIVOT: Smile and point to The Growing Developer logo.]</strong></p>
+               <p>“I’m nearly 20 minutes in and haven’t introduced myself! Hi Bengaluru, I’m <strong>Saheb Singh</strong>—Senior Software Engineer at <strong>Tide</strong> and creator of <strong>The Growing Developer</strong> YouTube channel, where over 16,000 developers hang out.”</p>
+               <p>“Everything so far works for any team. Now let’s look inside Tide’s production monorepo—not claiming perfection, but showing what protects real financial workflows.”</p>`
+            },
+            {
+                time: "21:00 – 23:00",
+                body: `<p>“Here is what scale looks like inside Tide’s <code class="text-sky-300">universal-client</code> workspace: <strong>968 packages</strong> across 15 business domains, <strong>68,612 hand-written Dart files</strong> (plus nearly 17,000 generated files), <strong>8,298 test files</strong> covering 94% of packages, and <strong>20 parallel PR jobs</strong> across 89 workflows.”</p>`
+            },
+            {
+                time: "23:00 – 26:00",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[INTERACTIVE #2: Click ‘Simulate Illegal Upward Import’.]</strong></p>
+               <p>“With 968 packages, dependencies only flow downward: <code class="text-sky-300">app -&gt; apps -&gt; feature -&gt; core -&gt; utility</code>. Watch what happens when <code class="text-sky-300">core/network</code> imports <code class="text-sky-300">feature/cards</code>. Why does this PR fail in under 15 seconds?”</p>
+               <p>“Because one upward import couples every feature to <code class="text-sky-300">cards</code>, exploding the CI blast radius! Our 8 named rules in <code class="text-sky-300">validate_dependency_graph/rules.py</code> and <code class="text-sky-300">melos list --cycles</code> block the PR and post a sticky cycle report.”</p>`
+            },
+            {
+                time: "26:00 – 29:30",
+                body: `<p>“To govern AI velocity, we codified four gates: 1) 161 strict lint rules where any <code class="text-amber-300">// ignore:</code> requires Platform team review; 2) Banning direct <code class="text-sky-300">GetIt.instance</code> calls, plus catching missing mandatory initializers/delegates during lazy DI migrations (a real production issue we faced!); 3) Failing null primitive defaults in <code class="text-sky-300">RemoteFeatureFlag</code> to protect telemetry; and 4) Capping PRs at 20 files alongside 269 IaC-generated CODEOWNERS rules.”</p>`
+            },
+            {
+                time: "29:30 – 31:30",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[INTERACTIVE: Click ‘Run Weekend Poison Pill PR’.]</strong></p>
+               <p>“We’ve all seen 40 green checkmarks merge and still break <code class="text-sky-300">main</code>. Who tests your safety nets? We use the <strong>Poison Pill</strong>: a scheduled weekend workflow opens a synthetic PR injecting a direct <code class="text-amber-300">Platform.isIOS</code> call, a banned <code class="text-amber-300">GestureDetector</code>, and a null feature flag. If that PR ever gets a green check, page Platform Engineering immediately.”</p>`
+            },
+            {
+                time: "31:30 – 33:30",
+                body: `<p>“In regulated fintech, supply-chain security lives inside the PR loop: 98% of third-party Actions are pinned to exact SHAs. Jobs use short-lived OIDC AWS tokens with per-market secret allowlists, blocking Semgrep SAST/SCA scans, and Promon SHIELD RASP wrapping on release binaries.”</p>`
+            },
+            {
+                time: "33:30 – 36:30",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[INTERACTIVE #3: Tally audience hands with Vote HOLD / Vote ROLL, then click ‘Reveal Tide’s Automated Verdict’.]</strong></p>
+               <p>“You’re the Release Manager at 20% UK rollout on Thursday 4 PM. Crash-free sessions: 99.9%. But Android 13 ANRs just spiked to 1.1%. Raise your hand: do you HOLD or ROLL?”</p>
+               <p>“Look how even senior engineers split! At Tide, our rollout cron runs twice daily and decides mathematically: <strong>HOLD</strong>—pausing expansion and alerting Slack without emotional debate.”</p>`
+            },
+            {
+                time: "36:30 – 38:30",
+                body: `<p>“Let’s be candid about diff gates: they stop NEW debt, while 47 legacy lazy-DI errors and 97 banned widgets sit quietly on <code class="text-sky-300">main</code>. That’s why we are exploring <strong>Bazel</strong>.”</p>
+               <p>“We’ve automatically generated 1,119 <code class="text-sky-300">BUILD.bazel</code> files via Gazelle. By shifting to hermetic builds and AWS S3 remote caching, developers on our team are already seeing fully cached iOS simulator builds in 1.3 seconds. And we protect that shared cache by forcing fork PRs to run with <code class="text-emerald-300">--config=ci-ro</code> (read-only).”</p>`
+            },
+            {
+                time: "38:30 – 40:00",
+                body: `<p>“If you take away one rule today: <strong>Human code review cannot scale to AI velocity—your pipeline must.</strong> Codify your architecture, parallelize by blast radius, and automate your risk tolerance. Thank you Bengaluru—I’m Saheb Singh from The Growing Developer, and I’d love to take your questions!”</p>`
+            }
+        ];
+
+        // =========================================================================
+        // DUAL-SCREEN PRESENTER SYNC LOGIC (via localStorage)
+        // =========================================================================
+        const urlParams = new URLSearchParams(window.location.search);
+        const isPresenterMode = urlParams.get('presenter') === 'true';
+
         let currentSlideIndex = 0;
         const slides = Array.from(document.querySelectorAll('.slide'));
         const totalSlides = slides.length;
+
+        // Apply Presenter vs Projector UI Layout
+        if (isPresenterMode) {
+            document.getElementById('scriptDrawer').classList.remove('hidden');
+        } else {
+            // Hide all HUDs for clean projector view
+            document.getElementById('topHud').classList.add('hidden');
+            document.getElementById('bottomHud').classList.add('hidden');
+            document.getElementById('mainContentArea').classList.replace('p-2', 'p-0');
+            document.getElementById('mainContentArea').classList.replace('sm:p-4', 'p-0');
+            document.getElementById('mainContentArea').classList.replace('lg:py-2', 'p-0');
+            document.getElementById('slideStage').classList.remove('rounded-2xl', 'p-5', 'sm:p-8', 'lg:p-10');
+            document.getElementById('slideStage').classList.add('p-8');
+            document.getElementById('slideStage').style.maxWidth = '100vw';
+
+            // Listen for sync events from the presenter window
+            window.addEventListener('storage', (e) => {
+                if (e.key === 'tide_sync_slide') {
+                    jumpToSlide(parseInt(e.newValue, 10), false);
+                } else if (e.key === 'tide_sync_action') {
+                    const actionData = JSON.parse(e.newValue);
+                    executeSyncAction(actionData.action, actionData.payload);
+                }
+            });
+        }
+
+        // Broadcast action to the projector window
+        function syncAction(actionName, payload = null) {
+            executeSyncAction(actionName, payload);
+            if (isPresenterMode) {
+                localStorage.setItem('tide_sync_action', JSON.stringify({ action: actionName, payload, ts: Date.now() }));
+            }
+        }
+
+        // Map string actions to actual JS functions
+        function executeSyncAction(actionName, payload) {
+            if (actionName === 'nextSlide') nextSlide(false);
+            if (actionName === 'prevSlide') prevSlide(false);
+            if (actionName === 'toggleLeakTimer') toggleLeakTimer();
+            if (actionName === 'toggleLeakSolution') toggleLeakSolution();
+            if (actionName === 'toggleIllegalGraphImport') toggleIllegalGraphImport();
+            if (actionName === 'runPoisonPillSimulation') runPoisonPillSimulation();
+            if (actionName === 'addCrowdVote') addCrowdVote(payload);
+            if (actionName === 'resetCrowdVotes') resetCrowdVotes();
+            if (actionName === 'toggleRolloutVerdict') toggleRolloutVerdict();
+        }
+
+        function syncStageUI(broadcast = true) {
+            slides.forEach((slide, idx) => {
+                slide.classList.toggle('active', idx === currentSlideIndex);
+            });
+
+            if (isPresenterMode && broadcast) {
+                localStorage.setItem('tide_sync_slide', currentSlideIndex.toString());
+            }
+
+            if (!isPresenterMode) return; // Skip updating HUD on projector
+
+            const active = slides[currentSlideIndex];
+            const title = active.getAttribute('data-title') || '';
+            const act = active.getAttribute('data-act') || '';
+            const time = active.getAttribute('data-time') || '';
+
+            document.getElementById('slideCounterBadge').textContent = `${currentSlideIndex + 1} / ${totalSlides}`;
+            document.getElementById('headerActLabel').textContent = act;
+            document.getElementById('headerTimeSlot').innerHTML = `<i class="fa-regular fa-clock text-[#38BDF8] mr-1.5"></i>${time}`;
+            document.getElementById('topProgressBar').style.width = `${((currentSlideIndex + 1) / totalSlides) * 100}%`;
+
+            document.getElementById('prevSlideBtn').disabled = currentSlideIndex === 0;
+            document.getElementById('nextSlideBtn').disabled = currentSlideIndex === totalSlides - 1;
+
+            // Sync Speaker Script Drawer
+            const script = SPEAKER_SCRIPTS[currentSlideIndex];
+            document.getElementById('scriptSlideBadge').textContent = `SLIDE ${currentSlideIndex + 1} OF ${totalSlides}`;
+            document.getElementById('scriptTimeWindow').textContent = script ? script.time : time;
+            document.getElementById('rehearsalTargetHint').textContent = `Slide target: ${script ? script.time : time}`;
+            document.getElementById('scriptSlideTitle').textContent = title;
+            document.getElementById('scriptBodyText').innerHTML = script ? script.body : '';
+        }
+
+        function jumpToSlide(idx, broadcast = true) {
+            if (idx < 0 || idx >= totalSlides) return;
+            currentSlideIndex = idx;
+            syncStageUI(broadcast);
+        }
+
+        function nextSlide(broadcast = true) {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                syncStageUI(broadcast);
+                if (broadcast && isPresenterMode) {
+                    localStorage.setItem('tide_sync_action', JSON.stringify({ action: 'nextSlide', ts: Date.now() }));
+                }
+            }
+        }
+
+        function prevSlide(broadcast = true) {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                syncStageUI(broadcast);
+                if (broadcast && isPresenterMode) {
+                    localStorage.setItem('tide_sync_action', JSON.stringify({ action: 'prevSlide', ts: Date.now() }));
+                }
+            }
+        }
+
+        // =========================================================================
+        // UI TOGGLES & KEYBOARD (Presenter Only)
+        // =========================================================================
+        function toggleAllSlidesModal() {
+            if (!isPresenterMode) return;
+            const modal = document.getElementById('allSlidesModal');
+            const isHidden = modal.classList.contains('hidden');
+            if (isHidden) {
+                renderAllSlidesGrid();
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
 
         function renderAllSlidesGrid() {
             const grid = document.getElementById('allSlidesGrid');
@@ -1668,71 +1943,23 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
             }).join('');
         }
 
-        function syncStageUI() {
-            slides.forEach((slide, idx) => {
-                slide.classList.toggle('active', idx === currentSlideIndex);
-            });
-
-            const active = slides[currentSlideIndex];
-            const act = active.getAttribute('data-act') || '';
-            const time = active.getAttribute('data-time') || '';
-
-            document.getElementById('slideCounterBadge').textContent = `${currentSlideIndex + 1} / ${totalSlides}`;
-            document.getElementById('headerActLabel').textContent = act;
-            document.getElementById('headerTimeSlot').innerHTML = `<i class="fa-regular fa-clock text-[#38BDF8] mr-1.5"></i>${time}`;
-            document.getElementById('topProgressBar').style.width = `${((currentSlideIndex + 1) / totalSlides) * 100}%`;
-
-            document.getElementById('prevSlideBtn').disabled = currentSlideIndex === 0;
-            document.getElementById('nextSlideBtn').disabled = currentSlideIndex === totalSlides - 1;
-        }
-
-        function jumpToSlide(idx) {
-            if (idx < 0 || idx >= totalSlides) return;
-            currentSlideIndex = idx;
-            syncStageUI();
-        }
-
-        function nextSlide() {
-            if (currentSlideIndex < totalSlides - 1) {
-                currentSlideIndex++;
-                syncStageUI();
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlideIndex > 0) {
-                currentSlideIndex--;
-                syncStageUI();
-            }
-        }
-
-        function toggleAllSlidesModal() {
-            const modal = document.getElementById('allSlidesModal');
-            const isHidden = modal.classList.contains('hidden');
-            if (isHidden) {
-                renderAllSlidesGrid();
-                modal.classList.remove('hidden');
-            } else {
-                modal.classList.add('hidden');
-            }
-        }
-
         function toggleFullscreen() {
             const icon = document.getElementById('fullscreenIcon');
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().then(() => {
-                    icon.classList.replace('fa-expand', 'fa-compress');
+                    if (icon) icon.classList.replace('fa-expand', 'fa-compress');
                 }).catch(() => { });
             } else {
                 document.exitFullscreen().then(() => {
-                    icon.classList.replace('fa-compress', 'fa-expand');
+                    if (icon) icon.classList.replace('fa-compress', 'fa-expand');
                 }).catch(() => { });
             }
         }
 
         document.addEventListener('keydown', (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            const modalOpen = !document.getElementById('allSlidesModal').classList.contains('hidden');
+            const modal = document.getElementById('allSlidesModal');
+            const modalOpen = modal && !modal.classList.contains('hidden');
 
             if (e.key === 'Escape') {
                 if (modalOpen) toggleAllSlidesModal();
@@ -1742,23 +1969,72 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
 
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
                 e.preventDefault();
-                nextSlide();
+                syncAction('nextSlide');
             } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
                 e.preventDefault();
-                prevSlide();
-            } else if (e.key.toLowerCase() === 'g') {
+                syncAction('prevSlide');
+            } else if (e.key.toLowerCase() === 'g' && isPresenterMode) {
                 toggleAllSlidesModal();
             } else if (e.key.toLowerCase() === 'f') {
                 toggleFullscreen();
             }
         });
 
+        // =========================================================================
+        // REHEARSAL TIMER
+        // =========================================================================
+        let rehearsalInterval = null;
+        let rehearsalElapsedSeconds = 0;
+
+        function formatMinutesSeconds(sec) {
+            const m = Math.floor(sec / 60).toString().padStart(2, '0');
+            const s = (sec % 60).toString().padStart(2, '0');
+            return `${m}:${s}`;
+        }
+
+        function toggleRehearsalTimer() {
+            const btn = document.getElementById('rehearsalStartBtn');
+            if (rehearsalInterval) {
+                clearInterval(rehearsalInterval);
+                rehearsalInterval = null;
+                btn.textContent = 'Resume';
+                btn.classList.replace('bg-[#F59E0B]', 'bg-[#10B981]');
+            } else {
+                btn.textContent = 'Pause';
+                btn.classList.replace('bg-[#10B981]', 'bg-[#F59E0B]');
+                rehearsalInterval = setInterval(() => {
+                    rehearsalElapsedSeconds++;
+                    document.getElementById('rehearsalClockDisplay').innerHTML =
+                        `${formatMinutesSeconds(rehearsalElapsedSeconds)} <span class="text-xs font-normal text-slate-400">/ 40:00</span>`;
+                }, 1000);
+            }
+        }
+
+        function resetRehearsalTimer() {
+            if (rehearsalInterval) {
+                clearInterval(rehearsalInterval);
+                rehearsalInterval = null;
+            }
+            rehearsalElapsedSeconds = 0;
+            const btn = document.getElementById('rehearsalStartBtn');
+            btn.textContent = 'Start';
+            btn.classList.remove('bg-[#F59E0B]');
+            btn.classList.add('bg-[#10B981]');
+            document.getElementById('rehearsalClockDisplay').innerHTML =
+                `00:00 <span class="text-xs font-normal text-slate-400">/ 40:00</span>`;
+        }
+
+        // =========================================================================
+        // INTERACTIVE #1: $600/DAY PIPELINE LEAK TIMER
+        // =========================================================================
         let leakTimerId = null;
         let leakRemaining = 30;
 
         function toggleLeakTimer() {
             const btn = document.getElementById('leakTimerBtn');
             const text = document.getElementById('leakTimerText');
+            if (!btn) return;
+
             if (leakTimerId) {
                 clearInterval(leakTimerId);
                 leakTimerId = null;
@@ -1797,22 +2073,29 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
             const solPanel = document.getElementById('leakSolutionPanel');
             const btnText = document.getElementById('leakRevealText');
 
-            h1.classList.toggle('bg-[#EF4444]/25', leakSolutionVisible);
-            h1.classList.toggle('ring-1', leakSolutionVisible);
-            h1.classList.toggle('ring-[#EF4444]', leakSolutionVisible);
+            if (h1) {
+                h1.classList.toggle('bg-[#EF4444]/25', leakSolutionVisible);
+                h1.classList.toggle('ring-1', leakSolutionVisible);
+                h1.classList.toggle('ring-[#EF4444]', leakSolutionVisible);
+            }
+            if (h2) {
+                h2.classList.toggle('bg-[#EF4444]/25', leakSolutionVisible);
+                h2.classList.toggle('ring-1', leakSolutionVisible);
+                h2.classList.toggle('ring-[#EF4444]', leakSolutionVisible);
+            }
+            if (whyFooter) whyFooter.classList.toggle('hidden', !leakSolutionVisible);
+            if (cluePanel) cluePanel.classList.toggle('hidden', leakSolutionVisible);
 
-            h2.classList.toggle('bg-[#EF4444]/25', leakSolutionVisible);
-            h2.classList.toggle('ring-1', leakSolutionVisible);
-            h2.classList.toggle('ring-[#EF4444]', leakSolutionVisible);
-
-            whyFooter.classList.toggle('hidden', !leakSolutionVisible);
-            cluePanel.classList.toggle('hidden', leakSolutionVisible);
-            solPanel.classList.toggle('hidden', !leakSolutionVisible);
-            solPanel.classList.toggle('flex', leakSolutionVisible);
-
-            btnText.textContent = leakSolutionVisible ? 'Back to Clue Mode' : 'Reveal Leak & Solution';
+            if (solPanel) {
+                solPanel.classList.toggle('hidden', !leakSolutionVisible);
+                solPanel.classList.toggle('flex', leakSolutionVisible);
+            }
+            if (btnText) btnText.textContent = leakSolutionVisible ? 'Back to Clue Mode' : 'Reveal Leak & Solution';
         }
 
+        // =========================================================================
+        // INTERACTIVE #2: NEURAL DEPENDENCY GRAPH ILLEGAL IMPORT
+        // =========================================================================
         let illegalImportSimulated = false;
         function toggleIllegalGraphImport() {
             illegalImportSimulated = !illegalImportSimulated;
@@ -1824,20 +2107,22 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
             const failTerminal = document.getElementById('graphFailureTerminal');
             const btnText = document.getElementById('graphSimBtnText');
 
-            edge.classList.toggle('hidden', !illegalImportSimulated);
-            coreBox.setAttribute('stroke', illegalImportSimulated ? '#EF4444' : '#38BDF8');
-            coreBox.setAttribute('fill', illegalImportSimulated ? '#3B1219' : '#141F36');
-            cardsBox.setAttribute('stroke', illegalImportSimulated ? '#EF4444' : '#38BDF8');
-            coreLabel.setAttribute('fill', illegalImportSimulated ? '#FCA5A5' : '#F8FAFC');
+            if (edge) edge.classList.toggle('hidden', !illegalImportSimulated);
+            if (coreBox) {
+                coreBox.setAttribute('stroke', illegalImportSimulated ? '#EF4444' : '#38BDF8');
+                coreBox.setAttribute('fill', illegalImportSimulated ? '#3B1219' : '#141F36');
+            }
+            if (cardsBox) cardsBox.setAttribute('stroke', illegalImportSimulated ? '#EF4444' : '#38BDF8');
+            if (coreLabel) coreLabel.setAttribute('fill', illegalImportSimulated ? '#FCA5A5' : '#F8FAFC');
 
-            cleanPanel.classList.toggle('hidden', illegalImportSimulated);
-            failTerminal.classList.toggle('hidden', !illegalImportSimulated);
-
-            btnText.textContent = illegalImportSimulated
-                ? 'Reset Healthy Dependency Graph'
-                : 'Simulate Illegal Upward Import';
+            if (cleanPanel) cleanPanel.classList.toggle('hidden', illegalImportSimulated);
+            if (failTerminal) failTerminal.classList.toggle('hidden', !illegalImportSimulated);
+            if (btnText) btnText.textContent = illegalImportSimulated ? 'Reset Healthy Dependency Graph' : 'Simulate Illegal Upward Import';
         }
 
+        // =========================================================================
+        // INTERACTIVE: CHAOS CI POISON PILL SIMULATION
+        // =========================================================================
         let poisonSimActive = false;
         function runPoisonPillSimulation() {
             if (poisonSimActive) return;
@@ -1847,36 +2132,49 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
             const footer = document.getElementById('poisonPillFooter');
             const items = ['ppItem1', 'ppItem2', 'ppItem3'];
 
-            badge.textContent = 'SYNTHETIC PR OPENED...';
-            badge.className = 'px-2 py-0.5 rounded bg-[#F59E0B]/20 text-[#F59E0B] font-bold';
-            footer.innerHTML = '<span class="text-[#F59E0B]">Running CI gates against intentionally broken synthetic PR...</span>';
+            if (badge) {
+                badge.textContent = 'SYNTHETIC PR OPENED...';
+                badge.className = 'px-2 py-0.5 rounded bg-[#F59E0B]/20 text-[#F59E0B] font-bold';
+            }
+            if (footer) footer.innerHTML = '<span class="text-[#F59E0B]">Running CI gates against intentionally broken synthetic PR...</span>';
 
             items.forEach((id) => {
                 const el = document.getElementById(id);
+                if (!el) return;
                 el.className = 'p-3 rounded-xl bg-[#141F36] border border-slate-800 flex items-center justify-between gap-3';
                 const st = el.querySelector('.pp-status');
-                st.textContent = 'Checking...';
-                st.className = 'pp-status text-xs font-mono text-amber-300 shrink-0';
+                if (st) {
+                    st.textContent = 'Checking...';
+                    st.className = 'pp-status text-xs font-mono text-amber-300 shrink-0';
+                }
             });
 
             items.forEach((id, i) => {
                 setTimeout(() => {
                     const el = document.getElementById(id);
+                    if (!el) return;
                     el.className = 'p-3 rounded-xl bg-[#10B981]/10 border border-[#10B981]/40 flex items-center justify-between gap-3 transition';
                     const st = el.querySelector('.pp-status');
-                    st.textContent = 'BLOCKED ✅';
-                    st.className = 'pp-status text-xs font-mono font-bold text-[#10B981] shrink-0';
+                    if (st) {
+                        st.textContent = 'BLOCKED ✅';
+                        st.className = 'pp-status text-xs font-mono font-bold text-[#10B981] shrink-0';
+                    }
 
                     if (i === items.length - 1) {
-                        badge.textContent = '3 / 3 CAUGHT';
-                        badge.className = 'px-2 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] font-bold';
-                        footer.innerHTML = '<span class="text-[#10B981] font-bold">Safety nets verified!</span> All three injected violations failed the PR as expected.';
+                        if (badge) {
+                            badge.textContent = '3 / 3 CAUGHT';
+                            badge.className = 'px-2 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] font-bold';
+                        }
+                        if (footer) footer.innerHTML = '<span class="text-[#10B981] font-bold">Safety nets verified!</span> All three injected violations failed the PR as expected.';
                         poisonSimActive = false;
                     }
                 }, (i + 1) * 500);
             });
         }
 
+        // =========================================================================
+        // INTERACTIVE #3: HOLD OR ROLL CROWD VOTE & VERDICT
+        // =========================================================================
         let holdVotes = 0;
         let rollVotes = 0;
 
@@ -1893,13 +2191,20 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
         }
 
         function renderCrowdVoteBars() {
-            document.getElementById('holdVoteCount').textContent = holdVotes;
-            document.getElementById('rollVoteCount').textContent = rollVotes;
+            const hCount = document.getElementById('holdVoteCount');
+            const rCount = document.getElementById('rollVoteCount');
+            const hBar = document.getElementById('holdVoteBar');
+            const rBar = document.getElementById('rollVoteBar');
+
+            if (hCount) hCount.textContent = holdVotes;
+            if (rCount) rCount.textContent = rollVotes;
+
             const total = holdVotes + rollVotes;
             const holdPct = total === 0 ? 50 : Math.round((holdVotes / total) * 100);
             const rollPct = total === 0 ? 50 : 100 - holdPct;
-            document.getElementById('holdVoteBar').style.width = `${holdPct}%`;
-            document.getElementById('rollVoteBar').style.width = `${rollPct}%`;
+
+            if (hBar) hBar.style.width = `${holdPct}%`;
+            if (rBar) rBar.style.width = `${rollPct}%`;
         }
 
         let rolloutVerdictVisible = false;
@@ -1909,13 +2214,16 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
             const holdRow = document.getElementById('holdVerdictRow');
             const btnText = document.getElementById('rolloutVerdictBtnText');
 
-            banner.classList.toggle('hidden', !rolloutVerdictVisible);
-            holdRow.classList.toggle('ring-2', rolloutVerdictVisible);
-            holdRow.classList.toggle('ring-[#F59E0B]', rolloutVerdictVisible);
-            btnText.textContent = rolloutVerdictVisible ? 'Hide Automated Verdict' : "Reveal Tide's Automated Verdict";
+            if (banner) banner.classList.toggle('hidden', !rolloutVerdictVisible);
+            if (holdRow) {
+                holdRow.classList.toggle('ring-2', rolloutVerdictVisible);
+                holdRow.classList.toggle('ring-[#F59E0B]', rolloutVerdictVisible);
+            }
+            if (btnText) btnText.textContent = rolloutVerdictVisible ? 'Hide Automated Verdict' : "Reveal Tide's Automated Verdict";
         }
 
-        syncStageUI();
+        // Boot initial slide state
+        syncStageUI(false);
     </script>
 </body>
 
