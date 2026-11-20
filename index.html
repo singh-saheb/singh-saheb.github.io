@@ -152,7 +152,7 @@
     <div class="w-full h-1 bg-slate-900 shrink-0 z-40">
         <div id="topProgressBar"
             class="h-full bg-gradient-to-r from-[#0066FF] via-[#38BDF8] to-[#10B981] transition-all duration-300"
-            style="width: 5%;"></div>
+            style="width: 4.76%;"></div>
     </div>
 
     <!-- Top Subtle Presenter HUD Bar (Hidden on Projector) -->
@@ -551,7 +551,7 @@
                                 <span class="text-[#10B981]">Melos + jq + fromJson</span>
                             </div>
                             <pre
-                                class="text-base sm:text-lg leading-relaxed overflow-x-auto text-slate-200"><code>PACKAGES=$(melos list --diff=origin/${{ github.base_ref }}...HEAD \
+                                class="text-base leading-relaxed overflow-x-auto text-slate-200"><code>PACKAGES=$(melos list --diff=origin/${{ github.base_ref }}...HEAD \
   --include-dependents --json)
 <span class="text-slate-500"># Isolate memory-heavy packages into dedicated batches</span>
 <span class="text-sky-400">if</span> [ <span class="text-emerald-400">"$HAS_UNICLIENT_NAVIGATION"</span> = <span class="text-emerald-400">"true"</span> ]; <span class="text-sky-400">then</span>
@@ -1274,11 +1274,199 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 14: ACT 4 — CHAOS ENGINEERING IN CI ("THE POISON PILL")
+             SLIDE 14: ACT 4 — SHIFT LEFT (FLOW)
+        ================================================================== -->
+                <section class="slide w-full h-full flex-col justify-center"
+                    data-title="Shift Left: Move the Checks to the PR" data-act="ACT 4 • SHIFT LEFT"
+                    data-time="29:30 – 30:30">
+                    <div class="mb-4">
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#10B981] font-bold">ACT 4 • SHIFT LEFT</span>
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
+                            Shift Left: Move the Checks to the PR
+                        </h2>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+                        <div class="flex gap-3">
+                            <button id="shiftBtnBefore" data-state="before" onclick="syncAction('showShiftState', 'before')"
+                                class="shift-state-btn px-4 py-2.5 rounded-xl bg-[#F59E0B]/15 hover:bg-[#F59E0B]/25 border border-[#F59E0B]/50 text-[#F59E0B] font-mono text-sm font-bold transition cursor-pointer">
+                                Before: checks at release
+                            </button>
+                            <button id="shiftBtnAfter" data-state="after" onclick="syncAction('showShiftState', 'after')"
+                                class="shift-state-btn px-4 py-2.5 rounded-xl bg-[#10B981]/15 hover:bg-[#10B981]/25 border border-[#10B981]/50 text-[#10B981] font-mono text-sm font-bold transition cursor-pointer">
+                                After: checks on the PR
+                            </button>
+                        </div>
+                        <div class="font-mono text-sm text-slate-400">Left = earlier = cheaper to fix</div>
+                    </div>
+
+                    <div class="flex items-stretch gap-2.5">
+                            <div class="flex-1 flex flex-col gap-2.5 min-w-0">
+                                <div id="shiftStage-0" class="surface-card rounded-2xl p-4 text-center border-t-4 border-t-[#38BDF8] transition">
+                                    <i class="fa-solid fa-pen-to-square text-3xl text-[#38BDF8] mb-2"></i>
+                                    <div class="font-display text-xl font-bold text-white">Write code</div>
+                                </div>
+                                <div class="min-h-[150px] rounded-xl border border-dashed border-slate-800"></div>
+                                <div class="text-center font-mono text-sm font-bold text-[#10B981]">Fix: cheapest</div>
+                            </div>
+                            <div class="flex items-center pt-6 text-slate-600 text-2xl"><i class="fa-solid fa-chevron-right"></i></div>
+                            <div class="flex-1 flex flex-col gap-2.5 min-w-0">
+                                <div id="shiftStage-1" class="surface-card rounded-2xl p-4 text-center border-t-4 border-t-[#10B981] transition">
+                                    <i class="fa-solid fa-code-pull-request text-3xl text-[#10B981] mb-2"></i>
+                                    <div class="font-display text-xl font-bold text-white">Open PR</div>
+                                </div>
+                                <div id="shiftSlot-1" class="min-h-[150px] flex flex-col gap-2.5 rounded-xl border border-dashed border-slate-700 p-2.5"></div>
+                                <div class="text-center font-mono text-sm font-bold text-[#10B981]">Fix: minutes</div>
+                            </div>
+                            <div class="flex items-center pt-6 text-slate-600 text-2xl"><i class="fa-solid fa-chevron-right"></i></div>
+                            <div class="flex-1 flex flex-col gap-2.5 min-w-0">
+                                <div id="shiftStage-2" class="surface-card rounded-2xl p-4 text-center border-t-4 border-t-[#38BDF8] transition">
+                                    <i class="fa-solid fa-code-merge text-3xl text-[#38BDF8] mb-2"></i>
+                                    <div class="font-display text-xl font-bold text-white">Merge</div>
+                                </div>
+                                <div class="min-h-[150px] rounded-xl border border-dashed border-slate-800"></div>
+                                <div class="text-center font-mono text-sm font-bold text-[#F59E0B]">Fix: hours</div>
+                            </div>
+                            <div class="flex items-center pt-6 text-slate-600 text-2xl"><i class="fa-solid fa-chevron-right"></i></div>
+                            <div class="flex-1 flex flex-col gap-2.5 min-w-0">
+                                <div id="shiftStage-3" class="surface-card rounded-2xl p-4 text-center border-t-4 border-t-[#F59E0B] transition">
+                                    <i class="fa-solid fa-rocket text-3xl text-[#F59E0B] mb-2"></i>
+                                    <div class="font-display text-xl font-bold text-white">Release</div>
+                                </div>
+                                <div id="shiftSlot-3" class="min-h-[150px] flex flex-col gap-2.5 rounded-xl border border-dashed border-slate-700 p-2.5">
+                                    <div id="shiftChip" class="px-3 py-2.5 rounded-xl bg-[#F59E0B]/15 border border-[#F59E0B]/60 text-amber-200 font-mono text-sm font-bold">
+                                        <div><i class="fa-solid fa-shield-halved mr-1.5"></i>SAST + SCA scans</div>
+                                        <div id="shiftMoved" class="hidden text-xs font-normal text-emerald-300 mt-1">← moved left</div>
+                                    </div>
+                                    <div class="px-3 py-2.5 rounded-xl bg-[#38BDF8]/10 border border-[#38BDF8]/40 text-sky-200 font-mono text-sm font-bold"><i class="fa-solid fa-lock mr-1.5"></i>RASP wrap · stays here</div>
+                                </div>
+                                <div class="text-center font-mono text-sm font-bold text-[#F59E0B]">Fix: days</div>
+                            </div>
+                            <div class="flex items-center pt-6 text-slate-600 text-2xl"><i class="fa-solid fa-chevron-right"></i></div>
+                            <div class="flex-1 flex flex-col gap-2.5 min-w-0">
+                                <div id="shiftStage-4" class="surface-card rounded-2xl p-4 text-center border-t-4 border-t-[#EF4444] transition">
+                                    <i class="fa-solid fa-mobile-screen text-3xl text-[#EF4444] mb-2"></i>
+                                    <div class="font-display text-xl font-bold text-white">Users</div>
+                                </div>
+                                <div class="min-h-[150px] rounded-xl border border-dashed border-slate-800"></div>
+                                <div class="text-center font-mono text-sm font-bold text-[#EF4444]">Fix: weeks + incident</div>
+                            </div>
+                    </div>
+
+                    <div class="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+                        <div class="lg:col-span-8 surface-card rounded-2xl p-6">
+                            <div id="shiftPanel-before">
+                                <div class="font-mono text-sm text-[#F59E0B] font-bold uppercase mb-1.5">Today: checks run at release</div>
+                                <h3 class="font-display text-xl font-bold text-white mb-2">A late finding turns into a release problem</h3>
+                                <p class="text-base text-slate-300 leading-relaxed">Security and dependency scans run late. A finding in release week means a rushed fix, a re-run, and a missed cut.</p>
+                            </div>
+                            <div id="shiftPanel-after" class="hidden">
+                                <div class="font-mono text-sm text-[#10B981] font-bold uppercase mb-1.5">Shift left: same checks, earlier</div>
+                                <h3 class="font-display text-xl font-bold text-white mb-2">The author fixes it in minutes</h3>
+                                <p class="text-base text-slate-300 leading-relaxed">The same scans run on every PR. The finding arrives while the change is still fresh, so nothing reaches release that nobody has seen.</p>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-4 surface-card rounded-2xl p-6 border-l-4 border-l-[#38BDF8]">
+                            <div class="font-mono text-sm text-[#38BDF8] font-bold uppercase mb-1.5">The exception</div>
+                            <h3 class="font-display text-xl font-bold text-white mb-2">RASP stays at release</h3>
+                            <p class="text-base text-slate-300 leading-relaxed">It protects the app on the user’s phone. It can only be checked on the shipped binary, so it can’t move left.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =================================================================
+             SLIDE 15: ACT 4 — HARDENING THE SUPPLY CHAIN (SHIFT-LEFT SECURITY)
+        ================================================================== -->
+                <section class="slide w-full h-full flex-col justify-center"
+                    data-title="Hardening the Supply Chain (Shift-Left Security)" data-act="ACT 4 • SHIFT-LEFT SECURITY"
+                    data-time="30:30 – 32:00">
+                    <div class="mb-5">
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#10B981] font-bold">ACT 4 •
+                            SHIFT-LEFT SECURITY</span>
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
+                            Hardening the Supply Chain (Shift-Left Security)
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="surface-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-[#38BDF8]">
+                            <div>
+                                <div class="font-display text-4xl sm:text-5xl font-extrabold text-[#38BDF8] mb-3">98%
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-white mb-3">Immutable Supply Chain</h3>
+                                <p class="text-base text-slate-300 leading-relaxed">
+                                    <strong>98% (497 / 506)</strong> of third-party GitHub Actions pinned to immutable
+                                    commit SHAs; git dependencies restricted to <code
+                                        class="font-mono text-sm text-[#38BDF8]">tideplatform</code>; transitive SPDX
+                                    license allowlist verified on <code
+                                        class="font-mono text-sm text-[#38BDF8]">pubspec.yaml</code> changes.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="surface-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-[#10B981]">
+                            <div>
+                                <div class="font-display text-4xl sm:text-5xl font-extrabold text-[#10B981] mb-3">OIDC
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-white mb-3">Zero Static Secrets</h3>
+                                <p class="text-base text-slate-300 leading-relaxed">
+                                    AWS auth via short-lived OIDC tokens (<code
+                                        class="font-mono text-sm text-emerald-300">id-token: write</code>); per-market
+                                    secret allowlists (<code
+                                        class="font-mono text-sm text-[#38BDF8]">distribute-secret-allowlist.json</code>)
+                                    isolate UK, IN, and EU signing keys; pre-build secret validation fails fast.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="surface-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-[#0066FF]">
+                            <div>
+                                <div class="font-display text-4xl sm:text-5xl font-extrabold text-[#0066FF] mb-3">RASP
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-white mb-3">SAST &amp; App Hardening
+                                </h3>
+                                <p class="text-base text-slate-300 leading-relaxed">
+                                    Blocking Semgrep SAST + supply-chain scans on PRs; release binaries wrapped with
+                                    <strong>Promon SHIELD (RASP)</strong> owned by Product Security.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =================================================================
+             SLIDE 16: SECTION DIVIDER — 03 STABILITY
+        ================================================================== -->
+                <section class="slide w-full h-full flex-col justify-center items-center text-center"
+                    data-title="Section 03: Stability" data-act="KILLER 03 • STABILITY"
+                    data-time="32:00 – 32:15">
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-24 h-24 rounded-3xl bg-[#EF4444]/15 border border-[#EF4444]/40 text-[#EF4444] flex items-center justify-center text-5xl mb-8">
+                            <i class="fa-solid fa-bomb"></i>
+                        </div>
+                        <div class="font-mono text-xl sm:text-2xl font-bold tracking-[0.35em] text-[#EF4444] mb-4">KILLER 03</div>
+                        <h2 class="font-display text-6xl sm:text-8xl lg:text-[136px] font-extrabold text-white leading-none mb-6">Stability</h2>
+                        <p class="text-2xl sm:text-3xl text-slate-300 font-medium">Beating late regressions</p>
+                    </div>
+                    <div class="mt-16 flex flex-wrap items-center justify-center gap-3 font-mono text-base sm:text-lg font-bold">
+                        <span class="px-4 py-2 rounded-xl border border-[#10B981]/40 bg-[#10B981]/10 text-[#10B981]"><i class="fa-solid fa-check mr-2"></i>01 VELOCITY</span>
+                        <span class="w-10 h-px bg-slate-700"></span>
+                        <span class="px-4 py-2 rounded-xl border border-[#10B981]/40 bg-[#10B981]/10 text-[#10B981]"><i class="fa-solid fa-check mr-2"></i>02 QUALITY</span>
+                        <span class="w-10 h-px bg-slate-700"></span>
+                        <span class="px-4 py-2 rounded-xl border-2 border-[#EF4444] bg-[#EF4444]/20 text-[#EF4444]">03 STABILITY</span>
+                    </div>
+                </section>
+
+                <!-- =================================================================
+             SLIDE 17: ACT 4 — CHAOS ENGINEERING IN CI ("THE POISON PILL")
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Who Tests Your Safety Nets? (The Poison Pill)"
-                    data-act="ACT 4 • CHAOS ENGINEERING IN CI" data-time="29:30 – 31:30">
+                    data-act="ACT 4 • CHAOS ENGINEERING IN CI" data-time="32:15 – 33:30">
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-5">
                         <div>
                             <span class="font-mono text-sm uppercase tracking-widest text-[#F59E0B] font-bold">ACT 4 •
@@ -1384,94 +1572,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 15: SECTION DIVIDER — 03 STABILITY
-        ================================================================== -->
-                <section class="slide w-full h-full flex-col justify-center items-center text-center"
-                    data-title="Section 03: Stability" data-act="KILLER 03 • STABILITY"
-                    data-time="31:30 – 31:45">
-                    <div class="flex flex-col items-center">
-                        <div
-                            class="w-24 h-24 rounded-3xl bg-[#EF4444]/15 border border-[#EF4444]/40 text-[#EF4444] flex items-center justify-center text-5xl mb-8">
-                            <i class="fa-solid fa-bomb"></i>
-                        </div>
-                        <div class="font-mono text-xl sm:text-2xl font-bold tracking-[0.35em] text-[#EF4444] mb-4">KILLER 03</div>
-                        <h2 class="font-display text-6xl sm:text-8xl lg:text-[136px] font-extrabold text-white leading-none mb-6">Stability</h2>
-                        <p class="text-2xl sm:text-3xl text-slate-300 font-medium">Beating late regressions</p>
-                    </div>
-                    <div class="mt-16 flex flex-wrap items-center justify-center gap-3 font-mono text-base sm:text-lg font-bold">
-                        <span class="px-4 py-2 rounded-xl border border-[#10B981]/40 bg-[#10B981]/10 text-[#10B981]"><i class="fa-solid fa-check mr-2"></i>01 VELOCITY</span>
-                        <span class="w-10 h-px bg-slate-700"></span>
-                        <span class="px-4 py-2 rounded-xl border border-[#10B981]/40 bg-[#10B981]/10 text-[#10B981]"><i class="fa-solid fa-check mr-2"></i>02 QUALITY</span>
-                        <span class="w-10 h-px bg-slate-700"></span>
-                        <span class="px-4 py-2 rounded-xl border-2 border-[#EF4444] bg-[#EF4444]/20 text-[#EF4444]">03 STABILITY</span>
-                    </div>
-                </section>
-
-                <!-- =================================================================
-             SLIDE 16: ACT 4 — HARDENING THE SUPPLY CHAIN (SHIFT-LEFT SECURITY)
-        ================================================================== -->
-                <section class="slide w-full h-full flex-col justify-center"
-                    data-title="Hardening the Supply Chain (Shift-Left Security)" data-act="ACT 4 • SHIFT-LEFT SECURITY"
-                    data-time="31:45 – 33:30">
-                    <div class="mb-5">
-                        <span class="font-mono text-sm uppercase tracking-widest text-[#10B981] font-bold">ACT 4 •
-                            SHIFT-LEFT SECURITY</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
-                            Hardening the Supply Chain (Shift-Left Security)
-                        </h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div
-                            class="surface-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-[#38BDF8]">
-                            <div>
-                                <div class="font-display text-4xl sm:text-5xl font-extrabold text-[#38BDF8] mb-3">98%
-                                </div>
-                                <h3 class="font-display text-xl font-bold text-white mb-3">Immutable Supply Chain</h3>
-                                <p class="text-base text-slate-300 leading-relaxed">
-                                    <strong>98% (497 / 506)</strong> of third-party GitHub Actions pinned to immutable
-                                    commit SHAs; git dependencies restricted to <code
-                                        class="font-mono text-sm text-[#38BDF8]">tideplatform</code>; transitive SPDX
-                                    license allowlist verified on <code
-                                        class="font-mono text-sm text-[#38BDF8]">pubspec.yaml</code> changes.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="surface-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-[#10B981]">
-                            <div>
-                                <div class="font-display text-4xl sm:text-5xl font-extrabold text-[#10B981] mb-3">OIDC
-                                </div>
-                                <h3 class="font-display text-xl font-bold text-white mb-3">Zero Static Secrets</h3>
-                                <p class="text-base text-slate-300 leading-relaxed">
-                                    AWS auth via short-lived OIDC tokens (<code
-                                        class="font-mono text-sm text-emerald-300">id-token: write</code>); per-market
-                                    secret allowlists (<code
-                                        class="font-mono text-sm text-[#38BDF8]">distribute-secret-allowlist.json</code>)
-                                    isolate UK, IN, and EU signing keys; pre-build secret validation fails fast.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="surface-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-[#0066FF]">
-                            <div>
-                                <div class="font-display text-4xl sm:text-5xl font-extrabold text-[#0066FF] mb-3">RASP
-                                </div>
-                                <h3 class="font-display text-xl font-bold text-white mb-3">SAST &amp; App Hardening
-                                </h3>
-                                <p class="text-base text-slate-300 leading-relaxed">
-                                    Blocking Semgrep SAST + supply-chain scans on PRs; release binaries wrapped with
-                                    <strong>Promon SHIELD (RASP)</strong> owned by Product Security.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- =================================================================
-             SLIDE 17: INTERACTIVE CHALLENGE #3 — THURSDAY 4 PM: HOLD OR ROLL?
+             SLIDE 18: INTERACTIVE CHALLENGE #3 — THURSDAY 4 PM: HOLD OR ROLL?
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Interactive #3: Thursday 4 PM — Hold or Roll?"
@@ -1597,7 +1698,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 18: ACT 5 — LOOKING AHEAD: BAZEL HORIZON
+             SLIDE 19: ACT 5 — LOOKING AHEAD: BAZEL HORIZON
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="The Next Chapter: Bazel Horizon" data-act="ACT 5 • LOOKING AHEAD — BAZEL"
@@ -1667,7 +1768,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 19: ACT 5 — HOW BAZEL WORKS (VISUAL)
+             SLIDE 20: ACT 5 — HOW BAZEL WORKS (VISUAL)
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="How Bazel Works: Fingerprint, Cache, Reuse" data-act="ACT 5 • LOOKING AHEAD — BAZEL"
@@ -1791,7 +1892,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 20: KEY TAKEAWAY & Q&A
+             SLIDE 21: KEY TAKEAWAY & Q&A
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center items-center text-center"
                     data-title="Key Takeaway & Q&A" data-act="KEY TAKEAWAY & Q&A" data-time="38:30 – 40:00">
@@ -1899,7 +2000,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 <div class="flex items-center justify-between">
                     <span id="scriptSlideBadge"
                         class="font-mono text-xs font-bold text-[#0066FF] bg-[#0066FF]/15 px-2.5 py-1 rounded">SLIDE 1
-                        OF 20</span>
+                        OF 21</span>
                     <span id="scriptTimeWindow" class="font-mono text-xs text-slate-400">0:00 – 1:30</span>
                 </div>
                 <h3 id="scriptSlideTitle" class="font-display text-lg font-bold text-white mb-3">When Releases Can't Fail
@@ -1923,7 +2024,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
 
         <div class="font-mono text-xs sm:text-sm font-bold">
             <span id="slideCounterBadge"
-                class="px-3.5 py-1.5 rounded-xl bg-[#141F36] border border-slate-700/80 text-white">1 / 20</span>
+                class="px-3.5 py-1.5 rounded-xl bg-[#141F36] border border-slate-700/80 text-white">1 / 21</span>
         </div>
 
         <div class="flex items-center gap-2 sm:gap-3">
@@ -1946,7 +2047,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
         <div
             class="max-w-[1360px] w-full mx-auto flex items-center justify-between pb-4 mb-5 border-b border-slate-800">
             <div>
-                <h2 class="font-display text-2xl font-extrabold text-white mb-1">All Slides Overview (20 Slides)</h2>
+                <h2 class="font-display text-2xl font-extrabold text-white mb-1">All Slides Overview (21 Slides)</h2>
                 <p class="font-mono text-xs text-slate-400 mt-0.5">Select any slide to jump immediately • Press G or ESC
                     to close</p>
             </div>
@@ -2040,18 +2141,35 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 body: `<p>“To govern AI velocity, we codified four gates: 1) 161 strict lint rules where any <code class="text-amber-300">// ignore:</code> requires Platform team review; 2) Banning direct <code class="text-sky-300">GetIt.instance</code> calls, plus catching missing mandatory initializers/delegates during lazy DI migrations (a real production issue we faced!); 3) Failing null primitive defaults in <code class="text-sky-300">RemoteFeatureFlag</code> to protect telemetry; and 4) Capping PRs at 20 files alongside 269 IaC-generated CODEOWNERS rules.”</p>`
             },
             {
-                time: "29:30 – 31:30",
+                time: "29:30 – 30:30",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[SHIFT LEFT: Point along the line. Left means earlier, and earlier means cheaper.]</strong></p>
+               <p>“Here’s the timeline your code travels: write, open a PR, merge, release, users. Most teams run their security and dependency scans at release, on the right-hand side, where a finding costs days.”</p>
+               <p class="text-amber-300 font-mono text-xs"><strong>[Click BEFORE, then AFTER.]</strong></p>
+               <p>“Now the same scans run on the PR. The author gets the finding in minutes, while the change is still fresh. The pulse is the check moving left. The check itself doesn’t change, only when it runs.”</p>
+               <ul class="list-disc pl-5 space-y-2 text-slate-200"><li><strong>Exception:</strong> RASP stays at release. It protects the app on the user’s phone, so it can only run on the shipped binary.</li></ul>
+               <p class="text-slate-400 font-mono text-xs">Fallback: “Shift left doesn’t remove release checks. It makes the early ones the default.”</p>`
+            },
+            {
+                time: "30:30 – 32:00",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[Point at the three cards: these are the shift-left checks in practice.]</strong></p>
+               <ul class="list-disc pl-5 space-y-2 text-slate-200">
+                   <li><strong>Immutable:</strong> 98% of third-party Actions pinned to exact commit SHAs. A tag can be moved; a SHA can’t.</li>
+                   <li><strong>Zero static secrets:</strong> OIDC gives each job a short-lived AWS token. No keys stored in GitHub to leak.</li>
+                   <li><strong>Per-market allowlists:</strong> UK, IN and EU signing keys are only reachable from their own market’s jobs.</li>
+                   <li><strong>Blocking SAST + SCA:</strong> Semgrep scans code and dependencies on every PR. Findings block the merge.</li>
+                   <li><strong>RASP (the exception):</strong> Promon SHIELD wraps release binaries on the device. Product Security owns it.</li>
+               </ul>
+               <p class="text-slate-400 font-mono text-xs">Fallback if asked why: “Shift left makes the cheap fix the default. Runtime protection is the last line, not the first.”</p>`
+            },
+            {
+                time: "32:00 – 32:15",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[SECTION DIVIDER: Pause a beat and let the title land.]</strong></p>
+               <p>“Killer number three: stability. Two halves: first, test the safety nets themselves. Second, catch what slips through once it’s live, which is where the rollout gate comes in.”</p>`
+            },
+            {
+                time: "32:15 – 33:30",
                 body: `<p class="text-amber-300 font-mono text-xs"><strong>[INTERACTIVE: Click ‘Run Weekend Poison Pill PR’.]</strong></p>
                <p>“We’ve all seen 40 green checkmarks merge and still break <code class="text-sky-300">main</code>. Who tests your safety nets? We use the <strong>Poison Pill</strong>: a scheduled weekend workflow opens a synthetic PR injecting a direct <code class="text-amber-300">Platform.isIOS</code> call, a banned <code class="text-amber-300">GestureDetector</code>, and a null feature flag. If that PR ever gets a green check, page Platform Engineering immediately.”</p>`
-            },
-            {
-                time: "31:30 – 31:45",
-                body: `<p class="text-amber-300 font-mono text-xs"><strong>[SECTION DIVIDER: Pause a beat and let the title land.]</strong></p>
-               <p>“Killer number three: stability. Two halves: catch what would break a release while it’s still a PR, and catch what slips through once it’s live.”</p>`
-            },
-            {
-                time: "31:45 – 33:30",
-                body: `<p>“In regulated fintech, supply-chain security lives inside the PR loop: 98% of third-party Actions are pinned to exact SHAs. Jobs use short-lived OIDC AWS tokens with per-market secret allowlists, blocking Semgrep SAST/SCA scans, and Promon SHIELD RASP wrapping on release binaries.”</p>`
             },
             {
                 time: "33:30 – 36:30",
@@ -2129,6 +2247,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
             if (actionName === 'toggleLeakSolution') toggleLeakSolution();
             if (actionName === 'showGraphState') setGraphState(payload);
             if (actionName === 'showBazelState') setBazelState(payload);
+            if (actionName === 'showShiftState') setShiftState(payload);
             if (actionName === 'runPoisonPillSimulation') runPoisonPillSimulation();
             if (actionName === 'addCrowdVote') addCrowdVote(payload);
             if (actionName === 'resetCrowdVotes') resetCrowdVotes();
@@ -2577,12 +2696,29 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
             document.querySelectorAll('.bz-state-btn').forEach((b) => b.classList.toggle('ring-2', b.dataset.state === state));
         }
 
+        // =========================================================================
+        // ACT 4: SHIFT LEFT (same checks, earlier in the pipeline)
+        // =========================================================================
+        function setShiftState(state) {
+            const isAfter = state === 'after';
+            const chip = document.getElementById('shiftChip');
+            document.getElementById(isAfter ? 'shiftSlot-1' : 'shiftSlot-3').appendChild(chip);
+            chip.classList.toggle('animate-pulse', isAfter);
+            document.getElementById('shiftMoved').classList.toggle('hidden', !isAfter);
+            const pr = document.getElementById('shiftStage-1');
+            pr.classList.toggle('ring-2', isAfter);
+            pr.classList.toggle('ring-[#10B981]', isAfter);
+            ['before', 'after'].forEach((s) => document.getElementById('shiftPanel-' + s).classList.toggle('hidden', s !== state));
+            document.querySelectorAll('.shift-state-btn').forEach((b) => b.classList.toggle('ring-2', b.dataset.state === state));
+        }
+
         // Boot initial slide state
         syncStageUI(false);
         // Interactive #2 opens on the perfect graph (Action 1)
         setGraphState('healthy');
         // Bazel visual opens on Step 1 (fingerprint)
         setBazelState('hash');
+        setShiftState('before');
     </script>
 </body>
 
