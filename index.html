@@ -96,6 +96,12 @@
             transform: translateY(0);
         }
 
+        /* Code-example slides: the code grid takes the full slide height */
+        .slide-code > .grid {
+            flex: 1 1 auto;
+            min-height: 0;
+        }
+
         /* SVG Animated Flow Lines */
         @keyframes flowDown {
             to {
@@ -146,7 +152,7 @@
     <div class="w-full h-1 bg-slate-900 shrink-0 z-40">
         <div id="topProgressBar"
             class="h-full bg-gradient-to-r from-[#0066FF] via-[#38BDF8] to-[#10B981] transition-all duration-300"
-            style="width: 6.25%;"></div>
+            style="width: 5%;"></div>
     </div>
 
     <!-- Top Subtle Presenter HUD Bar (Hidden on Projector) -->
@@ -193,7 +199,7 @@
                     data-time="0:00 – 1:30">
                     <div class="my-auto max-w-5xl">
                         <div
-                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0066FF]/20 border border-[#38BDF8]/35 text-[#38BDF8] font-mono text-xs sm:text-sm font-bold tracking-wider uppercase mb-5">
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0066FF]/20 border border-[#38BDF8]/35 text-[#38BDF8] font-mono text-sm sm:text-base font-bold tracking-wider uppercase mb-5">
                             <i class="fa-solid fa-shield-halved"></i>
                             <span>FLUTTERCON INDIA 2026 • 40-MIN DEEP DIVE</span>
                         </div>
@@ -206,8 +212,8 @@
                         </h1>
 
                         <p
-                            class="text-base sm:text-xl lg:text-2xl text-slate-300 font-medium max-w-3xl leading-relaxed">
-                            Governing AI-velocity code, parallelizing massive monorepos, and automating release risk.
+                            class="text-lg sm:text-xl lg:text-2xl text-slate-300 font-medium max-w-3xl leading-relaxed">
+                            Parallelizing massive monorepos, governing AI-velocity code, and automating release risk.
                         </p>
                     </div>
 
@@ -219,7 +225,7 @@
                                 class="w-9 h-9 rounded-xl bg-slate-800 text-slate-300 flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-robot"></i>
                             </span>
-                            <span class="text-sm sm:text-lg font-semibold text-slate-300">
+                            <span class="text-base sm:text-lg font-semibold text-slate-300">
                                 20 minutes to prompt a feature with AI. <span class="text-white font-bold">3 days of
                                     anxiety to ship it.</span>
                             </span>
@@ -230,7 +236,7 @@
                                 class="w-9 h-9 rounded-xl bg-[#EF4444]/20 border border-[#EF4444]/40 text-[#EF4444] flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-shield-cat"></i>
                             </span>
-                            <span class="text-sm sm:text-lg font-semibold text-slate-200">
+                            <span class="text-base sm:text-lg font-semibold text-slate-200">
                                 When releases can’t fail, <span class="text-[#EF4444] font-extrabold">speed without
                                     guardrails is a liability.</span>
                             </span>
@@ -245,12 +251,12 @@
                     data-title="A Delayed Release Is a Failed Release" data-act="ACT 1 • THE HIGH-STAKES REALITY"
                     data-time="1:30 – 4:30">
                     <div class="mb-5">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] font-bold">ACT 1 • THE
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#38BDF8] font-bold">ACT 1 • THE
                             HIGH-STAKES REALITY</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             A Delayed Release Is a <span class="text-[#F59E0B]">Failed Release</span>
                         </h2>
-                        <p class="text-slate-300 text-sm sm:text-lg mt-1.5">
+                        <p class="text-slate-300 text-base sm:text-lg mt-1.5">
                             Failure isn't just a production crash—it's an off-track release train.
                         </p>
                     </div>
@@ -264,7 +270,7 @@
                                     <i class="fa-solid fa-train-subway"></i>
                                 </div>
                                 <h3 class="font-display text-xl font-bold text-white mb-3">Off-Track Releases Hurt</h3>
-                                <ul class="space-y-2.5 text-sm text-slate-300">
+                                <ul class="space-y-2.5 text-base text-slate-300">
                                     <li class="flex items-start gap-2.5"><span
                                             class="text-[#F59E0B] font-bold">•</span><span>Stuck CI queues stall product
                                             launches and regulatory commitments.</span></li>
@@ -287,7 +293,7 @@
                                 </div>
                                 <h3 class="font-display text-xl font-bold text-white mb-3">The AI Velocity Multiplier
                                 </h3>
-                                <ul class="space-y-2.5 text-sm text-slate-300">
+                                <ul class="space-y-2.5 text-base text-slate-300">
                                     <li class="flex items-start gap-2.5"><span
                                             class="text-[#38BDF8] font-bold">•</span><span>AI assistants generate 10x
                                             more code than human typing speed.</span></li>
@@ -309,7 +315,7 @@
                                     <i class="fa-solid fa-shield-cat"></i>
                                 </div>
                                 <h3 class="font-display text-xl font-bold text-white mb-3">The Core Shift</h3>
-                                <ul class="space-y-2.5 text-sm text-slate-300">
+                                <ul class="space-y-2.5 text-base text-slate-300">
                                     <li class="flex items-start gap-2.5"><span
                                             class="text-[#10B981] font-bold">•</span><span>Stop relying on heroics
                                             during release week.</span></li>
@@ -332,9 +338,9 @@
                     data-title="The Three Silent Killers of Delivery Speed" data-act="ACT 1 • THE BOTTLENECKS"
                     data-time="4:30 – 8:30">
                     <div class="mb-5">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#EF4444] font-bold">ACT 1 • THE
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#EF4444] font-bold">ACT 1 • THE
                             BOTTLENECKS</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             The Three Silent Killers of Delivery Speed
                         </h2>
                     </div>
@@ -344,19 +350,19 @@
                             <div>
                                 <div class="flex items-center justify-between mb-4">
                                     <span
-                                        class="font-mono text-xs font-bold px-3 py-1 rounded-lg bg-[#F59E0B]/15 text-[#F59E0B]">01
+                                        class="font-mono text-sm font-bold px-3 py-1 rounded-lg bg-[#F59E0B]/15 text-[#F59E0B]">01
                                         - VELOCITY</span>
                                     <i class="fa-solid fa-hourglass-half text-2xl text-[#F59E0B]"></i>
                                 </div>
-                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2.5">CI Wait Queues
+                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3">CI Wait Queues
                                 </h3>
-                                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
                                     45+ min validation cycles break developer flow; engineers context-switch and batch
                                     giant PRs; larger PRs = higher blast radius.
                                 </p>
                             </div>
                             <div
-                                class="mt-4 p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-xs text-slate-400">
+                                class="mt-4 p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-sm text-slate-400">
                                 "Pushed a 1-line fix—see you after lunch."
                             </div>
                         </div>
@@ -365,19 +371,19 @@
                             <div>
                                 <div class="flex items-center justify-between mb-4">
                                     <span
-                                        class="font-mono text-xs font-bold px-3 py-1 rounded-lg bg-[#38BDF8]/15 text-[#38BDF8]">02
+                                        class="font-mono text-sm font-bold px-3 py-1 rounded-lg bg-[#38BDF8]/15 text-[#38BDF8]">02
                                         - QUALITY</span>
                                     <i class="fa-solid fa-eye-low-vision text-2xl text-[#38BDF8]"></i>
                                 </div>
-                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2.5">Review Fatigue
+                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3">Review Fatigue
                                 </h3>
-                                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
                                     60-file AI-assisted PRs overwhelm human reviewers; reviewers check variable names
                                     and miss architectural leaks.
                                 </p>
                             </div>
                             <div
-                                class="mt-4 p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-xs text-slate-400">
+                                class="mt-4 p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-sm text-slate-400">
                                 10 lines = 10 comments • 1,000 lines = "LGTM 👍"
                             </div>
                         </div>
@@ -386,20 +392,20 @@
                             <div>
                                 <div class="flex items-center justify-between mb-4">
                                     <span
-                                        class="font-mono text-xs font-bold px-3 py-1 rounded-lg bg-[#EF4444]/15 text-[#EF4444]">03
+                                        class="font-mono text-sm font-bold px-3 py-1 rounded-lg bg-[#EF4444]/15 text-[#EF4444]">03
                                         - STABILITY</span>
                                     <i class="fa-solid fa-bomb text-2xl text-[#EF4444]"></i>
                                 </div>
-                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2.5">Late
+                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3">Late
                                     Regressions</h3>
-                                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
                                     Catching a broken dependency or missing key during release freeze is 100x costlier
                                     than catching it 30s after <code
-                                        class="font-mono text-sm text-[#38BDF8]">git push</code>.
+                                        class="font-mono text-base text-[#38BDF8]">git push</code>.
                                 </p>
                             </div>
                             <div
-                                class="mt-4 p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-xs text-slate-400">
+                                class="mt-4 p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-sm text-slate-400">
                                 Friday 5 PM hotfix scramble = burnout
                             </div>
                         </div>
@@ -407,121 +413,26 @@
                 </section>
 
                 <!-- =================================================================
-             SLIDE 4: INTERACTIVE CHALLENGE #1 — $600/DAY LEAK + SOLUTION
+             SLIDE 4: SECTION DIVIDER — 01 VELOCITY
         ================================================================== -->
-                <section class="slide w-full h-full flex-col justify-center"
-                    data-title="Interactive #1: $600/Day Leak & Solution"
-                    data-act="INTERACTIVE CHALLENGE #1 • 30-SEC DEBUG" data-time="8:30 – 11:30">
-                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-4">
-                        <div>
-                            <span
-                                class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#EF4444] font-bold">
-                                <i class="fa-solid fa-fire"></i> INTERACTIVE CHALLENGE #1 • 30-SEC DEBUG
-                            </span>
-                            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white mt-1">
-                                Spot the <span class="text-[#EF4444]">$600/Day</span> Pipeline Leak <span
-                                    class="text-slate-400 text-lg sm:text-2xl">(And How We Fixed It)</span>
-                            </h2>
-                        </div>
-
-                        <!-- Interactive Stage Controls -->
-                        <div class="flex flex-wrap items-center gap-2.5 shrink-0">
-                            <button id="leakTimerBtn" onclick="syncAction('toggleLeakTimer')"
-                                class="px-3.5 py-2 rounded-xl bg-[#141F36] hover:bg-slate-800 border border-[#F59E0B]/50 text-[#F59E0B] font-mono text-xs sm:text-sm font-bold flex items-center gap-2 transition cursor-pointer">
-                                <i class="fa-solid fa-stopwatch"></i>
-                                <span id="leakTimerText">Start 30s Challenge Timer</span>
-                            </button>
-                            <button id="leakRevealBtn" onclick="syncAction('toggleLeakSolution')"
-                                class="px-4 py-2 rounded-xl bg-[#0066FF] hover:bg-blue-500 text-white font-mono text-xs sm:text-sm font-bold flex items-center gap-2 shadow-lg shadow-blue-600/25 transition cursor-pointer">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                                <span id="leakRevealText">Reveal Leak &amp; Solution</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+                <section class="slide w-full h-full flex-col justify-center items-center text-center"
+                    data-title="Section 01: Velocity" data-act="KILLER 01 • VELOCITY"
+                    data-time="8:30 – 9:00">
+                    <div class="flex flex-col items-center">
                         <div
-                            class="lg:col-span-6 code-box rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-2xl">
-                            <div>
-                                <div
-                                    class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-800 text-xs">
-                                    <span class="text-[#EF4444] font-bold"><i
-                                            class="fa-solid fa-circle-xmark mr-1.5"></i>leaky-pr-matrix.yaml</span>
-                                    <span class="text-slate-400">65 Parallel Matrix Nodes</span>
-                                </div>
-                                <pre class="text-xs sm:text-[13px] leading-relaxed overflow-x-auto text-slate-200"><code><span class="text-sky-400">name</span>: PR Matrix Validation
-<span class="text-sky-400">jobs</span>:
-  <span class="text-sky-400">test</span>:
-    <span class="text-sky-400">strategy</span>:
-      <span class="text-sky-400">matrix</span>:
-        <span class="text-sky-400">package</span>: <span class="text-amber-300">${{ fromJson(needs.setup.outputs.packages) }}</span>
-    <span id="leakHighlight1" class="px-1 rounded transition-colors"><span class="text-sky-400">runs-on</span>: <span class="text-emerald-400">ubuntu-latest</span></span>
-    <span class="text-sky-400">steps</span>:
-      - <span class="text-sky-400">uses</span>: actions/checkout@v4
-      <span id="leakHighlight2" class="px-1 rounded transition-colors">- <span class="text-sky-400">uses</span>: <span class="text-emerald-400">subosito/flutter-action@v2</span></span>
-        <span class="text-sky-400">with</span>:
-          <span class="text-sky-400">flutter-version</span>: <span class="text-emerald-400">'3.24.0'</span>
-      - <span class="text-sky-400">run</span>: flutter test</code></pre>
-                            </div>
-                            <div id="leakWhyFooter"
-                                class="hidden mt-3 pt-2.5 border-t border-slate-800 text-xs text-red-300">
-                                <strong>The Leak:</strong> Every node boots a clean VM and downloads/extracts the
-                                Flutter SDK <strong>65 times per PR</strong> (~$600/day in wasted compute).
-                            </div>
+                            class="w-24 h-24 rounded-3xl bg-[#F59E0B]/15 border border-[#F59E0B]/40 text-[#F59E0B] flex items-center justify-center text-5xl mb-8">
+                            <i class="fa-solid fa-hourglass-half"></i>
                         </div>
-
-                        <div class="lg:col-span-6 flex flex-col">
-                            <div id="leakCluePanel"
-                                class="surface-card rounded-2xl p-6 h-full flex flex-col justify-center border-2 border-dashed border-slate-700">
-                                <div
-                                    class="w-12 h-12 rounded-2xl bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#F59E0B] flex items-center justify-center text-xl mb-4">
-                                    <i class="fa-solid fa-magnifying-glass-dollar"></i>
-                                </div>
-                                <h3 class="font-display text-2xl font-bold text-white mb-2">30-Second Crime Scene Clues
-                                </h3>
-                                <ul class="space-y-2 text-sm text-slate-300 mb-4">
-                                    <li class="flex items-start gap-2"><span
-                                            class="text-[#F59E0B] font-bold">1.</span><span><code
-                                                class="text-[#38BDF8] font-mono text-xs">strategy.matrix</code> fans out
-                                            across up to 65 parallel runners.</span></li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="text-[#F59E0B] font-bold">2.</span><span>Look at <code
-                                                class="text-[#38BDF8] font-mono text-xs">runs-on: ubuntu-latest</code>
-                                            paired with <code
-                                                class="text-[#38BDF8] font-mono text-xs">subosito/flutter-action@v2</code>.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div id="leakSolutionPanel"
-                                class="hidden code-box rounded-2xl p-4 sm:p-5 h-full flex-col justify-between border border-[#10B981]/50 shadow-2xl">
-                                <div>
-                                    <div
-                                        class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-800 text-xs">
-                                        <span class="text-[#10B981] font-bold"><i
-                                                class="fa-solid fa-circle-check mr-1.5"></i>fixed-pr-matrix.yaml</span>
-                                        <span class="text-[#38BDF8]">0s SDK Download</span>
-                                    </div>
-                                    <pre class="text-xs sm:text-[13px] leading-relaxed overflow-x-auto text-slate-200"><code><span class="text-sky-400">jobs</span>:
-  <span class="text-sky-400">test</span>:
-    <span class="text-sky-400">needs</span>: [setup, resolve-image]
-    <span class="text-sky-400">strategy</span>:
-      <span class="text-sky-400">matrix</span>:
-        <span class="text-sky-400">package</span>: <span class="text-amber-300">${{ fromJson(needs.setup.outputs.packages) }}</span>
-    <span class="text-sky-400">runs-on</span>: ubuntu-latest
-    <span class="bg-[#10B981]/20 text-emerald-300 px-1 rounded"><span class="text-sky-400">container</span>:
-      <span class="text-sky-400">image</span>: tideplatform/flutter-ci:3.24.0</span>
-    <span class="text-sky-400">steps</span>:
-      - <span class="text-sky-400">uses</span>: actions/checkout@v4
-      <span class="text-slate-500"># Flutter SDK pre-installed — zero flutter-action step!</span>
-      - <span class="text-sky-400">run</span>: flutter test</code></pre>
-                                </div>
-                                <div class="mt-3 pt-2.5 border-t border-slate-800 text-xs text-emerald-300">
-                                    <strong>The Solution:</strong> Resolve a pre-warmed custom Docker image tag
-                                    dynamically at runtime with Flutter SDK pre-installed.
-                                </div>
-                            </div>
-                        </div>
+                        <div class="font-mono text-xl sm:text-2xl font-bold tracking-[0.35em] text-[#F59E0B] mb-4">KILLER 01</div>
+                        <h2 class="font-display text-6xl sm:text-8xl lg:text-[136px] font-extrabold text-white leading-none mb-6">Velocity</h2>
+                        <p class="text-2xl sm:text-3xl text-slate-300 font-medium">Beating CI wait queues</p>
+                    </div>
+                    <div class="mt-16 flex flex-wrap items-center justify-center gap-3 font-mono text-base sm:text-lg font-bold">
+                        <span class="px-4 py-2 rounded-xl border-2 border-[#F59E0B] bg-[#F59E0B]/20 text-[#F59E0B]">01 VELOCITY</span>
+                        <span class="w-10 h-px bg-slate-700"></span>
+                        <span class="px-4 py-2 rounded-xl border border-slate-700 text-slate-500">02 QUALITY</span>
+                        <span class="w-10 h-px bg-slate-700"></span>
+                        <span class="px-4 py-2 rounded-xl border border-slate-700 text-slate-500">03 STABILITY</span>
                     </div>
                 </section>
 
@@ -530,14 +441,14 @@
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Dynamic Matrix Story (Part 1): Problem & Impact"
-                    data-act="ACT 2 • DYNAMIC MATRIX STORY: PART 1" data-time="11:30 – 14:00">
+                    data-act="ACT 2 • DYNAMIC MATRIX STORY: PART 1" data-time="9:00 – 11:00">
                     <div class="mb-5">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#F59E0B] font-bold">ACT 2 •
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#F59E0B] font-bold">ACT 2 •
                             DYNAMIC MATRIX STORY: PART 1</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             Dynamic Matrix Story: The Original Problem &amp; Impact
                         </h2>
-                        <p class="text-slate-300 text-sm sm:text-lg mt-1">
+                        <p class="text-slate-300 text-base sm:text-lg mt-1">
                             Why naive CI testing collapses when your monorepo scales.
                         </p>
                     </div>
@@ -551,23 +462,25 @@
                                 </span>
                                 <h3 class="font-display text-2xl font-bold text-white">The Original Issue</h3>
                             </div>
-                            <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
+                            <ul class="space-y-3 text-slate-200 text-base sm:text-lg">
                                 <li class="flex items-start gap-3">
                                     <i class="fa-solid fa-cubes text-[#F59E0B] mt-1 shrink-0"></i>
                                     <span>Monorepo grew to hundreds of interconnected local packages.</span>
                                 </li>
                                 <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-list-ol text-[#F59E0B] mt-1 shrink-0"></i>
+                                    <span>Every affected package was tested <strong>sequentially</strong> in a
+                                        single job. Zero parallelism.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
                                     <i class="fa-solid fa-clock text-[#F59E0B] mt-1 shrink-0"></i>
-                                    <span>Sequential test runs took <strong>45–60 minutes</strong> per PR.</span>
+                                    <span>Some PRs took <strong>2h 15m</strong> to test and analyze (398
+                                        packages).</span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-file-circle-exclamation text-[#F59E0B] mt-1 shrink-0"></i>
-                                    <span>Static YAML matrices broke whenever new packages were added.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-memory text-[#F59E0B] mt-1 shrink-0"></i>
-                                    <span>Heavy modules caused runner <strong>Out-Of-Memory (OOM)</strong>
-                                        crashes.</span>
+                                    <i class="fa-solid fa-hourglass-end text-[#F59E0B] mt-1 shrink-0"></i>
+                                    <span>Failures surfaced only at the end: <strong>~1h 4m</strong> just to learn
+                                        a PR was red.</span>
                                 </li>
                             </ul>
                         </div>
@@ -581,7 +494,7 @@
                                 <h3 class="font-display text-2xl font-bold text-white">The Business &amp; Dev Impact
                                 </h3>
                             </div>
-                            <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
+                            <ul class="space-y-3 text-slate-200 text-base sm:text-lg">
                                 <li class="flex items-start gap-3">
                                     <i class="fa-solid fa-shuffle text-[#EF4444] mt-1 shrink-0"></i>
                                     <span>Developers context-switched while waiting on red/green signals.</span>
@@ -593,12 +506,13 @@
                                 </li>
                                 <li class="flex items-start gap-3">
                                     <i class="fa-solid fa-rotate-right text-[#EF4444] mt-1 shrink-0"></i>
-                                    <span>OOM flakes triggered blind <em>'re-run all'</em> clicks multiplying CI
-                                        spend.</span>
+                                    <span>Every fail → fix → re-push cycle cost another 1–2 hours of
+                                        waiting.</span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-traffic-light text-[#EF4444] mt-1 shrink-0"></i>
-                                    <span>Release trains stalled behind one bottlenecked validation queue.</span>
+                                    <i class="fa-solid fa-train-subway text-[#EF4444] mt-1 shrink-0"></i>
+                                    <span>PRs <strong>missed the release cut</strong> while the pipeline was still
+                                        running.</span>
                                 </li>
                             </ul>
                         </div>
@@ -608,30 +522,36 @@
                 <!-- =================================================================
              SLIDE 6: ACT 2 — DYNAMIC MATRIX STORY: PART 2 (SOLUTION & RESULT)
         ================================================================== -->
-                <section class="slide w-full h-full flex-col justify-center"
+                <section class="slide slide-code w-full h-full flex-col justify-center"
                     data-title="Dynamic Matrix Story (Part 2): Solution & Result"
-                    data-act="ACT 2 • DYNAMIC MATRIX STORY: PART 2" data-time="14:00 – 17:00">
+                    data-act="ACT 2 • DYNAMIC MATRIX STORY: PART 2" data-time="11:00 – 14:00">
                     <div class="mb-4">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#10B981] font-bold">ACT 2 •
-                            DYNAMIC MATRIX STORY: PART 2</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <div class="flex flex-wrap items-center gap-3">
+                            <span class="font-mono text-sm uppercase tracking-widest text-[#10B981] font-bold">ACT 2 •
+                                DYNAMIC MATRIX STORY: PART 2</span>
+                            <span
+                                class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#141F36] border border-[#38BDF8]/30 text-[#38BDF8] font-mono text-sm font-semibold">
+                                <i class="fa-solid fa-file-pen"></i> Started as my proposal • Feb 2025
+                            </span>
+                        </div>
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             The Clever Solution: Diff-Aware Dynamic Matrices
                         </h2>
-                        <p class="text-slate-300 text-sm sm:text-base mt-1">
+                        <p class="text-slate-300 text-base sm:text-lg mt-1">
                             Compute the exact blast radius at runtime, isolate heavy modules, and fan out.
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
                         <div
-                            class="lg:col-span-7 code-box rounded-2xl p-4 sm:p-5 flex flex-col justify-center shadow-xl">
+                            class="lg:col-span-7 code-box rounded-2xl p-4 sm:p-5 flex flex-col justify-start shadow-xl">
                             <div
-                                class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-800 text-xs text-slate-400">
+                                class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-800 text-sm text-slate-400">
                                 <span>.github/workflows/pr.yaml</span>
                                 <span class="text-[#10B981]">Melos + jq + fromJson</span>
                             </div>
                             <pre
-                                class="text-xs sm:text-[13px] leading-relaxed overflow-x-auto text-slate-200"><code>PACKAGES=$(melos list --diff=origin/${{ github.base_ref }}...HEAD \
+                                class="text-base sm:text-lg leading-relaxed overflow-x-auto text-slate-200"><code>PACKAGES=$(melos list --diff=origin/${{ github.base_ref }}...HEAD \
   --include-dependents --json)
 <span class="text-slate-500"># Isolate memory-heavy packages into dedicated batches</span>
 <span class="text-sky-400">if</span> [ <span class="text-emerald-400">"$HAS_UNICLIENT_NAVIGATION"</span> = <span class="text-emerald-400">"true"</span> ]; <span class="text-sky-400">then</span>
@@ -649,24 +569,29 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         </div>
 
                         <div
-                            class="lg:col-span-5 surface-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-[#10B981]">
+                            class="lg:col-span-5 surface-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-[#10B981] self-start">
                             <div>
-                                <h3 class="font-display text-2xl font-bold text-white mb-4 flex items-center gap-2.5">
+                                <h3 class="font-display text-2xl font-bold text-white mb-3 flex items-center gap-2.5">
                                     <i class="fa-solid fa-rocket text-[#10B981]"></i>
                                     <span>What It Resulted In</span>
                                 </h3>
-                                <ul class="space-y-3 text-sm sm:text-base text-slate-200">
+                                <div class="grid grid-cols-2 gap-2.5 mb-3.5">
+                                    <div class="p-2.5 rounded-xl bg-[#0F172A] border border-[#10B981]/30">
+                                        <div class="font-mono text-xs text-slate-400 uppercase">398 packages</div>
+                                        <div class="font-display text-lg font-extrabold text-white">2h 15m → <span
+                                                class="text-[#10B981]">~34m</span></div>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-[#0F172A] border border-[#10B981]/30">
+                                        <div class="font-mono text-xs text-slate-400 uppercase">Time to red</div>
+                                        <div class="font-display text-lg font-extrabold text-white">1h 4m → <span
+                                                class="text-[#10B981]">~16m</span></div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2.5 text-base text-slate-200">
                                     <li class="flex items-start gap-2.5">
                                         <i class="fa-solid fa-check text-[#10B981] mt-1 shrink-0"></i>
                                         <span>Tests <strong>ONLY</strong> changed packages + transitive
                                             dependents.</span>
-                                    </li>
-                                    <li class="flex items-start gap-2.5">
-                                        <i class="fa-solid fa-check text-[#10B981] mt-1 shrink-0"></i>
-                                        <span><strong>Zero OOM crashes</strong> via dedicated batches for <code
-                                                class="font-mono text-xs text-[#38BDF8]">uniclient_navigation</code>
-                                            &amp; <code
-                                                class="font-mono text-xs text-[#38BDF8]">uniclient_configuration</code>.</span>
                                     </li>
                                     <li class="flex items-start gap-2.5">
                                         <i class="fa-solid fa-check text-[#10B981] mt-1 shrink-0"></i>
@@ -675,8 +600,16 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                     </li>
                                     <li class="flex items-start gap-2.5">
                                         <i class="fa-solid fa-check text-[#10B981] mt-1 shrink-0"></i>
+                                        <span>Evolved later: OOM-prone <code
+                                                class="font-mono text-sm text-[#38BDF8]">uniclient_navigation</code>
+                                            &amp; <code
+                                                class="font-mono text-sm text-[#38BDF8]">uniclient_configuration</code>
+                                            got dedicated batches.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-check text-[#10B981] mt-1 shrink-0"></i>
                                         <span>Single <code
-                                                class="font-mono text-xs text-emerald-300">final-validation</code>
+                                                class="font-mono text-sm text-emerald-300">final-validation</code>
                                             status check keeps GitHub branch protection static.</span>
                                     </li>
                                 </ul>
@@ -686,15 +619,138 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 7: ACT 2 — FOUR UNIVERSAL CI VELOCITY MULTIPLIERS
+             SLIDE 7: INTERACTIVE CHALLENGE #1 — $600/DAY LEAK + SOLUTION
+        ================================================================== -->
+                <section class="slide slide-code w-full h-full flex-col justify-center"
+                    data-title="Interactive #1: $600/Day Leak & Solution"
+                    data-act="INTERACTIVE CHALLENGE #1 • 30-SEC DEBUG" data-time="14:00 – 17:00">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-4">
+                        <div>
+                            <span
+                                class="inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-[#EF4444] font-bold">
+                                <i class="fa-solid fa-fire"></i> INTERACTIVE CHALLENGE #1 • 30-SEC DEBUG
+                            </span>
+                            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white mt-1 mb-3">
+                                Spot the <span class="text-[#EF4444]">$600/Day</span> Pipeline Leak <span
+                                    class="text-slate-400 text-lg sm:text-2xl">(And How We Fixed It)</span>
+                            </h2>
+                        </div>
+
+                        <!-- Interactive Stage Controls -->
+                        <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+                            <button id="leakTimerBtn" onclick="syncAction('toggleLeakTimer')"
+                                class="px-3.5 py-2 rounded-xl bg-[#141F36] hover:bg-slate-800 border border-[#F59E0B]/50 text-[#F59E0B] font-mono text-sm sm:text-base font-bold flex items-center gap-2 transition cursor-pointer">
+                                <i class="fa-solid fa-stopwatch"></i>
+                                <span id="leakTimerText">Start 30s Challenge Timer</span>
+                            </button>
+                            <button id="leakRevealBtn" onclick="syncAction('toggleLeakSolution')"
+                                class="px-4 py-2 rounded-xl bg-[#0066FF] hover:bg-blue-500 text-white font-mono text-sm sm:text-base font-bold flex items-center gap-2 shadow-lg shadow-blue-600/25 transition cursor-pointer">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <span id="leakRevealText">Reveal Leak &amp; Solution</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+                        <div
+                            class="lg:col-span-6 code-box rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-2xl">
+                            <div>
+                                <div
+                                    class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-800 text-sm">
+                                    <span class="text-[#EF4444] font-bold"><i
+                                            class="fa-solid fa-circle-xmark mr-1.5"></i>leaky-pr-matrix.yaml</span>
+                                    <span class="text-slate-400">22 Parallel Matrix Nodes</span>
+                                </div>
+                                <pre class="text-base sm:text-lg leading-relaxed overflow-x-auto text-slate-200"><code><span class="text-sky-400">name</span>: PR Matrix Validation
+<span class="text-sky-400">jobs</span>:
+  <span class="text-sky-400">test</span>:
+    <span class="text-sky-400">strategy</span>:
+      <span class="text-sky-400">matrix</span>:
+        <span class="text-sky-400">package</span>: <span class="text-amber-300">${{ fromJson(needs.setup.outputs.packages) }}</span>
+    <span id="leakHighlight1" class="px-1 rounded transition-colors"><span class="text-sky-400">runs-on</span>: <span class="text-emerald-400">ubuntu-latest</span></span>
+    <span class="text-sky-400">steps</span>:
+      - <span class="text-sky-400">uses</span>: actions/checkout@v4
+      <span id="leakHighlight2" class="px-1 rounded transition-colors">- <span class="text-sky-400">uses</span>: <span class="text-emerald-400">subosito/flutter-action@v2</span></span>
+        <span class="text-sky-400">with</span>:
+          <span class="text-sky-400">flutter-version</span>: <span class="text-emerald-400">'3.24.0'</span>
+      - <span class="text-sky-400">run</span>: flutter test</code></pre>
+                            </div>
+                            <div id="leakWhyFooter"
+                                class="hidden mt-3 pt-2.5 border-t border-slate-800 text-sm text-red-300">
+                                <strong>The Leak:</strong> Every node boots a clean VM and downloads/extracts the
+                                ~1 GB Flutter SDK <strong>22 times per PR</strong> (~$600/day in wasted compute).
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-6 flex flex-col">
+                            <div id="leakCluePanel"
+                                class="surface-card rounded-2xl p-6 flex flex-col justify-center border-2 border-dashed border-slate-700">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#F59E0B] flex items-center justify-center text-xl mb-4">
+                                    <i class="fa-solid fa-magnifying-glass-dollar"></i>
+                                </div>
+                                <h3 class="font-display text-2xl font-bold text-white mb-3">30-Second Crime Scene Clues
+                                </h3>
+                                <ul class="space-y-2 text-base text-slate-300 mb-4">
+                                    <li class="flex items-start gap-2"><span
+                                            class="text-[#F59E0B] font-bold">1.</span><span><code
+                                                class="text-[#38BDF8] font-mono text-sm">strategy.matrix</code> fans out
+                                            across up to 22 parallel runners.</span></li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="text-[#F59E0B] font-bold">2.</span><span>Look at <code
+                                                class="text-[#38BDF8] font-mono text-sm">runs-on: ubuntu-latest</code>
+                                            paired with <code
+                                                class="text-[#38BDF8] font-mono text-sm">subosito/flutter-action@v2</code>.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="leakSolutionPanel"
+                                class="hidden code-box rounded-2xl p-4 sm:p-5 h-full flex-col justify-between border border-[#10B981]/50 shadow-2xl">
+                                <div>
+                                    <div
+                                        class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-800 text-sm">
+                                        <span class="text-[#10B981] font-bold"><i
+                                                class="fa-solid fa-circle-check mr-1.5"></i>fixed-pr-matrix.yaml</span>
+                                        <span class="text-[#38BDF8]">SDK Baked In + Drift Guard</span>
+                                    </div>
+                                    <pre class="text-base sm:text-lg leading-relaxed overflow-x-auto text-slate-200"><code><span class="text-sky-400">jobs</span>:
+  <span class="bg-[#10B981]/20 text-emerald-300 px-1 rounded"><span class="text-sky-400">resolve-image</span>:  <span class="text-slate-500"># newest ECR tag, no hand-bumps</span></span>
+    <span class="text-sky-400">outputs</span>: { <span class="text-sky-400">image</span>: ... }
+  <span class="text-sky-400">test</span>:
+    <span class="text-sky-400">needs</span>: [setup, resolve-image]
+    <span class="text-sky-400">strategy</span>: { <span class="text-sky-400">matrix</span>: <span class="text-slate-500">&lt;same fan-out&gt;</span> }
+    <span class="bg-[#10B981]/20 text-emerald-300 px-1 rounded"><span class="text-sky-400">runs-on</span>: [self-hosted, flutter]</span>
+    <span class="bg-[#10B981]/20 text-emerald-300 px-1 rounded"><span class="text-sky-400">container</span>:</span>
+      <span class="bg-[#10B981]/20 text-emerald-300 px-1 rounded"><span class="text-sky-400">image</span>: <span class="text-amber-300">${{ needs.resolve-image.outputs.image }}</span></span>
+    <span class="text-sky-400">steps</span>:
+      - <span class="text-sky-400">uses</span>: actions/checkout@v4
+      <span class="bg-[#10B981]/20 text-emerald-300 px-1 rounded">- <span class="text-sky-400">uses</span>: ./.github/actions/init</span>
+        <span class="text-slate-500"># baked SDK == requested? skip download</span>
+        <span class="text-slate-500"># drifted? fall back + alert Slack</span>
+      - <span class="text-sky-400">run</span>: flutter test</code></pre>
+                                </div>
+                                <div class="mt-3 pt-2.5 border-t border-slate-800 text-sm text-emerald-300">
+                                    <strong>The Solution:</strong> Bake the SDK into a self-hosted runner image,
+                                    resolve the newest image tag at runtime, and <strong>guard against drift</strong>.
+                                    If the image falls behind the repo's Flutter version, every job silently
+                                    re-downloads the SDK. That's what cost us ~$600/day.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =================================================================
+             SLIDE 8: ACT 2 — FOUR UNIVERSAL CI VELOCITY MULTIPLIERS
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Four Universal CI Velocity Multipliers" data-act="ACT 2 • ACTIONABLE PLAYBOOK"
                     data-time="17:00 – 19:00">
                     <div class="mb-5">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] font-bold">ACT 2 •
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#38BDF8] font-bold">ACT 2 •
                             ACTIONABLE PLAYBOOK</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             Four Universal CI Velocity Multipliers
                         </h2>
                     </div>
@@ -706,13 +762,13 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                 <i class="fa-solid fa-fire-flame-curved"></i>
                             </div>
                             <div>
-                                <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-1.5">1. Pre-Warmed
+                                <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-3">1. Pre-Warmed
                                     Runner Images &amp; Analyzer Cache</h3>
-                                <p class="text-sm text-slate-300 leading-relaxed">
-                                    Bake Flutter SDK into container images; <code
-                                        class="font-mono text-xs text-[#38BDF8]">warm_analyzer_cache.yaml</code>
+                                <p class="text-base text-slate-300 leading-relaxed">
+                                    Bake the Flutter SDK into runner images (and alert when it drifts); <code
+                                        class="font-mono text-sm text-[#38BDF8]">warm_analyzer_cache.yaml</code>
                                     rebuilds the Dart analyzer cache on every push to <code
-                                        class="font-mono text-xs text-[#38BDF8]">main</code> so PRs restore warm cache
+                                        class="font-mono text-sm text-[#38BDF8]">main</code> so PRs restore warm cache
                                     instantly.
                                 </p>
                             </div>
@@ -724,11 +780,11 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                 <i class="fa-solid fa-ban"></i>
                             </div>
                             <div>
-                                <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-1.5">2. Auto-Cancel
+                                <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-3">2. Auto-Cancel
                                     Stale Runs</h3>
-                                <p class="text-sm text-slate-300 leading-relaxed">
+                                <p class="text-base text-slate-300 leading-relaxed">
                                     Set <code
-                                        class="font-mono text-xs text-emerald-400">concurrency: cancel-in-progress: true</code>
+                                        class="font-mono text-sm text-emerald-400">concurrency: cancel-in-progress: true</code>
                                     on PR workflows so pushing a quick fix immediately kills obsolete runs.
                                 </p>
                             </div>
@@ -740,11 +796,11 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                 <i class="fa-solid fa-scissors"></i>
                             </div>
                             <div>
-                                <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-1.5">3. Sparse
+                                <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-3">3. Sparse
                                     Checkouts for Governance</h3>
-                                <p class="text-sm text-slate-300 leading-relaxed">
+                                <p class="text-base text-slate-300 leading-relaxed">
                                     Dependency graph jobs checkout only <code
-                                        class="font-mono text-xs text-[#38BDF8]">**/pubspec.yaml</code> and the
+                                        class="font-mono text-sm text-[#38BDF8]">**/pubspec.yaml</code> and the
                                     validator script—sub-second clones instead of pulling gigabytes of assets.
                                 </p>
                             </div>
@@ -756,12 +812,12 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                 <i class="fa-solid fa-chart-pie"></i>
                             </div>
                             <div>
-                                <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-1.5">4. Selective
+                                <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-3">4. Selective
                                     Coverage Collection</h3>
-                                <p class="text-sm text-slate-300 leading-relaxed">
+                                <p class="text-base text-slate-300 leading-relaxed">
                                     Collect coverage metrics only for packages with modified <code
-                                        class="font-mono text-xs text-[#38BDF8]">.dart</code> or <code
-                                        class="font-mono text-xs text-[#38BDF8]">pubspec.yaml</code> files.
+                                        class="font-mono text-sm text-[#38BDF8]">.dart</code> or <code
+                                        class="font-mono text-sm text-[#38BDF8]">pubspec.yaml</code> files.
                                 </p>
                             </div>
                         </div>
@@ -769,17 +825,17 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 8: ACT 3 — MID-TALK PIVOT & SPEAKER INTRODUCTION
+             SLIDE 9: ACT 3 — MID-TALK PIVOT & SPEAKER INTRODUCTION
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center" data-title="Mid-Talk Pivot & Speaker Intro"
                     data-act="ACT 3 • THE MID-TALK PIVOT" data-time="19:00 – 21:00">
                     <div class="mb-5">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] font-bold">ACT 3 • THE
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#38BDF8] font-bold">ACT 3 • THE
                             MID-TALK PIVOT</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             Wait—Why Am I Obsessing Over All This?
                         </h2>
-                        <p class="text-slate-300 text-sm sm:text-lg mt-1">
+                        <p class="text-slate-300 text-base sm:text-lg mt-1">
                             Pulling back the curtain on how we battle-test these patterns in production.
                         </p>
                     </div>
@@ -818,7 +874,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                         <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white">Saheb
                                             Singh</h3>
                                         <div
-                                            class="inline-flex items-center gap-2 mt-1.5 px-3 py-1 rounded-lg bg-[#EF4444]/15 border border-[#EF4444]/35 text-xs font-mono text-red-200">
+                                            class="inline-flex items-center gap-2 mt-1.5 px-3 py-1 rounded-lg bg-[#EF4444]/15 border border-[#EF4444]/35 text-sm font-mono text-red-200">
                                             <i class="fa-brands fa-youtube text-[#EF4444]"></i>
                                             <span class="font-bold text-white">The Growing Developer</span>
                                             <span>• 16,000+ Subscribers</span>
@@ -826,7 +882,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                     </div>
                                 </div>
 
-                                <ul class="space-y-3 text-sm sm:text-base text-slate-200">
+                                <ul class="space-y-3 text-base sm:text-lg text-slate-200">
                                     <li class="flex items-center gap-3">
                                         <i class="fa-solid fa-building-columns text-[#0066FF] w-5 text-center"></i>
                                         <span>Senior Software Engineer at <strong>Tide</strong> (Regulated
@@ -842,6 +898,11 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                         <span>Focused on Flutter architecture at scale, CI/CD automation, and developer
                                             experience</span>
                                     </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fa-solid fa-file-pen text-[#10B981] w-5 text-center"></i>
+                                        <span>Proposed &amp; shipped Tide's dynamic test matrix (<strong>2h 15m →
+                                                ~34m</strong>)</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -851,7 +912,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             <div>
                                 <h3 class="font-display text-2xl font-bold text-white mb-4">Why Tide Is Our Case Study
                                 </h3>
-                                <ul class="space-y-4 text-sm sm:text-base text-slate-300">
+                                <ul class="space-y-4 text-base sm:text-lg text-slate-300">
                                     <li class="flex items-start gap-3">
                                         <i class="fa-solid fa-check-circle text-[#38BDF8] mt-1 shrink-0"></i>
                                         <span><strong>Not a theoretical toy app</strong>—battle-tested across 15
@@ -874,19 +935,19 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 9: ACT 3 — WHAT MONOREPO SCALE ACTUALLY LOOKS LIKE
+             SLIDE 10: ACT 3 — WHAT MONOREPO SCALE ACTUALLY LOOKS LIKE
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="What Monorepo Scale Actually Looks Like" data-act="ACT 3 • REAL-WORLD EVIDENCE"
                     data-time="21:00 – 23:00">
                     <div class="mb-5">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] font-bold">ACT 3 •
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#38BDF8] font-bold">ACT 3 •
                             REAL-WORLD EVIDENCE</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             What Monorepo Scale Actually Looks Like
                         </h2>
-                        <p class="text-slate-300 text-sm sm:text-lg mt-1">
-                            Inside Tide's <code class="font-mono text-sm text-[#38BDF8]">universal-client</code> Flutter
+                        <p class="text-slate-300 text-base sm:text-lg mt-1">
+                            Inside Tide's <code class="font-mono text-base text-[#38BDF8]">universal-client</code> Flutter
                             workspace.
                         </p>
                     </div>
@@ -895,12 +956,12 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div
                             class="surface-card rounded-2xl p-6 border-t-4 border-t-[#0066FF] flex flex-col justify-between">
                             <div>
-                                <div class="font-mono text-xs text-slate-400 uppercase mb-2">Workspace Packages</div>
+                                <div class="font-mono text-sm text-slate-400 uppercase mb-2">Workspace Packages</div>
                                 <div class="font-display text-5xl font-extrabold text-white mb-2">968</div>
-                                <div class="text-sm font-semibold text-[#38BDF8] mb-2">15 business domains
+                                <div class="text-base font-semibold text-[#38BDF8] mb-2">15 business domains
                                     ("speedboats")</div>
                             </div>
-                            <p class="text-xs text-slate-400 leading-relaxed pt-3 border-t border-slate-800">
+                            <p class="text-sm text-slate-400 leading-relaxed pt-3 border-t border-slate-800">
                                 734 feature • 94 utility • 85 apps • 28 core • 15 qa • 9 security • 4 app
                             </p>
                         </div>
@@ -908,11 +969,11 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div
                             class="surface-card rounded-2xl p-6 border-t-4 border-t-[#38BDF8] flex flex-col justify-between">
                             <div>
-                                <div class="font-mono text-xs text-slate-400 uppercase mb-2">Hand-Written Dart</div>
+                                <div class="font-mono text-sm text-slate-400 uppercase mb-2">Hand-Written Dart</div>
                                 <div class="font-display text-5xl font-extrabold text-white mb-2">68,612</div>
-                                <div class="text-sm font-semibold text-[#38BDF8] mb-2">+ 16,812 generated files</div>
+                                <div class="text-base font-semibold text-[#38BDF8] mb-2">+ 16,812 generated files</div>
                             </div>
-                            <p class="text-xs text-slate-400 leading-relaxed pt-3 border-t border-slate-800">
+                            <p class="text-sm text-slate-400 leading-relaxed pt-3 border-t border-slate-800">
                                 <code class="font-mono">.g</code> / <code class="font-mono">freezed</code> / <code
                                     class="font-mono">config</code> • Centrally versioned via Dart pub workspaces +
                                 Melos
@@ -922,11 +983,11 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div
                             class="surface-card rounded-2xl p-6 border-t-4 border-t-[#10B981] flex flex-col justify-between">
                             <div>
-                                <div class="font-mono text-xs text-slate-400 uppercase mb-2">Automated Tests</div>
+                                <div class="font-mono text-sm text-slate-400 uppercase mb-2">Automated Tests</div>
                                 <div class="font-display text-5xl font-extrabold text-white mb-2">8,298</div>
-                                <div class="text-sm font-semibold text-[#10B981] mb-2">94% package coverage</div>
+                                <div class="text-base font-semibold text-[#10B981] mb-2">94% package coverage</div>
                             </div>
-                            <p class="text-xs text-slate-400 leading-relaxed pt-3 border-t border-slate-800">
+                            <p class="text-sm text-slate-400 leading-relaxed pt-3 border-t border-slate-800">
                                 <code class="font-mono">*_test.dart</code> + 2,776 BDD <code
                                     class="font-mono">.feature</code> specs + 820 golden PNGs
                             </p>
@@ -935,11 +996,11 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div
                             class="surface-card rounded-2xl p-6 border-t-4 border-t-[#F59E0B] flex flex-col justify-between">
                             <div>
-                                <div class="font-mono text-xs text-slate-400 uppercase mb-2">Parallel PR Jobs</div>
+                                <div class="font-mono text-sm text-slate-400 uppercase mb-2">Parallel PR Jobs</div>
                                 <div class="font-display text-5xl font-extrabold text-white mb-2">20</div>
-                                <div class="text-sm font-semibold text-[#F59E0B] mb-2">Across 89 workflows</div>
+                                <div class="text-base font-semibold text-[#F59E0B] mb-2">Across 89 workflows</div>
                             </div>
-                            <p class="text-xs text-slate-400 leading-relaxed pt-3 border-t border-slate-800">
+                            <p class="text-sm text-slate-400 leading-relaxed pt-3 border-t border-slate-800">
                                 79 composite actions &amp; 10 reusable <code class="font-mono">workflow_call</code>
                                 workflows
                             </p>
@@ -948,31 +1009,50 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 10: INTERACTIVE CHALLENGE #2 — NEURAL DEPENDENCY GRAPH
+             SLIDE 11: SECTION DIVIDER — 02 QUALITY
+        ================================================================== -->
+                <section class="slide w-full h-full flex-col justify-center items-center text-center"
+                    data-title="Section 02: Quality" data-act="KILLER 02 • QUALITY"
+                    data-time="23:00 – 23:15">
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-24 h-24 rounded-3xl bg-[#38BDF8]/15 border border-[#38BDF8]/40 text-[#38BDF8] flex items-center justify-center text-5xl mb-8">
+                            <i class="fa-solid fa-eye-low-vision"></i>
+                        </div>
+                        <div class="font-mono text-xl sm:text-2xl font-bold tracking-[0.35em] text-[#38BDF8] mb-4">KILLER 02</div>
+                        <h2 class="font-display text-6xl sm:text-8xl lg:text-[136px] font-extrabold text-white leading-none mb-6">Quality</h2>
+                        <p class="text-2xl sm:text-3xl text-slate-300 font-medium">Beating review fatigue</p>
+                    </div>
+                    <div class="mt-16 flex flex-wrap items-center justify-center gap-3 font-mono text-base sm:text-lg font-bold">
+                        <span class="px-4 py-2 rounded-xl border border-[#10B981]/40 bg-[#10B981]/10 text-[#10B981]"><i class="fa-solid fa-check mr-2"></i>01 VELOCITY</span>
+                        <span class="w-10 h-px bg-slate-700"></span>
+                        <span class="px-4 py-2 rounded-xl border-2 border-[#38BDF8] bg-[#38BDF8]/20 text-[#38BDF8]">02 QUALITY</span>
+                        <span class="w-10 h-px bg-slate-700"></span>
+                        <span class="px-4 py-2 rounded-xl border border-slate-700 text-slate-500">03 STABILITY</span>
+                    </div>
+                </section>
+
+                <!-- =================================================================
+             SLIDE 12: INTERACTIVE CHALLENGE #2 — NEURAL DEPENDENCY GRAPH
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Interactive #2: Neural Dependency Graph"
-                    data-act="INTERACTIVE CHALLENGE #2 • LIVE DIAGNOSIS" data-time="23:00 – 26:00">
+                    data-act="INTERACTIVE CHALLENGE #2 • LIVE DIAGNOSIS" data-time="23:15 – 26:00">
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-4">
                         <div>
-                            <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] font-bold">
+                            <span class="font-mono text-sm uppercase tracking-widest text-[#38BDF8] font-bold">
                                 INTERACTIVE CHALLENGE #2 • LIVE DIAGNOSIS
                             </span>
-                            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white mt-1">
+                            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white mt-1 mb-3">
                                 Why Does This PR Fail in Under 15 Seconds?
                             </h2>
                         </div>
 
-                        <button id="graphSimBtn" onclick="syncAction('toggleIllegalGraphImport')"
-                            class="px-4 py-2 rounded-xl bg-[#EF4444] hover:bg-red-500 text-white font-mono text-xs sm:text-sm font-bold flex items-center gap-2 shadow-lg shadow-red-600/25 transition cursor-pointer shrink-0">
-                            <i class="fa-solid fa-bug"></i>
-                            <span id="graphSimBtnText">Simulate Illegal Upward Import</span>
-                        </button>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
                         <div class="lg:col-span-7 code-box rounded-2xl p-4 shadow-2xl">
-                            <svg viewBox="0 0 660 380" class="w-full h-auto max-h-[345px]">
+                            <svg viewBox="0 0 660 380" class="w-full h-auto">
                                 <defs>
                                     <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6"
                                         markerHeight="6" orient="auto-start-reverse">
@@ -1027,33 +1107,66 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         </div>
 
                         <div class="lg:col-span-5 flex flex-col gap-4">
+                            <div class="grid grid-cols-3 gap-2.5">
+                                <button id="graphBtnHealthy" data-state="healthy" onclick="syncAction('showGraphState', 'healthy')"
+                                    class="graph-state-btn px-3 py-2.5 rounded-xl bg-[#10B981]/15 hover:bg-[#10B981]/25 border border-[#10B981]/50 text-[#10B981] font-mono text-sm font-bold text-left transition cursor-pointer">
+                                    <span class="block text-xs font-normal uppercase opacity-75">Action 1</span>Perfect graph
+                                </button>
+                                <button id="graphBtnGreen" data-state="green" onclick="syncAction('showGraphState', 'green')"
+                                    class="graph-state-btn px-3 py-2.5 rounded-xl bg-[#F59E0B]/15 hover:bg-[#F59E0B]/25 border border-[#F59E0B]/50 text-[#F59E0B] font-mono text-sm font-bold text-left transition cursor-pointer">
+                                    <span class="block text-xs font-normal uppercase opacity-75">Action 2</span>Looks green
+                                </button>
+                                <button id="graphBtnRed" data-state="red" onclick="syncAction('showGraphState', 'red')"
+                                    class="graph-state-btn px-3 py-2.5 rounded-xl bg-[#EF4444]/15 hover:bg-[#EF4444]/25 border border-[#EF4444]/50 text-[#EF4444] font-mono text-sm font-bold text-left transition cursor-pointer">
+                                    <span class="block text-xs font-normal uppercase opacity-75">Action 3</span>Highlight the fault
+                                </button>
+                            </div>
+
                             <div id="graphCleanPanel"
                                 class="surface-card rounded-2xl p-6 border-l-4 border-l-[#10B981]">
-                                <div class="font-mono text-xs text-[#10B981] font-bold uppercase mb-1.5">STRICT 5-LAYER
+                                <div class="font-mono text-sm text-[#10B981] font-bold uppercase mb-1.5">STRICT 5-LAYER
                                     HIERARCHY</div>
-                                <h3 class="font-display text-xl font-bold text-white mb-2">Dependencies Only Flow
+                                <h3 class="font-display text-xl font-bold text-white mb-3">Dependencies Only Flow
                                     Downward</h3>
-                                <p class="text-sm text-slate-300 leading-relaxed mb-3">
+                                <p class="text-base text-slate-300 leading-relaxed mb-3">
                                     <code
-                                        class="text-[#38BDF8] font-mono text-xs">app (4) -&gt; apps (85) -&gt; feature (734) -&gt; core (28) -&gt; utility (94)</code>.
+                                        class="text-[#38BDF8] font-mono text-sm">app (4) -&gt; apps (85) -&gt; feature (734) -&gt; core (28) -&gt; utility (94)</code>.
                                     Lower layers have zero knowledge of upper layers.
                                 </p>
                                 <div
-                                    class="p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-xs text-slate-400">
-                                    Click <span class="text-[#EF4444] font-bold">Simulate Illegal Upward Import</span>
-                                    to trigger our PR graph gate.
+                                    class="p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-sm text-slate-400">
+                                    Press <span class="text-[#F59E0B] font-bold">Action 2</span> to run the node check on this graph.
+                                </div>
+                            </div>
+
+                            <div id="graphPassedTerminal"
+                                class="hidden code-box rounded-2xl p-5 border border-[#F59E0B]/60 bg-[#F59E0B]/10">
+                                <div
+                                    class="flex items-center justify-between pb-2 mb-2.5 border-b border-amber-500/30 text-sm">
+                                    <span class="text-[#10B981] font-bold"><i
+                                            class="fa-solid fa-circle-check mr-1.5"></i>GRAPH STATUS: ALL GREEN</span>
+                                    <span class="text-amber-300">NODE CHECK ONLY</span>
+                                </div>
+                                <p class="text-sm text-amber-100 leading-relaxed mb-3">
+                                    Every node reports healthy, so the whole graph shows green. The check looks at each
+                                    package on its own. It never checks which way the arrows point.
+                                </p>
+                                <div
+                                    class="p-3 rounded-xl bg-[#070B14] border border-amber-500/30 text-sm text-amber-300 space-y-1">
+                                    <div>• <span class="text-white">28 / 28</span> nodes healthy</div>
+                                    <div>• <span class="text-white">edge direction</span> not checked</div>
                                 </div>
                             </div>
 
                             <div id="graphFailureTerminal"
                                 class="hidden code-box rounded-2xl p-5 border border-[#EF4444]/60 bg-[#EF4444]/10">
                                 <div
-                                    class="flex items-center justify-between pb-2 mb-2.5 border-b border-red-500/30 text-xs">
+                                    class="flex items-center justify-between pb-2 mb-2.5 border-b border-red-500/30 text-sm">
                                     <span class="text-[#EF4444] font-bold"><i
                                             class="fa-solid fa-circle-xmark mr-1.5"></i>CI GATE FAILED (12s)</span>
                                     <span class="text-red-300">EXIT 1</span>
                                 </div>
-                                <p class="text-xs text-red-200 leading-relaxed mb-3">
+                                <p class="text-sm text-red-200 leading-relaxed mb-3">
                                     <strong>Blast Radius Explosion:</strong> Importing <code
                                         class="text-white">feature/cards</code> inside <code
                                         class="text-white">core/network</code> transitively couples <em>every</em>
@@ -1061,7 +1174,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                     monorepo!
                                 </p>
                                 <div
-                                    class="p-3 rounded-xl bg-[#070B14] border border-red-500/30 text-[11px] text-red-300 space-y-1">
+                                    class="p-3 rounded-xl bg-[#070B14] border border-red-500/30 text-sm text-red-300 space-y-1">
                                     <div>• <span class="text-white">scripts/validate_dependency_graph/rules.py</span> (8
                                         named rules)</div>
                                     <div>• <span class="text-white">melos list --cycles</span> → Posts sticky PR cycle
@@ -1073,18 +1186,18 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 11: ACT 4 — GOVERNING AI VELOCITY: QUALITY RULES AS CODE
+             SLIDE 13: ACT 4 — GOVERNING AI VELOCITY: QUALITY RULES AS CODE
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Governing AI Velocity: Quality Rules as Code" data-act="ACT 4 • AUTOMATED GOVERNANCE"
                     data-time="26:00 – 29:30">
                     <div class="mb-5">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] font-bold">ACT 4 •
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#38BDF8] font-bold">ACT 4 •
                             AUTOMATED GOVERNANCE</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             Governing AI Velocity: Quality Rules as Code
                         </h2>
-                        <p class="text-slate-300 text-sm sm:text-lg mt-1">
+                        <p class="text-slate-300 text-base sm:text-lg mt-1">
                             Replacing human review fatigue with deterministic PR guardrails.
                         </p>
                     </div>
@@ -1093,19 +1206,19 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div class="surface-card rounded-2xl p-6">
                             <div class="flex items-center justify-between mb-2.5">
                                 <span
-                                    class="font-mono text-xs px-2.5 py-1 rounded bg-[#0066FF]/20 text-[#38BDF8] font-bold">ANALYZER
+                                    class="font-mono text-sm px-2.5 py-1 rounded bg-[#0066FF]/20 text-[#38BDF8] font-bold">ANALYZER
                                     + DANGER</span>
                                 <i class="fa-solid fa-eye-slash text-[#38BDF8]"></i>
                             </div>
-                            <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-1.5">1. No Silent Lint
+                            <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-3">1. No Silent Lint
                                 Ignores</h3>
-                            <p class="text-sm text-slate-300 leading-relaxed">
+                            <p class="text-base text-slate-300 leading-relaxed">
                                 161 strict lint rules + <code
-                                    class="font-mono text-xs text-[#38BDF8]">strict-casts</code> + <code
-                                    class="font-mono text-xs text-[#38BDF8]">strict-raw-types</code>. Adding <code
-                                    class="font-mono text-xs text-amber-300">// ignore:</code> triggers Danger to
+                                    class="font-mono text-sm text-[#38BDF8]">strict-casts</code> + <code
+                                    class="font-mono text-sm text-[#38BDF8]">strict-raw-types</code>. Adding <code
+                                    class="font-mono text-sm text-amber-300">// ignore:</code> triggers Danger to
                                 require <code
-                                    class="font-mono text-xs text-sky-300">@tideplatform/ght-mwp-client-platform</code>
+                                    class="font-mono text-sm text-sky-300">@tideplatform/ght-mwp-client-platform</code>
                                 review.
                             </p>
                         </div>
@@ -1113,16 +1226,16 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div class="surface-card rounded-2xl p-6">
                             <div class="flex items-center justify-between mb-2.5">
                                 <span
-                                    class="font-mono text-xs px-2.5 py-1 rounded bg-[#EF4444]/15 text-[#EF4444] font-bold">STARTUP
+                                    class="font-mono text-sm px-2.5 py-1 rounded bg-[#EF4444]/15 text-[#EF4444] font-bold">STARTUP
                                     PROTECTION</span>
                                 <i class="fa-solid fa-syringe text-[#EF4444]"></i>
                             </div>
-                            <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-1.5">2. Strict DI
+                            <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-3">2. Strict DI
                                 Discipline</h3>
-                            <p class="text-sm text-slate-300 leading-relaxed">
-                                Direct <code class="font-mono text-xs text-red-300">GetIt.I</code> / <code
-                                    class="font-mono text-xs text-red-300">GetIt.instance</code> calls are banned in
-                                widgets; <code class="font-mono text-xs text-[#38BDF8]">check_lazy_di.py</code> blocks
+                            <p class="text-base text-slate-300 leading-relaxed">
+                                Direct <code class="font-mono text-sm text-red-300">GetIt.I</code> / <code
+                                    class="font-mono text-sm text-red-300">GetIt.instance</code> calls are banned in
+                                widgets; <code class="font-mono text-sm text-[#38BDF8]">check_lazy_di.py</code> blocks
                                 barrel files missing mandatory initializers/delegates that trigger eager startup DI.
                             </p>
                         </div>
@@ -1130,15 +1243,15 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div class="surface-card rounded-2xl p-6">
                             <div class="flex items-center justify-between mb-2.5">
                                 <span
-                                    class="font-mono text-xs px-2.5 py-1 rounded bg-[#10B981]/15 text-[#10B981] font-bold">FINTECH
+                                    class="font-mono text-sm px-2.5 py-1 rounded bg-[#10B981]/15 text-[#10B981] font-bold">FINTECH
                                     TELEMETRY</span>
                                 <i class="fa-solid fa-toggle-on text-[#10B981]"></i>
                             </div>
-                            <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-1.5">3. Fintech
+                            <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-3">3. Fintech
                                 Feature-Flag Safety</h3>
-                            <p class="text-sm text-slate-300 leading-relaxed">
+                            <p class="text-base text-slate-300 leading-relaxed">
                                 Null primitive defaults in <code
-                                    class="font-mono text-xs text-[#38BDF8]">RemoteFeatureFlag&lt;bool?&gt;</code> fail
+                                    class="font-mono text-sm text-[#38BDF8]">RemoteFeatureFlag&lt;bool?&gt;</code> fail
                                 Danger so LaunchDarkly typed variations &amp; telemetry never break.
                             </p>
                         </div>
@@ -1146,13 +1259,13 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div class="surface-card rounded-2xl p-6">
                             <div class="flex items-center justify-between mb-2.5">
                                 <span
-                                    class="font-mono text-xs px-2.5 py-1 rounded bg-[#F59E0B]/15 text-[#F59E0B] font-bold">REVIEW
+                                    class="font-mono text-sm px-2.5 py-1 rounded bg-[#F59E0B]/15 text-[#F59E0B] font-bold">REVIEW
                                     HYGIENE</span>
                                 <i class="fa-solid fa-users-gear text-[#F59E0B]"></i>
                             </div>
-                            <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-1.5">4. Human-Sized
+                            <h3 class="font-display text-lg sm:text-xl font-bold text-white mb-3">4. Human-Sized
                                 Reviews &amp; Ownership</h3>
-                            <p class="text-sm text-slate-300 leading-relaxed">
+                            <p class="text-base text-slate-300 leading-relaxed">
                                 PRs &gt; 20 non-generated files fail automatically unless justified; 269 CODEOWNERS
                                 rules across 28 teams generated from IaC.
                             </p>
@@ -1161,26 +1274,26 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 12: ACT 4 — CHAOS ENGINEERING IN CI ("THE POISON PILL")
+             SLIDE 14: ACT 4 — CHAOS ENGINEERING IN CI ("THE POISON PILL")
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Who Tests Your Safety Nets? (The Poison Pill)"
                     data-act="ACT 4 • CHAOS ENGINEERING IN CI" data-time="29:30 – 31:30">
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-5">
                         <div>
-                            <span class="font-mono text-xs uppercase tracking-widest text-[#F59E0B] font-bold">ACT 4 •
+                            <span class="font-mono text-sm uppercase tracking-widest text-[#F59E0B] font-bold">ACT 4 •
                                 CHAOS ENGINEERING IN CI</span>
-                            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                                 Who Tests Your Safety Nets? (The Poison Pill)
                             </h2>
-                            <p class="text-slate-300 text-sm sm:text-lg mt-1">
-                                40 green checkmarks... and <code class="font-mono text-sm text-[#38BDF8]">main</code>
+                            <p class="text-slate-300 text-base sm:text-lg mt-1">
+                                40 green checkmarks... and <code class="font-mono text-base text-[#38BDF8]">main</code>
                                 still catches fire.
                             </p>
                         </div>
 
                         <button id="poisonBtn" onclick="syncAction('runPoisonPillSimulation')"
-                            class="px-4 py-2.5 rounded-xl bg-[#F59E0B] hover:bg-amber-400 text-[#070B14] font-mono text-xs sm:text-sm font-extrabold flex items-center gap-2 shadow-lg shadow-amber-500/20 transition cursor-pointer shrink-0">
+                            class="px-4 py-2.5 rounded-xl bg-[#F59E0B] hover:bg-amber-400 text-[#070B14] font-mono text-sm sm:text-base font-extrabold flex items-center gap-2 shadow-lg shadow-amber-500/20 transition cursor-pointer shrink-0">
                             <i class="fa-solid fa-flask-vial"></i>
                             <span>Run Weekend Poison Pill PR</span>
                         </button>
@@ -1189,7 +1302,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
                         <div class="lg:col-span-5 surface-card rounded-2xl p-6 flex flex-col justify-between">
                             <div>
-                                <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-xs mb-4">
+                                <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-sm mb-4">
                                     <div class="flex items-center justify-between text-emerald-400 mb-1.5">
                                         <span><i class="fa-solid fa-circle-check mr-1"></i> 40 Green Checkmarks</span>
                                         <span
@@ -1199,15 +1312,15 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                         🔥"</div>
                                     <div class="text-[#EF4444] font-bold">17:04 UTC: main branch broken!</div>
                                 </div>
-                                <h3 class="font-display text-xl font-bold text-white mb-2">The False Confidence Trap
+                                <h3 class="font-display text-xl font-bold text-white mb-3">The False Confidence Trap
                                 </h3>
-                                <p class="text-sm text-slate-300 leading-relaxed">
+                                <p class="text-base text-slate-300 leading-relaxed">
                                     A broken regex in a custom linter script or a Danger rule silently exiting <code
-                                        class="font-mono text-xs text-amber-300">0</code> makes your guardrails
+                                        class="font-mono text-sm text-amber-300">0</code> makes your guardrails
                                     decorative—until a bad PR slips through.
                                 </p>
                             </div>
-                            <div class="mt-4 pt-3 border-t border-slate-800 font-mono text-xs text-[#F59E0B]">
+                            <div class="mt-4 pt-3 border-t border-slate-800 font-mono text-sm text-[#F59E0B]">
                                 Never trust a guardrail you haven't intentionally tripped.
                             </div>
                         </div>
@@ -1215,7 +1328,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div class="lg:col-span-7 code-box rounded-2xl p-5 flex flex-col justify-between shadow-2xl">
                             <div>
                                 <div
-                                    class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-800 text-xs">
+                                    class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-800 text-sm">
                                     <span class="text-[#38BDF8] font-bold">The “Poison Pill” Pattern • Synthetic
                                         PR</span>
                                     <span id="poisonPillHeaderBadge"
@@ -1226,43 +1339,43 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                     <div id="ppItem1"
                                         class="p-3 rounded-xl bg-[#141F36] border border-slate-800 flex items-center justify-between gap-3">
                                         <div>
-                                            <div class="text-xs sm:text-sm text-white font-semibold">Direct <code
+                                            <div class="text-sm sm:text-base text-white font-semibold">Direct <code
                                                     class="text-amber-300">Platform.isIOS</code> call (bypassing <code
                                                     class="text-sky-300">PlatformWrapper</code>)</div>
-                                            <div class="text-[11px] text-slate-400">Gate: Danger <code
+                                            <div class="text-sm text-slate-400">Gate: Danger <code
                                                     class="text-sky-300">checkPlatformUsage</code></div>
                                         </div>
-                                        <span class="pp-status text-xs font-mono text-slate-400 shrink-0">Pending</span>
+                                        <span class="pp-status text-sm font-mono text-slate-400 shrink-0">Pending</span>
                                     </div>
 
                                     <div id="ppItem2"
                                         class="p-3 rounded-xl bg-[#141F36] border border-slate-800 flex items-center justify-between gap-3">
                                         <div>
-                                            <div class="text-xs sm:text-sm text-white font-semibold">Banned <code
+                                            <div class="text-sm sm:text-base text-white font-semibold">Banned <code
                                                     class="text-amber-300">GestureDetector</code> / <code
                                                     class="text-amber-300">InkWell</code> widget</div>
-                                            <div class="text-[11px] text-slate-400">Gate: <code
+                                            <div class="text-sm text-slate-400">Gate: <code
                                                     class="text-sky-300">scripts/banned_widgets.sh</code></div>
                                         </div>
-                                        <span class="pp-status text-xs font-mono text-slate-400 shrink-0">Pending</span>
+                                        <span class="pp-status text-sm font-mono text-slate-400 shrink-0">Pending</span>
                                     </div>
 
                                     <div id="ppItem3"
                                         class="p-3 rounded-xl bg-[#141F36] border border-slate-800 flex items-center justify-between gap-3">
                                         <div>
-                                            <div class="text-xs sm:text-sm text-white font-semibold"><code
+                                            <div class="text-sm sm:text-base text-white font-semibold"><code
                                                     class="text-amber-300">RemoteFeatureFlag&lt;bool?&gt;('key', null)</code>
                                             </div>
-                                            <div class="text-[11px] text-slate-400">Gate: Danger <code
+                                            <div class="text-sm text-slate-400">Gate: Danger <code
                                                     class="text-sky-300">checkNullDefaultPrimitiveFlags</code></div>
                                         </div>
-                                        <span class="pp-status text-xs font-mono text-slate-400 shrink-0">Pending</span>
+                                        <span class="pp-status text-sm font-mono text-slate-400 shrink-0">Pending</span>
                                     </div>
                                 </div>
                             </div>
 
                             <div id="poisonPillFooter"
-                                class="mt-3 p-3 rounded-xl bg-[#141F36] border border-slate-800 text-xs text-slate-300">
+                                class="mt-3 p-3 rounded-xl bg-[#141F36] border border-slate-800 text-sm text-slate-300">
                                 If any synthetic violation receives a green checkmark, Platform Engineering is paged
                                 immediately.
                             </div>
@@ -1271,15 +1384,39 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 13: ACT 4 — HARDENING THE SUPPLY CHAIN (SHIFT-LEFT SECURITY)
+             SLIDE 15: SECTION DIVIDER — 03 STABILITY
+        ================================================================== -->
+                <section class="slide w-full h-full flex-col justify-center items-center text-center"
+                    data-title="Section 03: Stability" data-act="KILLER 03 • STABILITY"
+                    data-time="31:30 – 31:45">
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-24 h-24 rounded-3xl bg-[#EF4444]/15 border border-[#EF4444]/40 text-[#EF4444] flex items-center justify-center text-5xl mb-8">
+                            <i class="fa-solid fa-bomb"></i>
+                        </div>
+                        <div class="font-mono text-xl sm:text-2xl font-bold tracking-[0.35em] text-[#EF4444] mb-4">KILLER 03</div>
+                        <h2 class="font-display text-6xl sm:text-8xl lg:text-[136px] font-extrabold text-white leading-none mb-6">Stability</h2>
+                        <p class="text-2xl sm:text-3xl text-slate-300 font-medium">Beating late regressions</p>
+                    </div>
+                    <div class="mt-16 flex flex-wrap items-center justify-center gap-3 font-mono text-base sm:text-lg font-bold">
+                        <span class="px-4 py-2 rounded-xl border border-[#10B981]/40 bg-[#10B981]/10 text-[#10B981]"><i class="fa-solid fa-check mr-2"></i>01 VELOCITY</span>
+                        <span class="w-10 h-px bg-slate-700"></span>
+                        <span class="px-4 py-2 rounded-xl border border-[#10B981]/40 bg-[#10B981]/10 text-[#10B981]"><i class="fa-solid fa-check mr-2"></i>02 QUALITY</span>
+                        <span class="w-10 h-px bg-slate-700"></span>
+                        <span class="px-4 py-2 rounded-xl border-2 border-[#EF4444] bg-[#EF4444]/20 text-[#EF4444]">03 STABILITY</span>
+                    </div>
+                </section>
+
+                <!-- =================================================================
+             SLIDE 16: ACT 4 — HARDENING THE SUPPLY CHAIN (SHIFT-LEFT SECURITY)
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Hardening the Supply Chain (Shift-Left Security)" data-act="ACT 4 • SHIFT-LEFT SECURITY"
-                    data-time="31:30 – 33:30">
+                    data-time="31:45 – 33:30">
                     <div class="mb-5">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#10B981] font-bold">ACT 4 •
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#10B981] font-bold">ACT 4 •
                             SHIFT-LEFT SECURITY</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             Hardening the Supply Chain (Shift-Left Security)
                         </h2>
                     </div>
@@ -1290,13 +1427,13 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             <div>
                                 <div class="font-display text-4xl sm:text-5xl font-extrabold text-[#38BDF8] mb-3">98%
                                 </div>
-                                <h3 class="font-display text-xl font-bold text-white mb-2.5">Immutable Supply Chain</h3>
-                                <p class="text-sm text-slate-300 leading-relaxed">
+                                <h3 class="font-display text-xl font-bold text-white mb-3">Immutable Supply Chain</h3>
+                                <p class="text-base text-slate-300 leading-relaxed">
                                     <strong>98% (497 / 506)</strong> of third-party GitHub Actions pinned to immutable
                                     commit SHAs; git dependencies restricted to <code
-                                        class="font-mono text-xs text-[#38BDF8]">tideplatform</code>; transitive SPDX
+                                        class="font-mono text-sm text-[#38BDF8]">tideplatform</code>; transitive SPDX
                                     license allowlist verified on <code
-                                        class="font-mono text-xs text-[#38BDF8]">pubspec.yaml</code> changes.
+                                        class="font-mono text-sm text-[#38BDF8]">pubspec.yaml</code> changes.
                                 </p>
                             </div>
                         </div>
@@ -1306,12 +1443,12 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             <div>
                                 <div class="font-display text-4xl sm:text-5xl font-extrabold text-[#10B981] mb-3">OIDC
                                 </div>
-                                <h3 class="font-display text-xl font-bold text-white mb-2.5">Zero Static Secrets</h3>
-                                <p class="text-sm text-slate-300 leading-relaxed">
+                                <h3 class="font-display text-xl font-bold text-white mb-3">Zero Static Secrets</h3>
+                                <p class="text-base text-slate-300 leading-relaxed">
                                     AWS auth via short-lived OIDC tokens (<code
-                                        class="font-mono text-xs text-emerald-300">id-token: write</code>); per-market
+                                        class="font-mono text-sm text-emerald-300">id-token: write</code>); per-market
                                     secret allowlists (<code
-                                        class="font-mono text-xs text-[#38BDF8]">distribute-secret-allowlist.json</code>)
+                                        class="font-mono text-sm text-[#38BDF8]">distribute-secret-allowlist.json</code>)
                                     isolate UK, IN, and EU signing keys; pre-build secret validation fails fast.
                                 </p>
                             </div>
@@ -1322,9 +1459,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             <div>
                                 <div class="font-display text-4xl sm:text-5xl font-extrabold text-[#0066FF] mb-3">RASP
                                 </div>
-                                <h3 class="font-display text-xl font-bold text-white mb-2.5">SAST &amp; App Hardening
+                                <h3 class="font-display text-xl font-bold text-white mb-3">SAST &amp; App Hardening
                                 </h3>
-                                <p class="text-sm text-slate-300 leading-relaxed">
+                                <p class="text-base text-slate-300 leading-relaxed">
                                     Blocking Semgrep SAST + supply-chain scans on PRs; release binaries wrapped with
                                     <strong>Promon SHIELD (RASP)</strong> owned by Product Security.
                                 </p>
@@ -1334,23 +1471,23 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 14: INTERACTIVE CHALLENGE #3 — THURSDAY 4 PM: HOLD OR ROLL?
+             SLIDE 17: INTERACTIVE CHALLENGE #3 — THURSDAY 4 PM: HOLD OR ROLL?
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="Interactive #3: Thursday 4 PM — Hold or Roll?"
                     data-act="INTERACTIVE CHALLENGE #3 • CROWD VOTE" data-time="33:30 – 36:30">
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-4">
                         <div>
-                            <span class="font-mono text-xs uppercase tracking-widest text-[#EF4444] font-bold">
+                            <span class="font-mono text-sm uppercase tracking-widest text-[#EF4444] font-bold">
                                 INTERACTIVE CHALLENGE #3 • CROWD VOTE
                             </span>
-                            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-1">
+                            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-1 mb-3">
                                 Thursday 4 PM: Do You Hold or Roll?
                             </h2>
                         </div>
 
                         <button id="rolloutVerdictBtn" onclick="syncAction('toggleRolloutVerdict')"
-                            class="px-4 py-2.5 rounded-xl bg-[#0066FF] hover:bg-blue-500 text-white font-mono text-xs sm:text-sm font-bold flex items-center gap-2 shadow-lg shadow-blue-600/25 transition cursor-pointer shrink-0">
+                            class="px-4 py-2.5 rounded-xl bg-[#0066FF] hover:bg-blue-500 text-white font-mono text-sm sm:text-base font-bold flex items-center gap-2 shadow-lg shadow-blue-600/25 transition cursor-pointer shrink-0">
                             <i class="fa-solid fa-robot"></i>
                             <span id="rolloutVerdictBtnText">Reveal Tide's Automated Verdict</span>
                         </button>
@@ -1360,7 +1497,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                         <div class="lg:col-span-6 code-box rounded-2xl p-5 flex flex-col justify-between shadow-2xl">
                             <div>
                                 <div
-                                    class="flex items-center justify-between pb-2.5 mb-3.5 border-b border-slate-800 text-xs">
+                                    class="flex items-center justify-between pb-2.5 mb-3.5 border-b border-slate-800 text-sm">
                                     <span class="text-[#38BDF8] font-bold">UK PRODUCTION • 20% ROLLOUT</span>
                                     <span class="text-slate-400">Live Telemetry</span>
                                 </div>
@@ -1368,20 +1505,20 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                 <div class="space-y-3 mb-4">
                                     <div
                                         class="p-3 rounded-xl bg-[#141F36] border border-slate-800 flex items-center justify-between">
-                                        <span class="text-sm text-slate-200 font-medium">Overall Crash-Free
+                                        <span class="text-base text-slate-200 font-medium">Overall Crash-Free
                                             Sessions</span>
                                         <span class="text-xl font-extrabold text-[#10B981]">99.9%</span>
                                     </div>
                                     <div
                                         class="p-3 rounded-xl bg-[#141F36] border border-slate-800 flex items-center justify-between">
-                                        <span class="text-sm text-slate-200 font-medium">Global App ANR Rate</span>
+                                        <span class="text-base text-slate-200 font-medium">Global App ANR Rate</span>
                                         <span class="text-xl font-extrabold text-[#10B981]">0.3%</span>
                                     </div>
                                     <div
                                         class="p-3 rounded-xl bg-[#F59E0B]/15 border border-[#F59E0B]/50 flex items-center justify-between">
                                         <div>
-                                            <div class="text-sm text-white font-bold">Android 13 Segment ANR Rate</div>
-                                            <div class="text-[11px] text-amber-300">Spike in last 2 hours (Caution)
+                                            <div class="text-base text-white font-bold">Android 13 Segment ANR Rate</div>
+                                            <div class="text-sm text-amber-300">Spike in last 2 hours (Caution)
                                             </div>
                                         </div>
                                         <span class="text-xl font-extrabold text-[#F59E0B]">1.1%</span>
@@ -1390,21 +1527,21 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             </div>
 
                             <div class="pt-3 border-t border-slate-800">
-                                <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                                <div class="flex items-center justify-between text-sm text-slate-400 mb-2">
                                     <span>LIVE AUDIENCE HAND TALLY</span>
                                     <button onclick="syncAction('resetCrowdVotes')"
                                         class="hover:text-white underline cursor-pointer">Reset</button>
                                 </div>
                                 <div class="grid grid-cols-2 gap-3 mb-2.5">
                                     <button onclick="syncAction('addCrowdVote', 'hold')"
-                                        class="py-2.5 px-3 rounded-xl bg-[#F59E0B]/20 hover:bg-[#F59E0B]/30 border border-[#F59E0B]/50 text-[#F59E0B] font-bold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer">
+                                        class="py-2.5 px-3 rounded-xl bg-[#F59E0B]/20 hover:bg-[#F59E0B]/30 border border-[#F59E0B]/50 text-[#F59E0B] font-bold text-sm sm:text-base flex items-center justify-between transition cursor-pointer">
                                         <span>Vote HOLD</span>
-                                        <span id="holdVoteCount" class="text-white text-base">0</span>
+                                        <span id="holdVoteCount" class="text-white text-lg">0</span>
                                     </button>
                                     <button onclick="syncAction('addCrowdVote', 'roll')"
-                                        class="py-2.5 px-3 rounded-xl bg-[#10B981]/20 hover:bg-[#10B981]/30 border border-[#10B981]/50 text-[#10B981] font-bold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer">
+                                        class="py-2.5 px-3 rounded-xl bg-[#10B981]/20 hover:bg-[#10B981]/30 border border-[#10B981]/50 text-[#10B981] font-bold text-sm sm:text-base flex items-center justify-between transition cursor-pointer">
                                         <span>Vote ROLL</span>
-                                        <span id="rollVoteCount" class="text-white text-base">0</span>
+                                        <span id="rollVoteCount" class="text-white text-lg">0</span>
                                     </button>
                                 </div>
                                 <div class="w-full h-2.5 rounded-full bg-slate-900 overflow-hidden flex">
@@ -1418,19 +1555,19 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
 
                         <div class="lg:col-span-6 surface-card rounded-2xl p-6 flex flex-col justify-between">
                             <div>
-                                <div class="font-mono text-xs text-[#38BDF8] font-bold uppercase mb-2">
+                                <div class="font-mono text-sm text-[#38BDF8] font-bold uppercase mb-2">
                                     android_automated_gradual_rollout.yaml
                                 </div>
                                 <h3 class="font-display text-2xl font-bold text-white mb-3">
                                     Mathematical Release Gating
                                 </h3>
-                                <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                                <p class="text-base text-slate-300 leading-relaxed mb-4">
                                     Twice-daily cron runs <code
-                                        class="font-mono text-xs text-[#38BDF8]">tide-release android gradual-rollout --check-metrics</code>
+                                        class="font-mono text-sm text-[#38BDF8]">tide-release android gradual-rollout --check-metrics</code>
                                     across UK, IN, and EU markets—eliminating emotional Slack debates.
                                 </p>
 
-                                <div class="space-y-2.5 text-xs sm:text-sm">
+                                <div class="space-y-2.5 text-sm sm:text-base">
                                     <div
                                         class="p-3 rounded-xl bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-between">
                                         <span class="font-mono font-bold text-[#10B981]">PROGRESS</span>
@@ -1451,7 +1588,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             </div>
 
                             <div id="rolloutVerdictBanner"
-                                class="hidden mt-4 p-3.5 rounded-xl bg-[#F59E0B]/20 border border-[#F59E0B] text-xs sm:text-sm text-amber-100">
+                                class="hidden mt-4 p-3.5 rounded-xl bg-[#F59E0B]/20 border border-[#F59E0B] text-sm sm:text-base text-amber-100">
                                 <strong>Automated Verdict: HOLD</strong> — Android 13 ANR spike triggers caution range;
                                 expansion pauses automatically without human debate.
                             </div>
@@ -1460,15 +1597,15 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 15: ACT 5 — LOOKING AHEAD: BAZEL HORIZON
+             SLIDE 18: ACT 5 — LOOKING AHEAD: BAZEL HORIZON
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center"
                     data-title="The Next Chapter: Bazel Horizon" data-act="ACT 5 • LOOKING AHEAD — BAZEL"
-                    data-time="36:30 – 38:30">
+                    data-time="36:30 – 37:30">
                     <div class="mb-5">
-                        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] font-bold">ACT 5 •
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#38BDF8] font-bold">ACT 5 •
                             LOOKING AHEAD — BAZEL</span>
-                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1">
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
                             The Next Chapter: Exploring the Bazel Horizon
                         </h2>
                     </div>
@@ -1479,7 +1616,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             <div>
                                 <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-4">The Limitation of
                                     Diff-Based Gates</h3>
-                                <ul class="space-y-3 text-sm sm:text-base text-slate-300">
+                                <ul class="space-y-3 text-base sm:text-lg text-slate-300">
                                     <li class="flex items-start gap-2.5">
                                         <i class="fa-solid fa-eye-low-vision text-[#F59E0B] mt-1 shrink-0"></i>
                                         <span>Diff gates are fantastic at stopping <strong>NEW</strong> debt in changed
@@ -1489,7 +1626,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                         <i class="fa-solid fa-triangle-exclamation text-[#F59E0B] mt-1 shrink-0"></i>
                                         <span>However, they cannot easily clean up <strong>OLD</strong> legacy debt
                                             sitting quietly on <code
-                                                class="font-mono text-xs text-[#38BDF8]">main</code> in untouched
+                                                class="font-mono text-sm text-[#38BDF8]">main</code> in untouched
                                             files.</span>
                                     </li>
                                     <li class="flex items-start gap-2.5">
@@ -1506,7 +1643,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                             <div>
                                 <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-4">Why Teams Explore
                                     Bazel</h3>
-                                <ul class="space-y-3 text-sm sm:text-base text-slate-300">
+                                <ul class="space-y-3 text-base sm:text-lg text-slate-300">
                                     <li class="flex items-start gap-2.5">
                                         <i class="fa-solid fa-boxes-packing text-[#10B981] mt-1 shrink-0"></i>
                                         <span><strong>True Monorepo Scale:</strong> Orchestrates Dart, Flutter, iOS, and
@@ -1530,13 +1667,137 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 </section>
 
                 <!-- =================================================================
-             SLIDE 16: KEY TAKEAWAY & Q&A
+             SLIDE 19: ACT 5 — HOW BAZEL WORKS (VISUAL)
+        ================================================================== -->
+                <section class="slide w-full h-full flex-col justify-center"
+                    data-title="How Bazel Works: Fingerprint, Cache, Reuse" data-act="ACT 5 • LOOKING AHEAD — BAZEL"
+                    data-time="37:30 – 38:30">
+                    <div class="mb-4">
+                        <span class="font-mono text-sm uppercase tracking-widest text-[#38BDF8] font-bold">ACT 5 •
+                            LOOKING AHEAD — BAZEL</span>
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-1 mb-3">
+                            How Bazel Works: Fingerprint, Cache, Reuse
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                        <div class="lg:col-span-7 code-box rounded-2xl p-4 shadow-2xl">
+                            <svg viewBox="0 0 760 420" class="w-full h-auto">
+                                <defs>
+                                    <marker id="bzArrowSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
+                                    </marker>
+                                    <marker id="bzArrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#10B981" />
+                                    </marker>
+                                    <marker id="bzArrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#F59E0B" />
+                                    </marker>
+                                </defs>
+                                <line id="bzEdge-apps-cards" x1="220" y1="74" x2="140" y2="122" stroke="#475569" stroke-width="2.5" marker-end="url(#bzArrowSlate)" />
+                                <line id="bzEdge-apps-payments" x1="280" y1="74" x2="360" y2="122" stroke="#475569" stroke-width="2.5" marker-end="url(#bzArrowSlate)" />
+                                <line id="bzEdge-cards-network" x1="140" y1="184" x2="220" y2="232" stroke="#475569" stroke-width="2.5" marker-end="url(#bzArrowSlate)" />
+                                <line id="bzEdge-payments-network" x1="360" y1="184" x2="280" y2="232" stroke="#475569" stroke-width="2.5" marker-end="url(#bzArrowSlate)" />
+                                <line id="bzEdge-network-utility" x1="250" y1="294" x2="250" y2="342" stroke="#475569" stroke-width="2.5" marker-end="url(#bzArrowSlate)" />
+                                <g id="bzNode-apps">
+                                    <rect x="135" y="16" width="230" height="58" rx="10" fill="#141F36" stroke="#38BDF8" stroke-width="2" />
+                                    <text x="250" y="41" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono" font-size="16" font-weight="700">//apps:uniclient</text>
+                                    <text class="bz-hash" x="250" y="63" text-anchor="middle" fill="#94A3B8" font-family="JetBrains Mono" font-size="14">#7c21</text>
+                                </g>
+                                <g id="bzNode-cards">
+                                    <rect x="20" y="126" width="215" height="58" rx="10" fill="#141F36" stroke="#38BDF8" stroke-width="2" />
+                                    <text x="127.5" y="151" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono" font-size="16" font-weight="700">//feature:cards</text>
+                                    <text class="bz-hash" x="127.5" y="173" text-anchor="middle" fill="#94A3B8" font-family="JetBrains Mono" font-size="14">#a3f9</text>
+                                </g>
+                                <g id="bzNode-payments">
+                                    <rect x="265" y="126" width="215" height="58" rx="10" fill="#141F36" stroke="#38BDF8" stroke-width="2" />
+                                    <text x="372.5" y="151" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono" font-size="16" font-weight="700">//feature:payments</text>
+                                    <text class="bz-hash" x="372.5" y="173" text-anchor="middle" fill="#94A3B8" font-family="JetBrains Mono" font-size="14">#51be</text>
+                                </g>
+                                <g id="bzNode-network">
+                                    <rect x="135" y="236" width="230" height="58" rx="10" fill="#141F36" stroke="#38BDF8" stroke-width="2" />
+                                    <text x="250" y="261" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono" font-size="16" font-weight="700">//core:network</text>
+                                    <text class="bz-hash" x="250" y="283" text-anchor="middle" fill="#94A3B8" font-family="JetBrains Mono" font-size="14">#e08d</text>
+                                </g>
+                                <g id="bzNode-utility">
+                                    <rect x="135" y="346" width="230" height="58" rx="10" fill="#141F36" stroke="#38BDF8" stroke-width="2" />
+                                    <text x="250" y="371" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono" font-size="16" font-weight="700">//utility:format</text>
+                                    <text class="bz-hash" x="250" y="393" text-anchor="middle" fill="#94A3B8" font-family="JetBrains Mono" font-size="14">#9f44</text>
+                                </g>
+                                <!-- Shared remote cache -->
+                                <path id="bzCacheBody" d="M 560 120 v 180 a 85 18 0 0 0 170 0 v -180" fill="#141F36" stroke="#475569" stroke-width="2" />
+                                <ellipse id="bzCacheTop" cx="645" cy="120" rx="85" ry="18" fill="#1E293B" stroke="#475569" stroke-width="2" />
+                                <text x="645" y="196" text-anchor="middle" fill="#F8FAFC" font-family="JetBrains Mono" font-size="17" font-weight="700">Remote cache</text>
+                                <text x="645" y="222" text-anchor="middle" fill="#38BDF8" font-family="JetBrains Mono" font-size="15">AWS S3</text>
+                                <text x="645" y="246" text-anchor="middle" fill="#94A3B8" font-family="JetBrains Mono" font-size="13">CI + every laptop</text>
+                                <g id="bzUpload" class="hidden">
+                                    <line x1="488" y1="200" x2="552" y2="200" stroke="#10B981" stroke-width="3" class="flow-down" marker-end="url(#bzArrowGreen)" />
+                                    <text x="520" y="188" text-anchor="middle" fill="#10B981" font-family="JetBrains Mono" font-size="13" font-weight="700">upload</text>
+                                </g>
+                                <g id="bzDownload" class="hidden">
+                                    <line x1="552" y1="230" x2="488" y2="230" stroke="#10B981" stroke-width="3" class="flow-down" marker-end="url(#bzArrowGreen)" />
+                                    <text x="520" y="256" text-anchor="middle" fill="#10B981" font-family="JetBrains Mono" font-size="13" font-weight="700">3 hits</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="lg:col-span-5 flex flex-col gap-4">
+                            <div class="grid grid-cols-3 gap-2.5">
+                                <button data-state="hash" onclick="syncAction('showBazelState', 'hash')"
+                                    class="bz-state-btn px-3 py-2.5 rounded-xl bg-[#38BDF8]/15 hover:bg-[#38BDF8]/25 border border-[#38BDF8]/50 text-[#38BDF8] font-mono text-sm font-bold text-left transition cursor-pointer">
+                                    <span class="block text-xs font-normal uppercase opacity-75">Step 1</span>Fingerprint
+                                </button>
+                                <button data-state="cache" onclick="syncAction('showBazelState', 'cache')"
+                                    class="bz-state-btn px-3 py-2.5 rounded-xl bg-[#10B981]/15 hover:bg-[#10B981]/25 border border-[#10B981]/50 text-[#10B981] font-mono text-sm font-bold text-left transition cursor-pointer">
+                                    <span class="block text-xs font-normal uppercase opacity-75">Step 2</span>CI builds once
+                                </button>
+                                <button data-state="change" onclick="syncAction('showBazelState', 'change')"
+                                    class="bz-state-btn px-3 py-2.5 rounded-xl bg-[#F59E0B]/15 hover:bg-[#F59E0B]/25 border border-[#F59E0B]/50 text-[#F59E0B] font-mono text-sm font-bold text-left transition cursor-pointer">
+                                    <span class="block text-xs font-normal uppercase opacity-75">Step 3</span>Change one file
+                                </button>
+                            </div>
+
+                            <div id="bzPanel-hash" class="surface-card rounded-2xl p-6 border-l-4 border-l-[#38BDF8]">
+                                <div class="font-mono text-sm text-[#38BDF8] font-bold uppercase mb-1.5">Hermetic builds</div>
+                                <h3 class="font-display text-xl font-bold text-white mb-3">Every target gets a fingerprint</h3>
+                                <p class="text-base text-slate-300 leading-relaxed mb-3">Bazel splits the repo into small targets and hashes everything that goes into each one. No network, no machine-specific paths: <strong>same inputs, same output</strong>, on any machine.</p>
+                                <div class="p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-sm text-slate-300 space-y-1">
+                                    <div>• <span class="text-[#38BDF8]">key</span> = sha256(source + deps + toolchain + flags)</div>
+                                    <div>• <span class="text-white">1,119</span> BUILD.bazel files generated by Gazelle</div>
+                                </div>
+                            </div>
+
+                            <div id="bzPanel-cache" class="hidden surface-card rounded-2xl p-6 border-l-4 border-l-[#10B981]">
+                                <div class="font-mono text-sm text-[#10B981] font-bold uppercase mb-1.5">Shared remote cache</div>
+                                <h3 class="font-display text-xl font-bold text-white mb-3">CI builds once, everyone reuses it</h3>
+                                <p class="text-base text-slate-300 leading-relaxed mb-3">CI uploads each output to S3, keyed by its fingerprint. Every CI runner and every laptop reads from the same cache.</p>
+                                <div class="p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-sm text-slate-300 space-y-1">
+                                    <div>• CI: read-write</div>
+                                    <div>• Fork PRs: read-only (<span class="text-emerald-300">--config=ci-ro</span>)</div>
+                                </div>
+                            </div>
+
+                            <div id="bzPanel-change" class="hidden surface-card rounded-2xl p-6 border-l-4 border-l-[#F59E0B]">
+                                <div class="font-mono text-sm text-[#F59E0B] font-bold uppercase mb-1.5">Only the blast radius rebuilds</div>
+                                <h3 class="font-display text-xl font-bold text-white mb-3">Change one file in cards</h3>
+                                <p class="text-base text-slate-300 leading-relaxed mb-3">The fingerprint of <code class="font-mono text-sm text-[#38BDF8]">cards</code> changes, and so does every target that depends on it. Everything else is a cache hit: <strong>downloaded, not rebuilt</strong>.</p>
+                                <div class="p-3 rounded-xl bg-[#0F172A] border border-slate-800 font-mono text-sm text-slate-300 space-y-1">
+                                    <div>• <span class="text-amber-300">2</span> rebuilt • <span class="text-emerald-300">3</span> from cache</div>
+                                    <div>• Fully cached iOS simulator build: <span class="text-white">1.3s</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =================================================================
+             SLIDE 20: KEY TAKEAWAY & Q&A
         ================================================================== -->
                 <section class="slide w-full h-full flex-col justify-center items-center text-center"
                     data-title="Key Takeaway & Q&A" data-act="KEY TAKEAWAY & Q&A" data-time="38:30 – 40:00">
                     <div class="max-w-4xl w-full flex flex-col items-center">
                         <span
-                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#10B981]/15 border border-[#10B981]/40 text-[#10B981] font-mono text-xs font-bold tracking-wider uppercase mb-5">
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#10B981]/15 border border-[#10B981]/40 text-[#10B981] font-mono text-sm font-bold tracking-wider uppercase mb-5">
                             <i class="fa-solid fa-check-double"></i> KEY TAKEAWAY &amp; Q&amp;A
                         </span>
 
@@ -1547,8 +1808,8 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                 pipeline must.</span>”
                         </h2>
 
-                        <p class="font-mono text-xs sm:text-sm text-[#38BDF8] font-semibold mb-7">
-                            Codify your architecture &nbsp;•&nbsp; Parallelize by blast radius &nbsp;•&nbsp; Automate
+                        <p class="font-mono text-sm sm:text-base text-[#38BDF8] font-semibold mb-7">
+                            Parallelize by blast radius &nbsp;•&nbsp; Codify your architecture &nbsp;•&nbsp; Automate
                             your risk tolerance
                         </p>
 
@@ -1573,10 +1834,10 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                                 </div>
                                 <div>
                                     <div class="font-display text-lg sm:text-xl font-extrabold text-white">
-                                        Saheb Singh <span class="text-xs font-mono font-normal text-slate-400">— Senior
+                                        Saheb Singh <span class="text-sm font-mono font-normal text-slate-400">— Senior
                                             Software Engineer @ Tide</span>
                                     </div>
-                                    <div class="text-xs font-mono text-red-200 mt-1 flex items-center gap-1.5">
+                                    <div class="text-sm font-mono text-red-200 mt-1 flex items-center gap-1.5">
                                         <i class="fa-brands fa-youtube text-[#EF4444]"></i>
                                         <span>YouTube: <strong class="text-white">The Growing Developer</strong>
                                             (16,000+ Subscribers)</span>
@@ -1586,9 +1847,9 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
 
                             <div
                                 class="sm:text-right border-t sm:border-t-0 pt-3 sm:pt-0 border-slate-800 w-full sm:w-auto">
-                                <div class="font-mono text-xs text-[#38BDF8] font-bold uppercase">Thank You Bengaluru!
+                                <div class="font-mono text-sm text-[#38BDF8] font-bold uppercase">Thank You Bengaluru!
                                 </div>
-                                <div class="text-xs text-slate-300 mt-0.5">Questions &amp; War Stories</div>
+                                <div class="text-sm text-slate-300 mt-0.5">Questions &amp; War Stories</div>
                             </div>
                         </div>
                     </div>
@@ -1638,10 +1899,10 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 <div class="flex items-center justify-between">
                     <span id="scriptSlideBadge"
                         class="font-mono text-xs font-bold text-[#0066FF] bg-[#0066FF]/15 px-2.5 py-1 rounded">SLIDE 1
-                        OF 16</span>
+                        OF 20</span>
                     <span id="scriptTimeWindow" class="font-mono text-xs text-slate-400">0:00 – 1:30</span>
                 </div>
-                <h3 id="scriptSlideTitle" class="font-display text-lg font-bold text-white">When Releases Can't Fail
+                <h3 id="scriptSlideTitle" class="font-display text-lg font-bold text-white mb-3">When Releases Can't Fail
                 </h3>
                 <div id="scriptBodyText" class="text-sm text-slate-300 leading-relaxed space-y-3 select-text"></div>
             </div>
@@ -1662,7 +1923,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
 
         <div class="font-mono text-xs sm:text-sm font-bold">
             <span id="slideCounterBadge"
-                class="px-3.5 py-1.5 rounded-xl bg-[#141F36] border border-slate-700/80 text-white">1 / 16</span>
+                class="px-3.5 py-1.5 rounded-xl bg-[#141F36] border border-slate-700/80 text-white">1 / 20</span>
         </div>
 
         <div class="flex items-center gap-2 sm:gap-3">
@@ -1685,7 +1946,7 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
         <div
             class="max-w-[1360px] w-full mx-auto flex items-center justify-between pb-4 mb-5 border-b border-slate-800">
             <div>
-                <h2 class="font-display text-2xl font-extrabold text-white">All Slides Overview (16 Slides)</h2>
+                <h2 class="font-display text-2xl font-extrabold text-white mb-1">All Slides Overview (20 Slides)</h2>
                 <p class="font-mono text-xs text-slate-400 mt-0.5">Select any slide to jump immediately • Press G or ESC
                     to close</p>
             </div>
@@ -1721,40 +1982,57 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                 body: `<p>“Whether your repo has 5 packages or 1,000, delivery speed dies in three predictable ways: <strong>1) CI Wait Queues</strong>—45-minute builds break flow and encourage massive, risky PR batching; <strong>2) Review Fatigue</strong>—human reviewers nitpick naming on a 60-file AI PR but rubber-stamp an architectural boundary leak; and <strong>3) Late Regressions</strong>—catching a broken dependency during Friday's release freeze is 100x costlier than catching it 30 seconds after <code class="text-sky-300">git push</code>.”</p>`
             },
             {
-                time: "8:30 – 11:30",
-                body: `<p class="text-amber-300 font-mono text-xs"><strong>[INTERACTIVE #1: Click ‘Start 30s Challenge Timer’ and let the room inspect the YAML.]</strong></p>
-               <p>“Look at the GitHub Actions workflow on the left. A dynamic matrix fanning out to 65 parallel runners, checking out code, setting up Flutter 3.24.0. Yet this pattern burned roughly <strong>$600 a day</strong> in wasted compute. You have 30 seconds—shout it out when you spot the leak!”</p>
-               <p class="text-emerald-300 font-mono text-xs"><strong>[Click ‘Reveal Leak &amp; Solution’.]</strong></p>
-               <p>“Every single node boots a clean VM and downloads/extracts the Flutter SDK 65 times per PR! The fix (on the right) is resolving a pre-warmed custom Docker container image dynamically at runtime with the SDK already baked in. Zero extraction time.”</p>`
+                time: "8:30 – 9:00",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[SECTION DIVIDER: Pause a beat and let the title land. Then the hand-raise.]</strong></p>
+               <p>“Killer number one: velocity. Quick show of hands: whose PR pipeline takes longer than 30 minutes? Keep your hand up if it’s over an hour.” [Pause, look around the room.] “Let’s start with the CI wait queue.”</p>`
             },
             {
-                time: "11:30 – 14:00",
-                body: `<p>“Let’s build the honest origin story of dynamic matrices. As our monorepo grew to hundreds of local packages, sequential test runs took 45–60 minutes per PR. Static YAML matrices broke whenever someone added a new package. Worse, running heavy modules alongside standard packages caused runner Out-Of-Memory (OOM) crashes.”</p>
-               <p>“The impact? Context-switching, engineers batching giant PRs (and merge conflicts) to avoid waiting twice, and blind ‘re-run all’ clicks multiplying CI spend.”</p>`
+                time: "9:00 – 11:00",
+                body: `<p>“Here’s the honest origin story. As our monorepo grew to hundreds of local packages, we tested every affected package sequentially, one after another, in a single job. No matrix at all. Some PRs took <strong>2 hours 15 minutes</strong> to test and analyze. Worse, a failure only showed up at the end: over an hour just to find out your PR was red.”</p>
+               <p>“The impact? Context-switching, engineers batching giant PRs (and merge conflicts) to avoid waiting twice, and every fix-and-re-push costing another hour or two. And the one that hurts most: <strong>PRs missing the release cut because the pipeline was still running.</strong>”</p>`
+            },
+            {
+                time: "11:00 – 14:00",
+                body: `<p>“This started as a proposal I wrote in February 2025, after watching one too many PRs miss a release cut. The idea: stop testing sequentially and fan out. First, <code class="text-sky-300">melos list --diff --include-dependents --json</code> computes the exact blast radius. Then <code class="text-sky-300">jq</code> chunks those packages into batches of 50 and fans out via <code class="text-sky-300">fromJson</code>.”</p>
+               <p>“The results from the proposal’s test runs: 398 packages went from <strong>2h 15m to ~34 minutes</strong>, and a failing PR went red in <strong>16 minutes instead of over an hour</strong>. And because GitHub bills by the minute, total cost stayed about the same.”</p>
+               <p>“It kept evolving after that. When heavyweights like <code class="text-sky-300">uniclient_navigation</code> started OOM-ing runners, the team gave them dedicated batches. And a single <code class="text-emerald-300">final-validation</code> check collapses all dynamic nodes into one required check, so GitHub branch protection never breaks.”</p>`
             },
             {
                 time: "14:00 – 17:00",
-                body: `<p>“Here is how our diff-aware dynamic matrix solved it. First, <code class="text-sky-300">melos list --diff --include-dependents --json</code> computes the exact blast radius. Second, we isolate heavyweights like <code class="text-sky-300">uniclient_navigation</code> into dedicated runners. Third, <code class="text-sky-300">jq</code> chunks the remaining packages into batches of 50 and fans out via <code class="text-sky-300">fromJson</code>.”</p>
-               <p>“Finally, a single <code class="text-emerald-300">final-validation</code> status check collapses all dynamic nodes into one required check so GitHub branch protection never breaks.”</p>`
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[INTERACTIVE #1: Click ‘Start 30s Challenge Timer’ and let the room inspect the YAML.]</strong></p>
+               <p>“So we fanned out. Speed problem solved, right? Here’s the catch: every pattern that fans out also multiplies your setup cost.”</p>
+               <p>“Look at the GitHub Actions workflow on the left. The same kind of dynamic matrix you just saw, fanning out to 22 parallel runners, checking out code, setting up Flutter 3.24.0. Yet this pattern burned roughly <strong>$600 a day</strong> in wasted compute. You have 30 seconds—shout it out when you spot the leak!”</p>
+               <p class="text-emerald-300 font-mono text-xs"><strong>[Click ‘Reveal Leak &amp; Solution’.]</strong></p>
+               <p>“Every single node boots a clean VM and downloads/extracts a ~1 GB Flutter SDK, 22 times per PR! The fix on the right has three parts: bake the SDK into a self-hosted runner image, resolve the newest image tag at runtime so nobody hand-bumps tags, and guard against drift.”</p>
+               <p>“That last part is the one people skip, and it bit us. The day someone bumps Flutter in the repo but the image isn’t rebuilt, nothing turns red. Every job just quietly downloads the SDK again. That silent drift is what cost us ~$600 a day. So now our init step compares the baked SDK to the requested version, skips the download when they match, and alerts Slack when they don’t. <strong>Baking the image is the optimization; detecting drift is what keeps it working.</strong>”</p>`
             },
             {
                 time: "17:00 – 19:00",
-                body: `<p>“Four universal velocity multipliers you can apply tomorrow: 1) Pre-warmed images + rebuilding the Dart analyzer cache on pushes to main; 2) <code class="text-emerald-300">concurrency: cancel-in-progress: true</code> to auto-cancel stale runs; 3) Sparse checkouts pulling only <code class="text-sky-300">**/pubspec.yaml</code> for graph checks; and 4) Selective coverage collection only on modified packages.”</p>`
+                body: `<p>“Four universal velocity multipliers you can apply tomorrow. You’ve just seen the first one: 1) Pre-warmed images, plus rebuilding the Dart analyzer cache on pushes to main; 2) <code class="text-emerald-300">concurrency: cancel-in-progress: true</code> to auto-cancel stale runs; 3) Sparse checkouts pulling only <code class="text-sky-300">**/pubspec.yaml</code> for graph checks; and 4) Selective coverage collection only on modified packages.”</p>`
             },
             {
                 time: "19:00 – 21:00",
                 body: `<p class="text-amber-300 font-mono text-xs"><strong>[MID-TALK PIVOT: Smile and point to The Growing Developer logo.]</strong></p>
-               <p>“I’m nearly 20 minutes in and haven’t introduced myself! Hi Bengaluru, I’m <strong>Saheb Singh</strong>—Senior Software Engineer at <strong>Tide</strong> and creator of <strong>The Growing Developer</strong> YouTube channel, where over 16,000 developers hang out.”</p>
-               <p>“Everything so far works for any team. Now let’s look inside Tide’s production monorepo—not claiming perfection, but showing what protects real financial workflows.”</p>`
+               <p>“I’m nearly 20 minutes in and haven’t introduced myself! Hi Bengaluru, I’m <strong>Saheb Singh</strong>—Senior Software Engineer at <strong>Tide</strong> and creator of <strong>The Growing Developer</strong> YouTube channel, where over 16,000 developers hang out. And that 2-hour pipeline you just saw? Those were my PRs stuck behind it too, which is why I wrote that proposal.”</p>
+               <p>“Every pattern so far works for any team. That was killer number one, velocity. For the other two, quality and stability, let’s look inside Tide’s production monorepo—not claiming perfection, but showing what protects real financial workflows.”</p>`
             },
             {
                 time: "21:00 – 23:00",
                 body: `<p>“Here is what scale looks like inside Tide’s <code class="text-sky-300">universal-client</code> workspace: <strong>968 packages</strong> across 15 business domains, <strong>68,612 hand-written Dart files</strong> (plus nearly 17,000 generated files), <strong>8,298 test files</strong> covering 94% of packages, and <strong>20 parallel PR jobs</strong> across 89 workflows.”</p>`
             },
             {
-                time: "23:00 – 26:00",
-                body: `<p class="text-amber-300 font-mono text-xs"><strong>[INTERACTIVE #2: Click ‘Simulate Illegal Upward Import’.]</strong></p>
-               <p>“With 968 packages, dependencies only flow downward: <code class="text-sky-300">app -&gt; apps -&gt; feature -&gt; core -&gt; utility</code>. Watch what happens when <code class="text-sky-300">core/network</code> imports <code class="text-sky-300">feature/cards</code>. Why does this PR fail in under 15 seconds?”</p>
+                time: "23:00 – 23:15",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[SECTION DIVIDER: Pause a beat and let the title land.]</strong></p>
+               <p>“Killer number two: quality. When a 60-file AI-assisted PR lands, a tired reviewer checks the variable names. So what actually catches the architectural leak?”</p>`
+            },
+            {
+                time: "23:15 – 26:00",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[INTERACTIVE #2: Three actions, in order. Click each one.]</strong></p>
+               <p>“Action 1, the perfect graph. With 968 packages, dependencies only flow downward: <code class="text-sky-300">app -&gt; apps -&gt; feature -&gt; core -&gt; utility</code>. Lower layers know nothing about upper layers.”</p>
+               <p class="text-amber-300 font-mono text-xs"><strong>[Click Action 2: Looks green.]</strong></p>
+               <p>“Now the same graph after a PR lands. Every node reports healthy, so everything is green. But this check only looks at each package on its own. It never checks which way the arrows point. Look at the arrow from <code class="text-sky-300">core/network</code> up to <code class="text-sky-300">feature/cards</code>.”</p>
+               <p class="text-amber-300 font-mono text-xs"><strong>[Click Action 3: Highlight the fault.]</strong></p>
+               <p>“This is the real gate. It reads the edges, finds the upward import, and fails the PR. Importing <code class="text-sky-300">feature/cards</code> inside <code class="text-sky-300">core/network</code> couples every feature to cards, so CI retests the entire monorepo. That's why this PR fails in under 15 seconds. And it's why a green check on one thing doesn't mean the architecture is green.”</p>
                <p>“Because one upward import couples every feature to <code class="text-sky-300">cards</code>, exploding the CI blast radius! Our 8 named rules in <code class="text-sky-300">validate_dependency_graph/rules.py</code> and <code class="text-sky-300">melos list --cycles</code> block the PR and post a sticky cycle report.”</p>`
             },
             {
@@ -1767,7 +2045,12 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                <p>“We’ve all seen 40 green checkmarks merge and still break <code class="text-sky-300">main</code>. Who tests your safety nets? We use the <strong>Poison Pill</strong>: a scheduled weekend workflow opens a synthetic PR injecting a direct <code class="text-amber-300">Platform.isIOS</code> call, a banned <code class="text-amber-300">GestureDetector</code>, and a null feature flag. If that PR ever gets a green check, page Platform Engineering immediately.”</p>`
             },
             {
-                time: "31:30 – 33:30",
+                time: "31:30 – 31:45",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[SECTION DIVIDER: Pause a beat and let the title land.]</strong></p>
+               <p>“Killer number three: stability. Two halves: catch what would break a release while it’s still a PR, and catch what slips through once it’s live.”</p>`
+            },
+            {
+                time: "31:45 – 33:30",
                 body: `<p>“In regulated fintech, supply-chain security lives inside the PR loop: 98% of third-party Actions are pinned to exact SHAs. Jobs use short-lived OIDC AWS tokens with per-market secret allowlists, blocking Semgrep SAST/SCA scans, and Promon SHIELD RASP wrapping on release binaries.”</p>`
             },
             {
@@ -1777,13 +2060,21 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
                <p>“Look how even senior engineers split! At Tide, our rollout cron runs twice daily and decides mathematically: <strong>HOLD</strong>—pausing expansion and alerting Slack without emotional debate.”</p>`
             },
             {
-                time: "36:30 – 38:30",
-                body: `<p>“Let’s be candid about diff gates: they stop NEW debt, while 47 legacy lazy-DI errors and 97 banned widgets sit quietly on <code class="text-sky-300">main</code>. That’s why we are exploring <strong>Bazel</strong>.”</p>
-               <p>“We’ve automatically generated 1,119 <code class="text-sky-300">BUILD.bazel</code> files via Gazelle. By shifting to hermetic builds and AWS S3 remote caching, developers on our team are already seeing fully cached iOS simulator builds in 1.3 seconds. And we protect that shared cache by forcing fork PRs to run with <code class="text-emerald-300">--config=ci-ro</code> (read-only).”</p>`
+                time: "36:30 – 37:30",
+                body: `<p>“Let’s be candid about diff gates: they stop NEW debt, while 47 legacy lazy-DI errors and 97 banned widgets sit quietly on <code class="text-sky-300">main</code>. Checking the full graph on every PR would catch those, but today it’s too slow. That’s why we are exploring <strong>Bazel</strong>. Here’s how it works, in one minute.”</p>`
+            },
+            {
+                time: "37:30 – 38:30",
+                body: `<p class="text-amber-300 font-mono text-xs"><strong>[STEP 1: Fingerprint (the slide opens here).]</strong></p>
+               <p>“Bazel splits the repo into small targets. We generated 1,119 <code class="text-sky-300">BUILD.bazel</code> files with Gazelle. Each target gets a fingerprint: a hash of its source, its dependencies, the toolchain and the flags. Builds are hermetic, so the same fingerprint always means the same output, on any machine.”</p>
+               <p class="text-amber-300 font-mono text-xs"><strong>[Click STEP 2: CI builds once.]</strong></p>
+               <p>“CI builds each target once and uploads the output to a shared S3 cache, keyed by that fingerprint. Every laptop and CI runner reads from the same cache. Fork PRs only get read access, with <code class="text-emerald-300">--config=ci-ro</code>, so nobody can poison it.”</p>
+               <p class="text-amber-300 font-mono text-xs"><strong>[Click STEP 3: Change one file.]</strong></p>
+               <p>“Now I edit one file in cards. Its fingerprint changes, and so does the app that depends on it. Those two rebuild. Everything else is a cache hit: downloaded, not rebuilt. That’s how a fully cached iOS simulator build takes 1.3 seconds, and why checking the full graph on every PR becomes affordable.”</p>`
             },
             {
                 time: "38:30 – 40:00",
-                body: `<p>“If you take away one rule today: <strong>Human code review cannot scale to AI velocity—your pipeline must.</strong> Codify your architecture, parallelize by blast radius, and automate your risk tolerance. Thank you Bengaluru—I’m Saheb Singh from The Growing Developer, and I’d love to take your questions!”</p>`
+                body: `<p>“If you take away one rule today: <strong>Human code review cannot scale to AI velocity—your pipeline must.</strong> Parallelize by blast radius, codify your architecture, and automate your risk tolerance. Thank you Bengaluru—I’m Saheb Singh from The Growing Developer, and I’d love to take your questions!”</p>`
             }
         ];
 
@@ -1836,7 +2127,8 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
             if (actionName === 'prevSlide') prevSlide(false);
             if (actionName === 'toggleLeakTimer') toggleLeakTimer();
             if (actionName === 'toggleLeakSolution') toggleLeakSolution();
-            if (actionName === 'toggleIllegalGraphImport') toggleIllegalGraphImport();
+            if (actionName === 'showGraphState') setGraphState(payload);
+            if (actionName === 'showBazelState') setBazelState(payload);
             if (actionName === 'runPoisonPillSimulation') runPoisonPillSimulation();
             if (actionName === 'addCrowdVote') addCrowdVote(payload);
             if (actionName === 'resetCrowdVotes') resetCrowdVotes();
@@ -2096,28 +2388,45 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
         // =========================================================================
         // INTERACTIVE #2: NEURAL DEPENDENCY GRAPH ILLEGAL IMPORT
         // =========================================================================
-        let illegalImportSimulated = false;
-        function toggleIllegalGraphImport() {
-            illegalImportSimulated = !illegalImportSimulated;
+        // Three steps: 'healthy' (perfect) -> 'green' (all green, wrong edge hidden in plain sight)
+        //               -> 'red' (the upward edge and the nodes it breaks are highlighted)
+        function setGraphState(state) {
+            const svg = document.querySelector('svg[viewBox="0 0 660 380"]');
+            const nodes = svg.querySelectorAll('rect');
             const edge = document.getElementById('illegalUpwardPath');
             const coreBox = document.getElementById('coreNetworkBox');
             const cardsBox = document.getElementById('cardsFeatureBox');
             const coreLabel = document.getElementById('coreNetworkLabel');
-            const cleanPanel = document.getElementById('graphCleanPanel');
-            const failTerminal = document.getElementById('graphFailureTerminal');
-            const btnText = document.getElementById('graphSimBtnText');
+            const panels = {
+                healthy: document.getElementById('graphCleanPanel'),
+                green: document.getElementById('graphPassedTerminal'),
+                red: document.getElementById('graphFailureTerminal'),
+            };
+            const isGreen = state === 'green';
+            const isRed = state === 'red';
 
-            if (edge) edge.classList.toggle('hidden', !illegalImportSimulated);
-            if (coreBox) {
-                coreBox.setAttribute('stroke', illegalImportSimulated ? '#EF4444' : '#38BDF8');
-                coreBox.setAttribute('fill', illegalImportSimulated ? '#3B1219' : '#141F36');
-            }
-            if (cardsBox) cardsBox.setAttribute('stroke', illegalImportSimulated ? '#EF4444' : '#38BDF8');
-            if (coreLabel) coreLabel.setAttribute('fill', illegalImportSimulated ? '#FCA5A5' : '#F8FAFC');
+            // Node outlines: neutral blue by default, all green in the "looks fine" step
+            nodes.forEach((n) => {
+                if (!n.dataset.base) n.dataset.base = n.getAttribute('stroke');
+                n.setAttribute('stroke', isGreen ? '#10B981' : n.dataset.base);
+            });
+            // Only the broken pair turns red, and only when highlighting the fault
+            const outline = (box) => (isRed ? '#EF4444' : isGreen ? '#10B981' : box.dataset.base);
+            coreBox.setAttribute('stroke', outline(coreBox));
+            coreBox.setAttribute('fill', isRed ? '#3B1219' : '#141F36');
+            cardsBox.setAttribute('stroke', outline(cardsBox));
+            coreLabel.setAttribute('fill', isRed ? '#FCA5A5' : '#F8FAFC');
 
-            if (cleanPanel) cleanPanel.classList.toggle('hidden', illegalImportSimulated);
-            if (failTerminal) failTerminal.classList.toggle('hidden', !illegalImportSimulated);
-            if (btnText) btnText.textContent = illegalImportSimulated ? 'Reset Healthy Dependency Graph' : 'Simulate Illegal Upward Import';
+            // Upward edge: hidden when perfect, a plausible green arrow when "all green", red when highlighted
+            edge.classList.toggle('hidden', state === 'healthy');
+            edge.classList.toggle('flow-up-danger', isRed);
+            edge.classList.toggle('flow-down', !isRed);
+            edge.setAttribute('stroke', isRed ? '#EF4444' : '#10B981');
+            edge.setAttribute('stroke-width', isRed ? '4' : '2.5');
+            edge.setAttribute('marker-end', isRed ? 'url(#arrowCoral)' : 'url(#arrowGreen)');
+
+            Object.entries(panels).forEach(([key, el]) => el.classList.toggle('hidden', key !== state));
+            document.querySelectorAll('.graph-state-btn').forEach((b) => b.classList.toggle('ring-2', b.dataset.state === state));
         }
 
         // =========================================================================
@@ -2222,8 +2531,58 @@ PACKAGE_BATCHES=$(echo <span class="text-emerald-400">"$REMAINING"</span> | jq -
             if (btnText) btnText.textContent = rolloutVerdictVisible ? 'Hide Automated Verdict' : "Reveal Tide's Automated Verdict";
         }
 
+        // =========================================================================
+        // ACT 5: HOW BAZEL WORKS (fingerprint -> CI builds once -> change one file)
+        // =========================================================================
+        const BZ_NODES = {
+            apps: { hash: '7c21', newHash: '2b6e', role: 'rebuild' },
+            cards: { hash: 'a3f9', newHash: 'd71c', role: 'changed' },
+            payments: { hash: '51be', role: 'hit' },
+            network: { hash: 'e08d', role: 'hit' },
+            utility: { hash: '9f44', role: 'hit' },
+        };
+        function setBazelState(state) {
+            Object.entries(BZ_NODES).forEach(([id, n]) => {
+                const g = document.getElementById('bzNode-' + id);
+                const rect = g.querySelector('rect');
+                const hash = g.querySelector('.bz-hash');
+                let stroke = '#38BDF8', fill = '#141F36', color = '#94A3B8', label = '#' + n.hash;
+                if (state === 'cache') {
+                    stroke = '#10B981'; color = '#6EE7B7'; label = `#${n.hash} · cached`;
+                } else if (state === 'change') {
+                    if (n.role === 'hit') {
+                        stroke = '#10B981'; color = '#6EE7B7'; label = `#${n.hash} · cache hit`;
+                    } else {
+                        stroke = '#F59E0B'; fill = '#2A1F0B'; color = '#FCD34D';
+                        label = `#${n.newHash} · ${n.role === 'changed' ? 'changed' : 'rebuild'}`;
+                    }
+                }
+                rect.setAttribute('stroke', stroke);
+                rect.setAttribute('fill', fill);
+                hash.setAttribute('fill', color);
+                hash.textContent = label;
+            });
+            // The change propagates up to the dependent app
+            const prop = document.getElementById('bzEdge-apps-cards');
+            prop.setAttribute('stroke', state === 'change' ? '#F59E0B' : '#475569');
+            prop.setAttribute('marker-end', state === 'change' ? 'url(#bzArrowAmber)' : 'url(#bzArrowSlate)');
+
+            const cacheColor = state === 'hash' ? '#475569' : '#10B981';
+            document.getElementById('bzCacheBody').setAttribute('stroke', cacheColor);
+            document.getElementById('bzCacheTop').setAttribute('stroke', cacheColor);
+            document.getElementById('bzUpload').classList.toggle('hidden', state !== 'cache');
+            document.getElementById('bzDownload').classList.toggle('hidden', state !== 'change');
+
+            ['hash', 'cache', 'change'].forEach((s) => document.getElementById('bzPanel-' + s).classList.toggle('hidden', s !== state));
+            document.querySelectorAll('.bz-state-btn').forEach((b) => b.classList.toggle('ring-2', b.dataset.state === state));
+        }
+
         // Boot initial slide state
         syncStageUI(false);
+        // Interactive #2 opens on the perfect graph (Action 1)
+        setGraphState('healthy');
+        // Bazel visual opens on Step 1 (fingerprint)
+        setBazelState('hash');
     </script>
 </body>
 
